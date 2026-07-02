@@ -1,25 +1,42 @@
+# Guide de contribution
+
+## Workflow Git
+
+main
+↑
+develop
+↑
+feature/*
+
+## Convention de nommage des branches
+
+feature/
+fix/
+docs/
+chore/
+refactor/
+security/
+ci/
+
 # Convention de commits
 
-📝 docs: Documentation
+Les messages de commit suivent les conventions Gitmoji et Conventional Commits.
 
-✨ feat: Nouvelle fonctionnalité
+| Gitmoji | Code | Type | Utilisation |
+|---------|------|------|-------------|
+| 📝 | `:memo:` | `docs:` | Documentation |
+| ✨ | `:sparkles:` | `feat:` | Nouvelle fonctionnalité |
+| 🐛 | `:bug:` | `fix:` | Correction de bug |
+| ♻️ | `:recycle:` | `refactor:` | Refactorisation |
+| 🔧 | `:wrench:` | `chore:` | Configuration et maintenance |
+| 👷 | `:construction_worker:` | `ci:` | Pipeline CI/CD |
+| 🔒 | `:lock:` | `security:` | Sécurité |
+| ⚡ | `:zap:` | `perf:` | Optimisation des performances |
+| 🎨 | `:art:` | `style:` | Mise en forme et UI |
+| ✅ | `:white_check_mark:` | `test:` | Ajout ou modification de tests |
+| 📦 | `:package:` | `build:` | Dépendances et build |
+| 🔥 | `:fire:` | `remove:` | Suppression de code ou de fichiers |
 
-🐛 fix: Correction de bug
+## Pull Requests
 
-♻️ refactor: Refactorisation
-
-🎨 style: Amélioration UI/CSS
-
-⚡ perf: Optimisation des performances
-
-🔒 security: Amélioration de la sécurité
-
-👷 ci: Pipeline CI/CD
-
-🚀 deploy: Déploiement
-
-✅ test: Ajout ou modification de tests
-
-📦 build: Dépendances et build
-
-🔥 remove: Suppression de code ou de fichiers
+...
