@@ -3,14 +3,15 @@
 | Élément | Valeur |
 |---------|--------|
 | Projet | Fidel Portfolio |
+| Document | Cahier des charges |
 | Version | 1.0 |
 | Auteur | Fidel Nziengui Ateba |
-| Date de création | 30/06/2026 |
 | Statut | En cours de rédaction |
+| Dernière mise à jour | 03/07/2026 |
 
 ---
 
-← [README](../README.md) | [Cahier des charges →](02-cahier-des-charges.md)
+← [README](../README.md) | [Analyse des besoins →](01a-analyse-des-besoins.md)
 
 ## Sommaire
 
@@ -307,4 +308,4 @@ Afin de conserver un périmètre cohérent avec les objectifs du projet, les fon
 **Document précédent :** Aucun
 
 **Document suivant :**
-➡️ [Cahier des charges](02-cahier-des-charges.md)
+➡️ [Analyse des besoins](01a-analyse-des-besoins.md)
