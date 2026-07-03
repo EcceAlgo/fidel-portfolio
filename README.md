@@ -8,3 +8,4 @@
 - [🔒 Sécurité](docs/06-securite.md)
 - [🧪 Tests](docs/07-tests.md)
 - [🚀 Déploiement](docs/08-deploiement.md)
+- [⚖️ Décisions d'architecture](docs/09-decisions-architecture.md)
