@@ -3,15 +3,15 @@
 | Élément | Valeur |
 |---------|--------|
 | Projet | Fidel Portfolio |
-| Document | Cahier des charges |
+| Document | Vision du projet |
 | Version | 1.0 |
 | Auteur | Fidel Nziengui Ateba |
-| Statut | En cours de rédaction |
-| Dernière mise à jour | 03/07/2026 |
+| Statut | Validé |
+| Dernière mise à jour | 04/07/2026 |
 
 ---
 
-← [README](../README.md) | [Analyse des besoins →](01a-analyse-des-besoins.md)
+← [Glossaire](00-glossaire.md) | [Analyse des besoins →](01a-analyse-des-besoins.md)
 
 ## Sommaire
 
@@ -28,12 +28,15 @@
 11. [Contraintes du projet](#11-contraintes-du-projet)
 12. [Documents liés](#12-documents-liés)
 
+---
 
 ## Introduction
 
 Ce document présente la vision globale du projet **Fidel Portfolio**. Il définit le contexte, les objectifs, les hypothèses de travail ainsi que les orientations générales qui guideront la conception et le développement de l'application.
 
 Il constitue le document de référence de la phase de cadrage et servira de base à la rédaction du cahier des charges, des spécifications fonctionnelles et des spécifications techniques.
+
+---
 
 ## 1. Présentation du projet
 
@@ -42,6 +45,8 @@ Fidel Portfolio est une application web de type portfolio professionnel destiné
 Le site met en valeur mon parcours, mes compétences techniques, mes réalisations, ainsi que les différents projets que j'ai développés. Il constitue un support de présentation destiné aux recruteurs, aux entreprises et à toute personne souhaitant découvrir mon travail.
 
 Au-delà de son rôle de vitrine, ce projet est également conçu comme un démonstrateur d'ingénierie logicielle. Il constitue également un projet personnel me permettant d'expérimenter et de mettre en œuvre les bonnes pratiques de conception, de développement, de sécurité, d'automatisation, de déploiement et de supervision d'une application moderne.
+
+---
 
 ## 2. Contexte
 
@@ -55,9 +60,13 @@ Dans le cadre d'un profil orienté DevOps et DevSecOps, il est également pertin
 
 Les plateformes comme GitHub et LinkedIn sont devenues des éléments importants du processus de recrutement des profils techniques. Elles permettent aux recruteurs d'aller au-delà du CV en consultant directement les réalisations des candidats.
 
+---
+
 ## 3. Problématique
 
 Comment concevoir une application web permettant de présenter non seulement les réalisations d'un développeur, mais également sa démarche d'ingénierie logicielle, depuis la conception jusqu'au déploiement et à la supervision de ses projets ?
+
+---
 
 ## 4. Hypothèses de travail
 
@@ -87,6 +96,8 @@ Les hypothèses suivantes sont retenues pour la première version du projet.
 ### Utilisateur
 
 - La première version du projet est destinée à un utilisateur unique : son propriétaire.
+
+---
 
 ## 5. Objectifs du projet
 
@@ -123,6 +134,8 @@ Ce projet a également pour objectif de démontrer ma capacité à :
 ### Objectif d'apprentissage
 
 Ce projet constitue également un support d'entraînement destiné à consolider mes compétences en ingénierie logicielle. Il me permet de retrouver une démarche professionnelle complète, depuis l'analyse du besoin jusqu'au déploiement et à la supervision d'une application, afin de renforcer mes acquis en développement, DevOps et DevSecOps.
+
+---
 
 ## 6. Critères de réussite
 
@@ -164,6 +177,8 @@ Le projet sera considéré comme réussi si :
 - aucune donnée sensible n'est exposée publiquement ;
 - les recommandations de sécurité retenues pour le projet sont respectées.
 
+---
+
 ## 7. Public cible
 
 Le projet s'adresse principalement aux professionnels impliqués dans le recrutement de profils techniques, notamment :
@@ -178,6 +193,8 @@ Le projet s'adresse principalement aux professionnels impliqués dans le recrute
 - aux clients souhaitant découvrir mes réalisations avant une collaboration ;
 - aux développeurs et aux personnes intéressées par mon parcours et mes projets.
 
+---
+
 ## 8. Proposition de valeur
 
 Contrairement à un curriculum vitae ou à un profil LinkedIn, Fidel Portfolio ne se limite pas à présenter un parcours professionnel ou une liste de compétences.
@@ -187,6 +204,8 @@ Il offre une démonstration concrète de mes réalisations, de ma démarche d'in
 Le portfolio permet ainsi aux recruteurs, responsables techniques et clients potentiels d'évaluer plus facilement mes compétences à travers des preuves concrètes, des projets documentés et une présentation structurée de mon travail.
 
 Il constitue un support vivant, régulièrement mis à jour, reflétant l'évolution de mes compétences et de mes réalisations professionnelles.
+
+---
 
 ## 9. Produit Minimum Viable (MVP)
 
@@ -212,6 +231,8 @@ La première version du projet devra permettre :
 ### Documentation
 
 - consulter la documentation publique des projets.
+
+---
 
 ## 10. Évolutions envisagées
 
@@ -250,6 +271,8 @@ Afin de conserver un périmètre cohérent avec les objectifs du projet, les fon
 - Commentaires publics.
 - Forum de discussion.
 - Réseau social.
+
+---
 
 ## 11. Contraintes du projet
 
@@ -307,7 +330,7 @@ Afin de conserver un périmètre cohérent avec les objectifs du projet, les fon
 
 ---
 
-**Document précédent :** Aucun
+**Document précédent :** ➡️ [Glossaire](00-glossaire.md)
 
 **Document suivant :**
 ➡️ [Analyse des besoins](01a-analyse-des-besoins.md)
