@@ -6,8 +6,8 @@
 | Document | Analyse des besoins |
 | Version | 1.0 |
 | Auteur | Fidel Nziengui Ateba |
-| Statut | En cours de rédaction |
-| Dernière mise à jour | 03/07/2026 |
+| Statut | À compléter |
+| Dernière mise à jour | 04/07/2026 |
 
 ---
 
@@ -23,6 +23,8 @@
 6. [Synthèse des besoins](#6-synthèse-des-besoins)
 7. [Priorisation](#7-priorisation)
 8. [Traçabilité](#8-traçabilité)
+9. [Documents liés](#9-documents-liés)
+
 
 ---
 
@@ -143,29 +145,30 @@ Aucun besoin de priorité faible n'a été identifié lors de cette phase d'anal
 
 Cette matrice permettra d'assurer le suivi de chaque besoin tout au long du projet, depuis son identification jusqu'à sa validation.
 
-| Besoin | Exigence | User Story | Test | Statut |
-|---------|----------|------------|------|--------|
-| BM-001 | À définir | À définir | À définir | À définir |
-| BM-002 | À définir | À définir | À définir | À définir |
-| BM-003 | À définir | À définir | À définir | À définir |
-| BM-004 | À définir | À définir | À définir | À définir |
-| BU-001 | À définir | À définir | À définir | À définir |
-| BU-002 | À définir | À définir | À définir | À définir |
-| BU-003 | À définir | À définir | À définir | À définir |
-| BU-004 | À définir | À définir | À définir | À définir |
-| BU-005 | À définir | À définir | À définir | À définir |
-| BU-006 | À définir | À définir | À définir | À définir |
-| BT-001 | À définir | À définir | À définir | À définir |
-| BT-002 | À définir | À définir | À définir | À définir |
-| BT-003 | À définir | À définir | À définir | À définir |
-| BT-004 | À définir | À définir | À définir | À définir |
-| BT-005 | À définir | À définir | À définir | À définir |
-| BT-006 | À définir | À définir | À définir | À définir |
+| Besoin | Exigence                 | User Story | Test      | Statut   |
+| ------ | ------------------------ | ---------- | --------- | -------- |
+| BM-001 | EF-002                   | À définir  | À définir | En cours |
+| BM-002 | EF-004, EF-005           | À définir  | À définir | En cours |
+| BM-003 | EF-002, EF-003           | À définir  | À définir | En cours |
+| BM-004 | EF-005, ENF-005, ENF-006 | À définir  | À définir | En cours |
+| BU-001 | EF-002                   | À définir  | À définir | En cours |
+| BU-002 | EF-004, EF-005           | À définir  | À définir | En cours |
+| BU-003 | EF-003, EF-006           | À définir  | À définir | En cours |
+| BU-004 | EF-005                   | À définir  | À définir | En cours |
+| BU-005 | EF-009                   | À définir  | À définir | En cours |
+| BU-006 | EF-001                   | À définir  | À définir | En cours |
+| BT-001 | ENF-001, ENF-004         | À définir  | À définir | En cours |
+| BT-002 | ENF-005                  | À définir  | À définir | En cours |
+| BT-003 | ENF-007, ENF-008         | À définir  | À définir | En cours |
+| BT-004 | ENF-010                  | À définir  | À définir | En cours |
+| BT-005 | ENF-009                  | À définir  | À définir | En cours |
+| BT-006 | ENF-006                  | À définir  | À définir | En cours |
 
 ---
 
-## Documents liés
+## 9. Documents liés
 
+- [Glossaire](00-glossaire.md)
 - [Vision du projet](01-vision-projet.md)
 - [Cahier des charges](02-cahier-des-charges.md)
 
