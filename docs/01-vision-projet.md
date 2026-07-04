@@ -26,6 +26,8 @@
 9. [Produit Minimum Viable (MVP)](#9-produit-minimum-viable-mvp)
 10. [Évolutions envisagées](#10-évolutions-envisagées)
 11. [Contraintes du projet](#11-contraintes-du-projet)
+12. [Documents liés](#12-documents-liés)
+
 
 ## Introduction
 
@@ -297,7 +299,7 @@ Afin de conserver un périmètre cohérent avec les objectifs du projet, les fon
 
 ---
 
-## Documents liés
+## 12. Documents liés
 
 - [Cahier des charges](02-cahier-des-charges.md)
 - [Spécifications fonctionnelles](03-specifications-fonctionnelles.md)

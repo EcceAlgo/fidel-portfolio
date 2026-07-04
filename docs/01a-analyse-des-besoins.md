@@ -23,6 +23,8 @@
 6. [Synthèse des besoins](#6-synthèse-des-besoins)
 7. [Priorisation](#7-priorisation)
 8. [Traçabilité](#8-traçabilité)
+9. [Documents liés](#9-documents-liés)
+
 
 ---
 
@@ -164,7 +166,7 @@ Cette matrice permettra d'assurer le suivi de chaque besoin tout au long du proj
 
 ---
 
-## Documents liés
+## 9. Documents liés
 
 - [Vision du projet](01-vision-projet.md)
 - [Cahier des charges](02-cahier-des-charges.md)
