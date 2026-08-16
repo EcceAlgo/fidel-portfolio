@@ -164,7 +164,7 @@ Les exigences fonctionnelles décrivent les fonctionnalités que devra offrir la
 | EF-007 | Le système doit permettre d'accéder au dépôt GitHub associé lorsqu'il est public. |
 | EF-008 | Le système doit permettre d'accéder au profil LinkedIn du développeur. |
 | EF-009 | Le système doit permettre au visiteur de contacter le développeur via un lien de type *mailto*. |
-| EF-010 | Le système doit permettre la consultation du portfolio depuis un ordinateur, une tablette et un smartphone. |
+| EF-010 | Le système doit permettre au visiteur de consulter, lorsqu'elles sont disponibles, les informations relatives à la conception, à l'architecture, aux tests, à la sécurité et au déploiement d'un projet. |
 
 ---
 
