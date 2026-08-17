@@ -143,24 +143,24 @@ Aucun besoin de priorité faible n'a été identifié lors de cette phase d'anal
 
 Cette matrice permettra d'assurer le suivi de chaque besoin tout au long du projet, depuis son identification jusqu'à sa validation.
 
-| Besoin | Exigence                 | User Story | Test      | Statut   |
-| ------ | ------------------------ | ---------- | --------- | -------- |
-| BM-001 | EF-002                   | À définir  | À définir | En cours |
-| BM-002 | EF-004, EF-005           | À définir  | À définir | En cours |
-| BM-003 | EF-002, EF-003           | À définir  | À définir | En cours |
-| BM-004 | EF-005, EF-010, ENF-005, ENF-006, ENF-009, ENF-010, ENF-011 | À définir  | À définir | En cours |
-| BU-001 | EF-002                   | À définir  | À définir | En cours |
-| BU-002 | EF-004, EF-005           | À définir  | À définir | En cours |
-| BU-003 | EF-003, EF-006           | À définir  | À définir | En cours |
-| BU-004 | EF-005, EF-010 | À définir | À définir | En cours |
-| BU-005 | EF-009                   | À définir  | À définir | En cours |
-| BU-006 | EF-001                   | À définir  | À définir | En cours |
-| BT-001 | ENF-001, ENF-004         | À définir  | À définir | En cours |
-| BT-002 | ENF-005                  | À définir  | À définir | En cours |
-| BT-003 | ENF-007, ENF-008         | À définir  | À définir | En cours |
-| BT-004 | ENF-010                  | À définir  | À définir | En cours |
-| BT-005 | ENF-009                  | À définir  | À définir | En cours |
-| BT-006 | ENF-006                  | À définir  | À définir | En cours |
+| Besoin | Exigence | User Story | Spécification | Test | Statut |
+|--------|----------|------------|---------------|------|--------|
+| BM-001 | EF-002 | US-001 | SF-001 | À définir | Spécifié |
+| BM-002 | EF-004, EF-005 | US-003, US-004, US-005 | SF-002, SF-003 | À définir | Spécifié |
+| BM-003 | EF-002, EF-003 | US-001, US-004, US-006 | SF-001, SF-002, SF-003 | À définir | Spécifié |
+| BM-004 | EF-005, EF-010, ENF-005, ENF-006, ENF-009, ENF-010, ENF-011 | US-005, US-006 | SF-003 | À définir | Spécifié |
+| BU-001 | EF-002 | US-001 | SF-001 | À définir | Spécifié |
+| BU-002 | EF-004, EF-005 | US-002, US-003, US-004, US-005 | SF-001, SF-002, SF-003 | À définir | Spécifié |
+| BU-003 | EF-003, EF-006 | US-004, US-005, US-006 | SF-002, SF-003 | À définir | Spécifié |
+| BU-004 | EF-005, EF-010 | US-005, US-006 | SF-003 | À définir | Spécifié |
+| BU-005 | EF-009 | US-014 | SF-009 | À définir | Spécifié |
+| BU-006 | EF-001 | US-001, US-002, US-003, US-007, US-008 | SF-001, SF-002, SF-004, SF-005 | À définir | Spécifié |
+| BT-001 | ENF-001, ENF-004 | US-002, US-003, US-007, US-008, US-017 | SF-001, SF-002, SF-004, SF-005, SF-012 | À définir | Partiellement spécifié |
+| BT-002 | ENF-005 | — | — | À définir | À spécifier |
+| BT-003 | ENF-007, ENF-008 | — | — | À définir | À spécifier |
+| BT-004 | ENF-010 | — | — | À définir | À spécifier |
+| BT-005 | ENF-009 | — | — | À définir | À spécifier |
+| BT-006 | ENF-006 | — | — | À définir | À spécifier |
 
 ---
 
