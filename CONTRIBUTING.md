@@ -39,4 +39,19 @@ Les messages de commit suivent les conventions Gitmoji et Conventional Commits.
 
 ## Pull Requests
 
-...
+Les modifications ne sont pas intégrées directement dans les branches protégées.
+
+Le workflow suivant est utilisé :
+
+- les branches de travail (`feature/*`, `fix/*`, `docs/*`, etc.) sont fusionnées dans `develop` via une Pull Request ;
+- `develop` sert de branche d'intégration ;
+- les modifications validées sont ensuite fusionnées de `develop` vers `main` via une Pull Request ;
+- `main` représente la version stable du projet.
+
+Avant de créer une Pull Request :
+
+- vérifier que la branche est à jour ;
+- vérifier les modifications avec `git diff` ;
+- effectuer les contrôles et tests disponibles ;
+- utiliser un titre décrivant clairement les changements ;
+- documenter les principaux changements dans la description de la Pull Request.
