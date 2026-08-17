@@ -1277,20 +1277,22 @@ Si une animation ne peut pas être exécutée ou doit être réduite pour des ra
 
 ## 9. Traçabilité
 
-Cette section assure la traçabilité entre les besoins identifiés lors de l'analyse, les User Stories et les spécifications fonctionnelles définies dans le présent document.
+Cette section assure la traçabilité entre les besoins identifiés lors de l'analyse, les exigences fonctionnelles définies dans le cahier des charges, les User Stories, les spécifications fonctionnelles et les règles métier définies dans le présent document.
 
 Les cas de test seront associés aux fonctionnalités lors de la rédaction de la documentation de test.
 
 ### 9.1 Traçabilité des besoins utilisateurs
 
-| Besoin | User Story | Spécification fonctionnelle | Règle métier | Test |
-|--------|------------|------------------------------|---------------|------|
-| BU-001 | US-001 | SF-001 | RM-014, RM-015 | À définir |
-| BU-002 | US-002, US-003, US-004, US-005 | SF-001, SF-002, SF-003 | RM-001, RM-002, RM-003, RM-015 | À définir |
-| BU-003 | US-004, US-005, US-006 | SF-002, SF-003 | RM-001, RM-002 | À définir |
-| BU-004 | US-005, US-006 | SF-003 | RM-001 | À définir |
-| BU-005 | US-014 | SF-009 | RM-011 | À définir |
-| BU-006 | US-001, US-002, US-003, US-007, US-008 | SF-001, SF-002, SF-004, SF-005 | RM-007, RM-008, RM-009, RM-010, RM-015 | À définir |
+Cette matrice établit la correspondance entre les besoins utilisateurs identifiés lors de l'analyse, les exigences fonctionnelles définies dans le cahier des charges, les User Stories, les spécifications fonctionnelles, les règles métier et les futurs cas de test.
+
+| Besoin | Exigence | User Story | Spécification fonctionnelle | Règle métier | Test |
+|--------|----------|------------|------------------------------|---------------|------|
+| BU-001 | EF-001, EF-002, EF-003 | US-001 | SF-001 | RM-014, RM-015 | À définir |
+| BU-002 | EF-004, EF-005, EF-006, EF-007, EF-010 | US-002, US-003, US-004, US-005 | SF-001, SF-002, SF-003, SF-007 | RM-001, RM-002, RM-003, RM-005, RM-015 | À définir |
+| BU-003 | EF-003, EF-006 | US-001, US-004, US-005 | SF-001, SF-002, SF-003 | RM-001 | À définir |
+| BU-004 | EF-010 | US-005, US-006 | SF-003 | RM-001 | À définir |
+| BU-005 | EF-009 | US-014 | SF-009 | RM-011 | À définir |
+| BU-006 | EF-001, EF-004, EF-011, EF-012 | US-001, US-002, US-003, US-007, US-008, US-009 | SF-001, SF-002, SF-004, SF-005 | RM-007, RM-008, RM-009, RM-010, RM-015 | À définir |
 
 ### 9.2 Traçabilité des User Stories
 
@@ -1336,11 +1338,13 @@ Les cas de test seront associés aux fonctionnalités lors de la rédaction de l
 
 La matrice de traçabilité sera complétée au fur et à mesure de l'avancement du projet.
 
-Les futurs cas de test devront permettre de vérifier que les comportements définis dans les spécifications fonctionnelles sont correctement implémentés.
+Les besoins utilisateurs sont rattachés aux exigences fonctionnelles du cahier des charges, aux User Stories, aux spécifications fonctionnelles et aux règles métier correspondantes.
+
+Les futurs cas de test devront permettre de vérifier que les comportements définis dans les spécifications fonctionnelles sont correctement implémentés et que les exigences associées sont satisfaites.
 
 Les identifiants utilisés dans la documentation devront être conservés afin de maintenir les relations entre :
 
-**Besoin → User Story → Spécification fonctionnelle → Règle métier → Cas de test**
+**Besoin → Exigence → User Story → Spécification fonctionnelle → Règle métier → Cas de test**
 
 ---
 

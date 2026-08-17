@@ -85,9 +85,12 @@ La première version de l'application devra permettre aux visiteurs de :
 - consulter le profil du développeur ;
 - consulter les projets réalisés ;
 - accéder au détail de chaque projet ;
+- rechercher un projet ;
+- filtrer les projets selon les critères proposés ;
 - identifier rapidement les compétences techniques mobilisées ;
 - accéder aux liens vers GitHub et LinkedIn ;
-- contacter facilement le développeur.
+- contacter facilement le développeur ;
+- basculer entre un thème clair et un thème sombre.
 
 ### 4.3 Objectifs techniques
 
@@ -114,8 +117,11 @@ La première version de l'application comprendra notamment les fonctionnalités 
 - consultation des compétences techniques ;
 - consultation de la liste des projets réalisés ;
 - consultation du détail d'un projet ;
+- recherche de projets ;
+- filtrage des projets selon les critères proposés ;
 - accès aux liens vers GitHub et LinkedIn ;
 - prise de contact via un lien de type *mailto* ;
+- choix entre un thème clair et un thème sombre ;
 - consultation du site sur ordinateur, tablette et smartphone (responsive design).
 
 ### 5.2 Fonctionnalités exclues
@@ -165,6 +171,9 @@ Les exigences fonctionnelles décrivent les fonctionnalités que devra offrir la
 | EF-008 | Le système doit permettre d'accéder au profil LinkedIn du développeur. |
 | EF-009 | Le système doit permettre au visiteur de contacter le développeur via un lien de type *mailto*. |
 | EF-010 | Le système doit permettre au visiteur de consulter, lorsqu'elles sont disponibles, les informations relatives à la conception, à l'architecture, aux tests, à la sécurité et au déploiement d'un projet. |
+| EF-011 | Le système doit permettre au visiteur de rechercher un projet. |
+| EF-012 | Le système doit permettre au visiteur de filtrer les projets selon les critères proposés. |
+| EF-013 | Le système doit permettre au visiteur de basculer entre un thème clair et un thème sombre. |
 
 ---
 
@@ -263,6 +272,9 @@ La première version de **Fidel Portfolio** sera considérée comme conforme au 
 | CA-007 | Les principaux scénarios de test sont validés avant la mise en production. |
 | CA-008 | Le code source est versionné sur GitHub et respecte l'organisation définie pour le projet. |
 | CA-009 | Le projet peut être déployé conformément à la procédure documentée. |
+| CA-010 | La recherche permet au visiteur de retrouver les projets correspondant à sa requête. |
+| CA-011 | Le filtrage permet au visiteur de limiter les projets affichés selon les critères proposés. |
+| CA-012 | Le visiteur peut basculer entre le thème clair et le thème sombre. |
 
 ---
 
@@ -278,7 +290,7 @@ Les principaux risques identifiés pour la réalisation du projet sont présent�
 | R-004 | Régression lors de l'ajout de nouvelles fonctionnalités | Moyen | Moyenne | Effectuer des tests avant chaque mise en production. |
 | R-005 | Exposition accidentelle de données sensibles | Élevé | Faible | Utiliser des variables d'environnement, ne jamais versionner les secrets et appliquer les bonnes pratiques de sécurité. |
 | R-006 | Documentation incomplète ou obsolète | Moyen | Moyenne | Mettre à jour la documentation au fur et à mesure de l'avancement du projet. |
-| R-007 | Complexification excessive de la première version | Moyen | Moyenne | Respecter strictement le périmètre défini pour le MVP. |
+| R-007 | Complexification excessive de la première version | Moyen | Moyenne | Respecter strictement le périmètre défini pour la V1 et reporter les fonctionnalités non prioritaires aux versions ultérieures. |
 
 ---
 
