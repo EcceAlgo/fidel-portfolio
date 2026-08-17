@@ -148,11 +148,11 @@ Cette matrice permettra d'assurer le suivi de chaque besoin tout au long du proj
 | BM-001 | EF-002                   | À définir  | À définir | En cours |
 | BM-002 | EF-004, EF-005           | À définir  | À définir | En cours |
 | BM-003 | EF-002, EF-003           | À définir  | À définir | En cours |
-| BM-004 | EF-005, EF-010, ENF-005, ENF-006, ENF-009, ENF-010, ENF-011 | À définir  | À définir | En cours |
+| BM-004 | EF-005, ENF-005, ENF-006 | À définir  | À définir | En cours |
 | BU-001 | EF-002                   | À définir  | À définir | En cours |
 | BU-002 | EF-004, EF-005           | À définir  | À définir | En cours |
 | BU-003 | EF-003, EF-006           | À définir  | À définir | En cours |
-| BU-004 | EF-005, EF-010 | À définir | À définir | En cours |
+| BU-004 | EF-005                   | À définir  | À définir | En cours |
 | BU-005 | EF-009                   | À définir  | À définir | En cours |
 | BU-006 | EF-001                   | À définir  | À définir | En cours |
 | BT-001 | ENF-001, ENF-004         | À définir  | À définir | En cours |
