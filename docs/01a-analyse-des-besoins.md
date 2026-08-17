@@ -88,7 +88,7 @@ Les besoins identifiés ont été regroupés en trois catégories :
 | BT-001 | Offrir une navigation fluide et intuitive. | Améliorer l'expérience utilisateur. | Haute |
 | BT-002 | Garantir une bonne maintenabilité. | Faciliter les évolutions futures. | Haute |
 | BT-003 | Assurer la sécurité des données sensibles. | Respecter les bonnes pratiques de sécurité. | Haute |
-| BT-004 | Faciliter le déploiement de l'application. | Simplifier la mise en production. | Moyenne |
+| BT-004 | Faciliter le déploiement de l'application. | Simplifier la mise en production. | Haute |
 | BT-005 | Produire une documentation complète et cohérente. | Faciliter la compréhension, la maintenance et la transmission du projet. | Haute |
 | BT-006 | Permettre des évolutions futures sans remise en cause de l'architecture. | Garantir la pérennité et l'évolutivité de la solution. | Haute |
 
@@ -113,7 +113,7 @@ Cette section regroupe l'ensemble des besoins identifiés lors de l'analyse. Ell
 | BT-001 | Technique | Offrir une navigation fluide et intuitive. | Haute |
 | BT-002 | Technique | Garantir une bonne maintenabilité. | Haute |
 | BT-003 | Technique | Assurer la sécurité des données sensibles. | Haute |
-| BT-004 | Technique | Faciliter le déploiement de l'application. | Moyenne |
+| BT-004 | Technique | Faciliter le déploiement de l'application. | Haute |
 | BT-005 | Technique | Produire une documentation complète et cohérente. | Haute |
 | BT-006 | Technique | Permettre des évolutions futures sans remise en cause de l'architecture. | Haute |
 
@@ -127,13 +127,11 @@ Les besoins de priorité haute sont indispensables à la réussite du projet. Il
 
 - Besoins métier (BM-001 à BM-004)
 - Besoins utilisateurs (BU-001 à BU-006)
-- Besoins techniques BT-001, BT-002, BT-003, BT-005 et BT-006
+- Besoins techniques (BT-001 à BT-006)
 
 ### 7.2 Priorité moyenne
 
-Ces besoins apportent une valeur ajoutée importante mais peuvent être implémentés après la première version du projet.
-
-- BT-004 : Faciliter le déploiement de l'application.
+Aucun besoin de priorité moyenne n'a été identifié lors de cette phase d'analyse.
 
 ### 7.3 Priorité faible
 
@@ -150,11 +148,11 @@ Cette matrice permettra d'assurer le suivi de chaque besoin tout au long du proj
 | BM-001 | EF-002                   | À définir  | À définir | En cours |
 | BM-002 | EF-004, EF-005           | À définir  | À définir | En cours |
 | BM-003 | EF-002, EF-003           | À définir  | À définir | En cours |
-| BM-004 | EF-005, ENF-005, ENF-006 | À définir  | À définir | En cours |
+| BM-004 | EF-005, EF-010, ENF-005, ENF-006, ENF-009, ENF-010, ENF-011 | À définir  | À définir | En cours |
 | BU-001 | EF-002                   | À définir  | À définir | En cours |
 | BU-002 | EF-004, EF-005           | À définir  | À définir | En cours |
 | BU-003 | EF-003, EF-006           | À définir  | À définir | En cours |
-| BU-004 | EF-005                   | À définir  | À définir | En cours |
+| BU-004 | EF-005, EF-010 | À définir | À définir | En cours |
 | BU-005 | EF-009                   | À définir  | À définir | En cours |
 | BU-006 | EF-001                   | À définir  | À définir | En cours |
 | BT-001 | ENF-001, ENF-004         | À définir  | À définir | En cours |

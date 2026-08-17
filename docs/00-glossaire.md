@@ -15,8 +15,8 @@
 
 ## Sommaire
 
-1. [Glossaire](#glossaire)
-2. [Documents liés](#documents-liés)
+1. [Glossaire](#1-glossaire)
+2. [Documents liés](#2-documents-liés)
 
 ---
 
