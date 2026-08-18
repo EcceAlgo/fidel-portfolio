@@ -7,7 +7,7 @@
 | Version | 1.0 |
 | Auteur | Fidel Nziengui Ateba |
 | Statut | À compléter |
-| Dernière mise à jour | 04/07/2026 |
+| Dernière mise à jour | 18/08/2026 |
 
 ---
 
@@ -48,11 +48,12 @@ Les besoins présentés dans ce document serviront de base à la rédaction des 
 | Client potentiel | Externe | Évalue les réalisations avant une éventuelle collaboration. |
 | Visiteur | Externe | Consulte le portfolio afin de découvrir le parcours et les projets. |
 | Testeur | Interne | Vérifie le bon fonctionnement et la qualité de l'application. |
+| Administrateur | Interne | Gère les projets publiés dans le portfolio via un espace d'administration sécurisé. |
 
 Les besoins identifiés ont été regroupés en trois catégories :
 
 - Les **besoins métier**, qui répondent aux objectifs du projet.
-- Les **besoins utilisateurs**, qui expriment les attentes des visiteurs du portfolio.
+- Les **besoins utilisateurs**, qui expriment les attentes des visiteurs et de l'administrateur du portfolio.
 - Les **besoins techniques**, qui garantissent la qualité, la maintenabilité et la pérennité de la solution.
 
 ---
@@ -78,6 +79,7 @@ Les besoins identifiés ont été regroupés en trois catégories :
 | BU-004 | Comprendre la démarche d'ingénierie mise en œuvre. | Évaluer la méthode de travail et la rigueur. | Haute |
 | BU-005 | Contacter facilement le développeur. | Faciliter la prise de contact. | Haute |
 | BU-006 | Accéder rapidement aux informations essentielles. | Réduire le temps nécessaire à l'évaluation du profil. | Haute |
+| BU-007 | Gérer les projets depuis un espace d'administration sécurisé. | Permettre au propriétaire du portfolio d'ajouter, modifier et supprimer les projets sans modifier directement le code source. | Haute |
 
 ---
 
@@ -91,6 +93,8 @@ Les besoins identifiés ont été regroupés en trois catégories :
 | BT-004 | Faciliter le déploiement de l'application. | Simplifier la mise en production. | Haute |
 | BT-005 | Produire une documentation complète et cohérente. | Faciliter la compréhension, la maintenance et la transmission du projet. | Haute |
 | BT-006 | Permettre des évolutions futures sans remise en cause de l'architecture. | Garantir la pérennité et l'évolutivité de la solution. | Haute |
+| BT-007 | Assurer la persistance et l'intégrité des données des projets. | Garantir la conservation, la cohérence et la disponibilité des projets gérés depuis l'administration. | Haute |
+| BT-008 | Protéger l'accès aux fonctionnalités d'administration. | Empêcher tout accès ou toute modification non autorisée des projets. | Haute |
 
 ---
 
@@ -110,12 +114,15 @@ Cette section regroupe l'ensemble des besoins identifiés lors de l'analyse. Ell
 | BU-004 | Utilisateur | Comprendre la démarche d'ingénierie mise en œuvre. | Haute |
 | BU-005 | Utilisateur | Contacter facilement le développeur. | Haute |
 | BU-006 | Utilisateur | Accéder rapidement aux informations essentielles. | Haute |
+| BU-007 | Utilisateur | Gérer les projets depuis un espace d'administration sécurisé. | Haute |
 | BT-001 | Technique | Offrir une navigation fluide et intuitive. | Haute |
 | BT-002 | Technique | Garantir une bonne maintenabilité. | Haute |
 | BT-003 | Technique | Assurer la sécurité des données sensibles. | Haute |
 | BT-004 | Technique | Faciliter le déploiement de l'application. | Haute |
 | BT-005 | Technique | Produire une documentation complète et cohérente. | Haute |
 | BT-006 | Technique | Permettre des évolutions futures sans remise en cause de l'architecture. | Haute |
+| BT-007 | Technique | Assurer la persistance et l'intégrité des données des projets. | Haute |
+| BT-008 | Technique | Protéger l'accès aux fonctionnalités d'administration. | Haute |
 
 ---
 
@@ -126,8 +133,8 @@ Cette section regroupe l'ensemble des besoins identifiés lors de l'analyse. Ell
 Les besoins de priorité haute sont indispensables à la réussite du projet. Ils devront être pris en compte dès la première version de l'application.
 
 - Besoins métier (BM-001 à BM-004)
-- Besoins utilisateurs (BU-001 à BU-006)
-- Besoins techniques (BT-001 à BT-006)
+- Besoins utilisateurs (BU-001 à BU-007)
+- Besoins techniques (BT-001 à BT-008)
 
 ### 7.2 Priorité moyenne
 
@@ -143,24 +150,27 @@ Aucun besoin de priorité faible n'a été identifié lors de cette phase d'anal
 
 Cette matrice permettra d'assurer le suivi de chaque besoin tout au long du projet, depuis son identification jusqu'à sa validation.
 
-| Besoin | Exigence                 | User Story | Test      | Statut   |
-| ------ | ------------------------ | ---------- | --------- | -------- |
-| BM-001 | EF-002                   | À définir  | À définir | En cours |
-| BM-002 | EF-004, EF-005           | À définir  | À définir | En cours |
-| BM-003 | EF-002, EF-003           | À définir  | À définir | En cours |
-| BM-004 | EF-005, ENF-005, ENF-006 | À définir  | À définir | En cours |
-| BU-001 | EF-002                   | À définir  | À définir | En cours |
-| BU-002 | EF-004, EF-005           | À définir  | À définir | En cours |
-| BU-003 | EF-003, EF-006           | À définir  | À définir | En cours |
-| BU-004 | EF-005                   | À définir  | À définir | En cours |
-| BU-005 | EF-009                   | À définir  | À définir | En cours |
-| BU-006 | EF-001                   | À définir  | À définir | En cours |
-| BT-001 | ENF-001, ENF-004         | À définir  | À définir | En cours |
-| BT-002 | ENF-005                  | À définir  | À définir | En cours |
-| BT-003 | ENF-007, ENF-008         | À définir  | À définir | En cours |
-| BT-004 | ENF-010                  | À définir  | À définir | En cours |
-| BT-005 | ENF-009                  | À définir  | À définir | En cours |
-| BT-006 | ENF-006                  | À définir  | À définir | En cours |
+| Besoin | Exigence | User Story | Test | Statut |
+|--------|----------|------------|------|--------|
+| BM-001 | EF-002 | US-001 | À définir | En cours |
+| BM-002 | EF-004, EF-005, EF-006, EF-007, EF-010 | US-003, US-004, US-005, US-006, US-011, US-012 | À définir | En cours |
+| BM-003 | EF-002, EF-003, EF-010 | US-001, US-004, US-005, US-006 | À définir | En cours |
+| BM-004 | EF-005, EF-010, ENF-005, ENF-006 | US-005, US-006 | À définir | En cours |
+| BU-001 | EF-002, EF-003 | US-001 | À définir | En cours |
+| BU-002 | EF-004, EF-005, EF-006, EF-007, EF-010 | US-002, US-003, US-004, US-005 | À définir | En cours |
+| BU-003 | EF-003, EF-006 | US-001, US-004, US-005 | À définir | En cours |
+| BU-004 | EF-010 | US-005, US-006 | À définir | En cours |
+| BU-005 | EF-009 | US-014 | À définir | En cours |
+| BU-006 | EF-001, EF-004, EF-011, EF-012, EF-013 | US-001, US-002, US-003, US-007, US-008, US-009, US-015 | À définir | En cours |
+| BU-007 | EF-014, EF-015, EF-016, EF-017, EF-018, EF-019, EF-020 | US-018, US-019, US-020, US-021, US-022, US-023 | À définir | En cours |
+| BT-001 | ENF-001, ENF-003, ENF-004 | US-017 | À définir | En cours |
+| BT-002 | ENF-005 | À définir | À définir | En cours |
+| BT-003 | ENF-007, ENF-008 | À définir | À définir | En cours |
+| BT-004 | ENF-010, ENF-012 | À définir | À définir | En cours |
+| BT-005 | ENF-009 | À définir | À définir | En cours |
+| BT-006 | ENF-006 | À définir | À définir | En cours |
+| BT-007 | EF-019, EF-020, ENF-015, ENF-016 | US-019, US-020, US-021, US-022 | À définir | En cours |
+| BT-008 | EF-014, EF-015, ENF-013, ENF-014 | US-018, US-023 | À définir | En cours |
 
 ---
 
