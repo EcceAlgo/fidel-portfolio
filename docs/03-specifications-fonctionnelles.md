@@ -6,8 +6,8 @@
 | Document | Spécifications fonctionnelles |
 | Version | 1.0 |
 | Auteur | Fidel Nziengui Ateba |
-| Statut | En cours de rédaction |
-| Dernière mise à jour | 17/08/2026 |
+| Statut | Validé |
+| Dernière mise à jour | 18/08/2026 |
 
 ---
 
