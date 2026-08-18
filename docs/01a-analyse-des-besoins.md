@@ -6,7 +6,7 @@
 | Document | Analyse des besoins |
 | Version | 1.0 |
 | Auteur | Fidel Nziengui Ateba |
-| Statut | À compléter |
+| Statut | Validé |
 | Dernière mise à jour | 18/08/2026 |
 
 ---
