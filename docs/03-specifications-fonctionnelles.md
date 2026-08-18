@@ -6,8 +6,8 @@
 | Document | Spécifications fonctionnelles |
 | Version | 1.0 |
 | Auteur | Fidel Nziengui Ateba |
-| Statut | En cours de rédaction |
-| Dernière mise à jour | 17/08/2026 |
+| Statut | Validé |
+| Dernière mise à jour | 18/08/2026 |
 
 ---
 
@@ -62,6 +62,13 @@ Il porte notamment sur :
 - la prise de contact ;
 - la gestion du thème clair ou sombre ;
 - les principaux comportements de navigation et d'interface.
+- l'authentification de l'administrateur ;
+- l'accès à l'espace d'administration ;
+- la consultation des projets depuis l'administration ;
+- l'ajout de projets ;
+- la modification de projets ;
+- la suppression de projets ;
+- la persistance des données relatives aux projets.
 
 Les choix d'implémentation, de technologies, d'infrastructure et d'architecture ne sont pas définis dans ce document. Ils seront traités dans les documents techniques correspondants.
 
@@ -71,7 +78,11 @@ Les choix d'implémentation, de technologies, d'infrastructure et d'architecture
 
 Cette section identifie les différents types d'utilisateurs susceptibles d'interagir avec l'application.
 
-La V1 du portfolio ne prévoit pas de système d'authentification ni de gestion de comptes utilisateurs. Les acteurs accèdent donc aux fonctionnalités publiques de l'application sans authentification.
+La V1 du portfolio ne prévoit pas de création de compte ni d'authentification pour les visiteurs.
+
+Les fonctionnalités publiques sont accessibles sans authentification.
+
+Un mécanisme d'authentification est toutefois prévu pour l'administrateur afin de protéger l'accès aux fonctionnalités de gestion des projets.
 
 ### 2.1 Visiteur
 
@@ -118,13 +129,30 @@ Il doit notamment pouvoir :
 - consulter les résultats présentés ;
 - contacter facilement le développeur.
 
-### 2.4 Synthèse des acteurs
+### 2.4 Administrateur
+
+L'**administrateur** représente le propriétaire du portfolio disposant des autorisations nécessaires pour gérer les projets présentés dans l'application.
+
+Contrairement aux visiteurs, l'administrateur doit s'authentifier avant d'accéder aux fonctionnalités de gestion.
+
+Il peut notamment :
+
+- accéder à l'espace d'administration ;
+- consulter les projets administrables ;
+- ajouter un projet ;
+- modifier les informations d'un projet ;
+- supprimer un projet ;
+- gérer les informations nécessaires à sa présentation publique ;
+- se déconnecter de l'espace d'administration.
+
+### 2.5 Synthèse des acteurs
 
 | Acteur | Objectif principal | Authentification |
 |--------|--------------------|------------------|
 | Visiteur | Découvrir le profil, les compétences et les projets. | Non |
 | Recruteur / Responsable technique | Évaluer les compétences, réalisations et méthodes de travail. | Non |
 | Client potentiel | Évaluer les réalisations avant une éventuelle prise de contact. | Non |
+| Administrateur | Gérer les projets publiés dans le portfolio. | Oui |
 
 ---
 
@@ -313,6 +341,23 @@ Les animations ne doivent pas empêcher ou ralentir l'accès aux informations et
 | BF-008 | Thème | Basculer entre les thèmes clair et sombre et conserver la préférence. |
 | BF-009 | Responsive | Permettre l'utilisation du portfolio sur différentes tailles d'écran. |
 | BF-010 | Animations | Enrichir l'expérience visuelle sans nuire à l'utilisation. |
+| BF-011 | Administration | Authentifier l'administrateur et permettre la gestion des projets. |
+
+### 3.12 Administration des projets
+
+La V1 propose un espace d'administration réservé au propriétaire du portfolio.
+
+Après authentification, l'administrateur peut gérer les projets présentés dans l'application.
+
+Il doit pouvoir :
+
+- consulter les projets existants ;
+- ajouter un nouveau projet ;
+- modifier un projet ;
+- supprimer un projet ;
+- gérer les informations nécessaires à sa présentation.
+
+Les opérations réalisées depuis l'espace d'administration doivent être persistantes afin que les modifications soient conservées et puissent être reflétées dans la partie publique du portfolio.
 
 ---
 
@@ -455,9 +500,110 @@ Si aucune correspondance n'est trouvée :
 
 **Résultat attendu :** le visiteur retrouve son mode d'affichage préféré entre deux visites.
 
+### 4.8 Authentification de l'administrateur
+
+**Objectif :** permettre à l'administrateur d'accéder aux fonctionnalités de gestion du portfolio.
+
+**Parcours :**
+
+1. L'administrateur accède à la page d'authentification.
+2. Il renseigne ses informations d'authentification.
+3. Il soumet sa demande d'authentification.
+4. L'application vérifie les informations fournies.
+5. Si elles sont valides, l'application autorise l'accès à l'espace d'administration.
+6. Si elles sont invalides, l'accès est refusé et un message d'erreur est affiché.
+
+**Résultat attendu :** seul un administrateur authentifié peut accéder aux fonctionnalités d'administration.
+
 ---
 
-### 4.8 Synthèse des parcours
+### 4.9 Ajout d'un projet
+
+**Objectif :** permettre à l'administrateur d'ajouter une nouvelle réalisation au portfolio.
+
+**Parcours :**
+
+1. L'administrateur authentifié accède à l'espace d'administration.
+2. Il sélectionne l'action permettant d'ajouter un projet.
+3. L'application affiche l'interface de création.
+4. L'administrateur renseigne les informations du projet.
+5. Il valide la création.
+6. L'application vérifie les données saisies.
+7. Si les données sont valides, le projet est enregistré.
+8. L'application confirme la création du projet.
+
+**Résultat attendu :** le nouveau projet est enregistré et peut être présenté dans le portfolio.
+
+---
+
+### 4.10 Modification d'un projet
+
+**Objectif :** permettre à l'administrateur de mettre à jour une réalisation existante.
+
+**Parcours :**
+
+1. L'administrateur authentifié consulte les projets depuis l'espace d'administration.
+2. Il sélectionne le projet à modifier.
+3. Il sélectionne l'action de modification.
+4. L'application affiche les informations actuelles du projet.
+5. L'administrateur modifie les informations souhaitées.
+6. Il valide les modifications.
+7. L'application vérifie les données.
+8. Si elles sont valides, les modifications sont enregistrées.
+9. L'application confirme la mise à jour.
+
+**Résultat attendu :** les nouvelles informations du projet sont enregistrées et remplacent les précédentes.
+
+---
+
+### 4.11 Suppression d'un projet
+
+**Objectif :** permettre à l'administrateur de retirer un projet du portfolio.
+
+**Parcours :**
+
+1. L'administrateur authentifié consulte les projets depuis l'espace d'administration.
+2. Il sélectionne le projet à supprimer.
+3. Il déclenche l'action de suppression.
+4. L'application demande une confirmation.
+5. L'administrateur confirme la suppression.
+6. L'application supprime le projet.
+7. L'application confirme la suppression.
+
+**Résultat attendu :** le projet supprimé n'est plus disponible dans le portfolio.
+
+---
+
+### 4.12 Consultation des projets dans l'administration
+
+**Objectif :** permettre à l'administrateur d'identifier les projets qu'il peut gérer.
+
+**Parcours :**
+
+1. L'administrateur authentifié accède à l'espace d'administration.
+2. L'application affiche la liste des projets existants.
+3. L'administrateur peut sélectionner un projet.
+4. Les actions de modification et de suppression sont accessibles pour les projets concernés.
+5. Une action permettant d'ajouter un nouveau projet est également disponible.
+
+**Résultat attendu :** l'administrateur dispose d'une vue lui permettant de gérer les projets existants et d'en créer de nouveaux.
+
+---
+
+### 4.13 Déconnexion de l'administrateur
+
+**Objectif :** permettre à l'administrateur de terminer sa session.
+
+**Parcours :**
+
+1. L'administrateur authentifié sélectionne l'action de déconnexion.
+2. L'application met fin à sa session.
+3. L'accès aux fonctionnalités protégées n'est plus autorisé.
+4. L'administrateur est redirigé vers une page publique ou vers la page d'authentification.
+
+**Résultat attendu :** les fonctionnalités d'administration ne sont plus accessibles sans nouvelle authentification.
+
+### 4.14 Synthèse des parcours
 
 | ID | Parcours | Point de départ | Résultat principal |
 |----|----------|-----------------|--------------------|
@@ -468,6 +614,12 @@ Si aucune correspondance n'est trouvée :
 | PU-005 | Filtrage des projets | Projets | Identification de projets par catégorie |
 | PU-006 | Prise de contact | Interface du portfolio | Ouverture du client de messagerie |
 | PU-007 | Changement de thème | Interface du portfolio | Application et mémorisation du thème choisi |
+| PU-008 | Authentification de l'administrateur | Page d'administration | Accès sécurisé à l'administration |
+| PU-009 | Ajout d'un projet | Administration | Création d'un nouveau projet |
+| PU-010 | Modification d'un projet | Administration | Mise à jour d'un projet existant |
+| PU-011 | Suppression d'un projet | Administration | Retrait d'un projet |
+| PU-012 | Consultation des projets administrables | Administration | Accès à la liste des projets à gérer |
+| PU-013 | Déconnexion de l'administrateur | Administration | Fin de la session d'administration |
 
 ---
 
@@ -608,8 +760,47 @@ je veux pouvoir consulter et utiliser les fonctionnalités du portfolio sur ordi
 afin de bénéficier d'une expérience adaptée à mon appareil.
 
 ---
+### 5.8 Administration des projets
 
-### 5.8 Synthèse des User Stories
+#### US-018 — S'authentifier
+
+**En tant qu'administrateur**,  
+je veux m'authentifier,  
+afin d'accéder de manière sécurisée aux fonctionnalités de gestion du portfolio.
+
+#### US-019 — Ajouter un projet
+
+**En tant qu'administrateur**,  
+je veux ajouter un nouveau projet,  
+afin de publier une nouvelle réalisation dans le portfolio.
+
+#### US-020 — Modifier un projet
+
+**En tant qu'administrateur**,  
+je veux modifier un projet existant,  
+afin de maintenir ses informations à jour.
+
+#### US-021 — Supprimer un projet
+
+**En tant qu'administrateur**,  
+je veux supprimer un projet,  
+afin de retirer une réalisation qui ne doit plus être présentée.
+
+#### US-022 — Consulter les projets administrables
+
+**En tant qu'administrateur**,  
+je veux consulter les projets existants depuis l'espace d'administration,  
+afin de pouvoir sélectionner ceux que je souhaite gérer.
+
+#### US-023 — Se déconnecter
+
+**En tant qu'administrateur**,  
+je veux pouvoir me déconnecter de l'espace d'administration,  
+afin de terminer ma session d'administration.
+
+---
+
+### 5.9 Synthèse des User Stories
 
 | ID | Fonctionnalité | Acteur principal | Priorité |
 |----|----------------|------------------|----------|
@@ -630,6 +821,48 @@ afin de bénéficier d'une expérience adaptée à mon appareil.
 | US-015 | Changer de thème | Visiteur | Moyenne |
 | US-016 | Conserver le thème sélectionné | Visiteur | Moyenne |
 | US-017 | Consulter le portfolio sur différents écrans | Visiteur | Haute |
+| US-018 | S'authentifier | Administrateur | Haute |
+| US-019 | Ajouter un projet | Administrateur | Haute |
+| US-020 | Modifier un projet | Administrateur | Haute |
+| US-021 | Supprimer un projet | Administrateur | Haute |
+| US-022 | Consulter les projets administrables | Administrateur | Haute |
+| US-023 | Se déconnecter | Administrateur | Haute |
+
+#### US-018 — S'authentifier
+
+**En tant qu'administrateur**,  
+je veux m'authentifier,  
+afin d'accéder de manière sécurisée aux fonctionnalités de gestion du portfolio.
+
+#### US-019 — Ajouter un projet
+
+**En tant qu'administrateur**,  
+je veux ajouter un nouveau projet,  
+afin de publier une nouvelle réalisation dans le portfolio.
+
+#### US-020 — Modifier un projet
+
+**En tant qu'administrateur**,  
+je veux modifier un projet existant,  
+afin de maintenir ses informations à jour.
+
+#### US-021 — Supprimer un projet
+
+**En tant qu'administrateur**,  
+je veux supprimer un projet,  
+afin de retirer une réalisation qui ne doit plus être présentée.
+
+#### US-022 — Consulter les projets administrables
+
+**En tant qu'administrateur**,  
+je veux consulter les projets existants depuis l'espace d'administration,  
+afin de pouvoir sélectionner ceux que je souhaite gérer.
+
+#### US-023 — Se déconnecter
+
+**En tant qu'administrateur**,  
+je veux pouvoir me déconnecter de l'espace d'administration,  
+afin de terminer ma session d'administration.
 
 ---
 
@@ -961,6 +1194,133 @@ Les contraintes de performance et d'accessibilité associées aux animations ser
 
 ---
 
+### 6.9 Administration des projets
+
+#### SF-014 — Authentification de l'administrateur
+
+| Élément | Description |
+|---------|-------------|
+| Objectif | Contrôler l'accès aux fonctionnalités d'administration. |
+| Acteur | Administrateur |
+| Priorité | Haute |
+| User Story | US-018 |
+
+L'administrateur doit pouvoir fournir les informations nécessaires à son authentification.
+
+Si les informations fournies sont valides, l'application autorise l'accès à l'espace d'administration.
+
+Si elles sont invalides, l'accès doit être refusé et un message d'erreur doit être présenté.
+
+Les fonctionnalités d'administration ne doivent pas être accessibles à un utilisateur non authentifié.
+
+---
+
+#### SF-015 — Accès à l'espace d'administration
+
+| Élément | Description |
+|---------|-------------|
+| Objectif | Permettre à l'administrateur de gérer les projets. |
+| Acteur | Administrateur |
+| Priorité | Haute |
+| User Stories | US-018, US-022 |
+
+Après authentification, l'administrateur doit pouvoir accéder à un espace dédié à la gestion des projets.
+
+Cet espace doit permettre au minimum :
+
+- de consulter les projets existants ;
+- d'ajouter un projet ;
+- de sélectionner un projet à modifier ;
+- de sélectionner un projet à supprimer ;
+- de se déconnecter.
+
+---
+
+#### SF-016 — Ajout d'un projet
+
+| Élément | Description |
+|---------|-------------|
+| Objectif | Permettre la création d'un nouveau projet. |
+| Acteur | Administrateur |
+| Priorité | Haute |
+| User Story | US-019 |
+
+L'administrateur doit pouvoir créer un projet en renseignant les informations nécessaires à sa présentation.
+
+Les informations obligatoires définies par les règles métier doivent être renseignées avant l'enregistrement.
+
+Si les données sont valides, le projet est enregistré de manière persistante.
+
+Si les données sont invalides ou incomplètes, l'enregistrement doit être refusé et les erreurs doivent être signalées à l'administrateur.
+
+---
+
+#### SF-017 — Modification d'un projet
+
+| Élément | Description |
+|---------|-------------|
+| Objectif | Permettre la mise à jour d'un projet existant. |
+| Acteur | Administrateur |
+| Priorité | Haute |
+| User Story | US-020 |
+
+L'administrateur doit pouvoir sélectionner un projet existant et accéder à ses informations actuelles.
+
+Il doit pouvoir modifier les informations autorisées puis demander leur enregistrement.
+
+Les nouvelles données doivent respecter les mêmes règles de validation que lors de la création.
+
+Après validation, les modifications sont enregistrées de manière persistante.
+
+---
+
+#### SF-018 — Suppression d'un projet
+
+| Élément | Description |
+|---------|-------------|
+| Objectif | Permettre le retrait d'un projet. |
+| Acteur | Administrateur |
+| Priorité | Haute |
+| User Story | US-021 |
+
+L'administrateur doit pouvoir demander la suppression d'un projet existant.
+
+Une confirmation doit être demandée avant l'exécution de la suppression.
+
+Après confirmation, le projet est supprimé et ne doit plus être présenté dans la partie publique du portfolio.
+
+---
+
+#### SF-019 — Consultation des projets administrables
+
+| Élément | Description |
+|---------|-------------|
+| Objectif | Permettre à l'administrateur de consulter les projets à gérer. |
+| Acteur | Administrateur |
+| Priorité | Haute |
+| User Story | US-022 |
+
+L'espace d'administration doit afficher les projets existants.
+
+Chaque projet doit pouvoir être identifié suffisamment pour permettre à l'administrateur de sélectionner les actions de gestion correspondantes.
+
+L'administrateur doit pouvoir accéder aux actions de modification et de suppression depuis cette interface.
+
+---
+
+#### SF-020 — Déconnexion de l'administrateur
+
+| Élément | Description |
+|---------|-------------|
+| Objectif | Permettre à l'administrateur de terminer sa session. |
+| Acteur | Administrateur |
+| Priorité | Haute |
+| User Story | US-023 |
+
+L'administrateur authentifié doit disposer d'une action permettant de se déconnecter.
+
+Après déconnexion, l'accès aux fonctionnalités d'administration doit nécessiter une nouvelle authentification.
+
 ## 7. Règles métier
 
 Cette section définit les règles fonctionnelles qui doivent être respectées indépendamment de l'interface ou des choix techniques d'implémentation.
@@ -1134,6 +1494,60 @@ Une adaptation de l'interface ne doit pas entraîner la suppression fonctionnell
 
 ---
 
+### 7.7 Administration des projets
+
+#### RM-017 — Accès à l'administration
+
+Les fonctionnalités d'administration sont réservées à un administrateur authentifié.
+
+Un utilisateur non authentifié ne doit pas pouvoir créer, modifier ou supprimer un projet.
+
+---
+
+#### RM-018 — Données obligatoires lors de l'enregistrement
+
+La création ou la modification d'un projet doit respecter les informations minimales définies par **RM-001 — Présentation minimale d'un projet**.
+
+Un projet ne peut pas être enregistré comme projet valide si les informations obligatoires ne sont pas renseignées.
+
+---
+
+#### RM-019 — Validation des données
+
+Les données d'un projet doivent être validées avant leur enregistrement.
+
+Une donnée ne respectant pas les règles définies pour le projet doit empêcher la validation de l'opération concernée.
+
+---
+
+#### RM-020 — Persistance des projets
+
+Toute création ou modification validée doit être conservée de manière persistante.
+
+Les données enregistrées doivent rester disponibles après la fin de la session d'administration.
+
+---
+
+#### RM-021 — Modification d'un projet
+
+Seul un projet existant peut être modifié.
+
+La modification ne doit pas entraîner la création involontaire d'un nouveau projet.
+
+---
+
+#### RM-022 — Suppression d'un projet
+
+La suppression d'un projet doit nécessiter une confirmation explicite de l'administrateur.
+
+Après suppression, le projet ne doit plus être accessible dans la partie publique du portfolio.
+
+---
+
+#### RM-023 — Déconnexion
+
+Après déconnexion, l'administrateur ne doit plus pouvoir accéder aux fonctionnalités protégées sans effectuer une nouvelle authentification.
+
 ## 8. Cas particuliers et gestion des erreurs
 
 Cette section décrit les comportements attendus lorsque certaines données sont absentes, qu'une ressource n'est pas disponible ou qu'une action ne peut pas être réalisée normalement.
@@ -1256,9 +1670,78 @@ Les animations constituent un enrichissement visuel et ne doivent pas être néc
 
 Si une animation ne peut pas être exécutée ou doit être réduite pour des raisons d'accessibilité, le contenu concerné doit rester accessible et compréhensible.
 
+### 8.11 Authentification incorrecte
+
+#### CP-011 — Informations d'authentification invalides
+
+Lorsque les informations d'authentification fournies sont invalides :
+
+- l'accès à l'administration doit être refusé ;
+- un message d'erreur doit être présenté ;
+- aucune fonctionnalité protégée ne doit devenir accessible.
+
 ---
 
-### 8.11 Synthèse des cas particuliers
+### 8.12 Accès non authentifié
+
+#### CP-012 — Tentative d'accès à l'administration sans authentification
+
+Lorsqu'un utilisateur non authentifié tente d'accéder à une fonctionnalité d'administration :
+
+- l'accès doit être refusé ;
+- l'utilisateur doit être dirigé vers le mécanisme d'authentification prévu.
+
+---
+
+### 8.13 Données de projet invalides
+
+#### CP-013 — Informations obligatoires manquantes ou invalides
+
+Lorsque les informations nécessaires à l'enregistrement d'un projet sont absentes ou invalides :
+
+- le projet ne doit pas être enregistré ;
+- les erreurs identifiées doivent être signalées à l'administrateur ;
+- les informations valides déjà saisies doivent être conservées lorsque cela est possible.
+
+---
+
+### 8.14 Échec d'enregistrement
+
+#### CP-014 — Impossible d'enregistrer un projet
+
+Lorsqu'une création ou une modification ne peut pas être enregistrée :
+
+- l'application doit informer l'administrateur de l'échec ;
+- elle ne doit pas présenter l'opération comme réussie ;
+- les données précédemment enregistrées doivent rester cohérentes.
+
+---
+
+### 8.15 Modification d'un projet inexistant
+
+#### CP-015 — Projet à modifier introuvable
+
+Si le projet demandé n'existe plus au moment de sa modification :
+
+- aucune modification ne doit être enregistrée ;
+- l'administrateur doit être informé que le projet n'est plus disponible ;
+- il doit pouvoir revenir à la liste des projets administrables.
+
+---
+
+### 8.16 Suppression d'un projet inexistant
+
+#### CP-016 — Projet à supprimer introuvable
+
+Si le projet demandé n'existe plus au moment de sa suppression :
+
+- aucune suppression supplémentaire ne doit être effectuée ;
+- l'administrateur doit être informé de la situation ;
+- la liste des projets administrables doit pouvoir être actualisée.
+
+---
+
+### 8.17 Synthèse des cas particuliers
 
 | ID | Situation | Comportement attendu |
 |----|-----------|----------------------|
@@ -1272,25 +1755,33 @@ Si une animation ne peut pas être exécutée ou doit être réduite pour des ra
 | CP-008 | Client de messagerie indisponible | Ne pas bloquer la navigation |
 | CP-009 | Contenu visuel facultatif absent | Adapter la présentation sans emplacement vide |
 | CP-010 | Animation indisponible ou réduite | Maintenir l'accès au contenu et aux fonctionnalités |
+| CP-011 | Informations d'authentification invalides | Refuser l'accès à l'administration et afficher une erreur |
+| CP-012 | Accès non authentifié | Refuser l'accès et rediriger vers l'authentification |
+| CP-013 | Données de projet invalides | Refuser l'enregistrement et signaler les erreurs |
+| CP-014 | Échec d'enregistrement | Informer l'administrateur sans altérer les données existantes |
+| CP-015 | Projet à modifier introuvable | Refuser la modification et informer l'administrateur |
+| CP-016 | Projet à supprimer introuvable | Ne pas effectuer de suppression supplémentaire et actualiser la liste |
 
 ---
 
 ## 9. Traçabilité
 
-Cette section assure la traçabilité entre les besoins identifiés lors de l'analyse, les User Stories et les spécifications fonctionnelles définies dans le présent document.
+Cette section assure la traçabilité entre les besoins identifiés lors de l'analyse, les exigences fonctionnelles définies dans le cahier des charges, les User Stories, les spécifications fonctionnelles et les règles métier définies dans le présent document.
 
 Les cas de test seront associés aux fonctionnalités lors de la rédaction de la documentation de test.
 
 ### 9.1 Traçabilité des besoins utilisateurs
 
-| Besoin | User Story | Spécification fonctionnelle | Règle métier | Test |
-|--------|------------|------------------------------|---------------|------|
-| BU-001 | US-001 | SF-001 | RM-014, RM-015 | À définir |
-| BU-002 | US-002, US-003, US-004, US-005 | SF-001, SF-002, SF-003 | RM-001, RM-002, RM-003, RM-015 | À définir |
-| BU-003 | US-004, US-005, US-006 | SF-002, SF-003 | RM-001, RM-002 | À définir |
-| BU-004 | US-005, US-006 | SF-003 | RM-001 | À définir |
-| BU-005 | US-014 | SF-009 | RM-011 | À définir |
-| BU-006 | US-001, US-002, US-003, US-007, US-008 | SF-001, SF-002, SF-004, SF-005 | RM-007, RM-008, RM-009, RM-010, RM-015 | À définir |
+Cette matrice établit la correspondance entre les besoins utilisateurs identifiés lors de l'analyse, les exigences fonctionnelles définies dans le cahier des charges, les User Stories, les spécifications fonctionnelles, les règles métier et les futurs cas de test.
+
+| Besoin | Exigence | User Story | Spécification fonctionnelle | Règle métier | Test |
+|--------|----------|------------|------------------------------|---------------|------|
+| BU-001 | EF-001, EF-002, EF-003 | US-001 | SF-001 | RM-014, RM-015 | À définir |
+| BU-002 | EF-004, EF-005, EF-006, EF-007, EF-010 | US-002, US-003, US-004, US-005 | SF-001, SF-002, SF-003, SF-007 | RM-001, RM-002, RM-003, RM-005, RM-015 | À définir |
+| BU-003 | EF-003, EF-006 | US-001, US-004, US-005 | SF-001, SF-002, SF-003 | RM-001 | À définir |
+| BU-004 | EF-010 | US-005, US-006 | SF-003 | RM-001 | À définir |
+| BU-005 | EF-009 | US-014 | SF-009 | RM-011 | À définir |
+| BU-006 | EF-001, EF-004, EF-011, EF-012 | US-001, US-002, US-003, US-007, US-008, US-009 | SF-001, SF-002, SF-004, SF-005 | RM-007, RM-008, RM-009, RM-010, RM-015 | À définir |
 
 ### 9.2 Traçabilité des User Stories
 
@@ -1336,11 +1827,13 @@ Les cas de test seront associés aux fonctionnalités lors de la rédaction de l
 
 La matrice de traçabilité sera complétée au fur et à mesure de l'avancement du projet.
 
-Les futurs cas de test devront permettre de vérifier que les comportements définis dans les spécifications fonctionnelles sont correctement implémentés.
+Les besoins utilisateurs sont rattachés aux exigences fonctionnelles du cahier des charges, aux User Stories, aux spécifications fonctionnelles et aux règles métier correspondantes.
+
+Les futurs cas de test devront permettre de vérifier que les comportements définis dans les spécifications fonctionnelles sont correctement implémentés et que les exigences associées sont satisfaites.
 
 Les identifiants utilisés dans la documentation devront être conservés afin de maintenir les relations entre :
 
-**Besoin → User Story → Spécification fonctionnelle → Règle métier → Cas de test**
+**Besoin → Exigence → User Story → Spécification fonctionnelle → Règle métier → Cas de test**
 
 ---
 

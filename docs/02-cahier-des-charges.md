@@ -6,8 +6,8 @@
 | Document | Cahier des charges |
 | Version | 1.0 |
 | Auteur | Fidel Nziengui Ateba |
-| Statut | En cours de rédaction |
-| Dernière mise à jour | 04/07/2026 |
+| Statut | Validé |
+| Dernière mise à jour | 18/08/2026 |
 
 ---
 
@@ -85,9 +85,20 @@ La première version de l'application devra permettre aux visiteurs de :
 - consulter le profil du développeur ;
 - consulter les projets réalisés ;
 - accéder au détail de chaque projet ;
+- rechercher un projet ;
+- filtrer les projets selon les critères proposés ;
 - identifier rapidement les compétences techniques mobilisées ;
 - accéder aux liens vers GitHub et LinkedIn ;
-- contacter facilement le développeur.
+- contacter facilement le développeur ;
+- basculer entre un thème clair et un thème sombre.
+
+La première version devra également permettre au propriétaire du portfolio de :
+
+- s'authentifier afin d'accéder à un espace d'administration sécurisé ;
+- ajouter un nouveau projet ;
+- modifier un projet existant ;
+- supprimer un projet ;
+- gérer les informations nécessaires à la présentation des projets.
 
 ### 4.3 Objectifs techniques
 
@@ -114,17 +125,25 @@ La première version de l'application comprendra notamment les fonctionnalités 
 - consultation des compétences techniques ;
 - consultation de la liste des projets réalisés ;
 - consultation du détail d'un projet ;
+- recherche de projets ;
+- filtrage des projets selon les critères proposés ;
 - accès aux liens vers GitHub et LinkedIn ;
 - prise de contact via un lien de type *mailto* ;
-- consultation du site sur ordinateur, tablette et smartphone (responsive design).
+- choix entre un thème clair et un thème sombre ;
+- consultation du site sur ordinateur, tablette et smartphone (responsive design) ;
+- authentification du propriétaire du portfolio ;
+- accès à un espace d'administration sécurisé ;
+- ajout d'un projet ;
+- modification d'un projet ;
+- suppression d'un projet ;
+- persistance des données relatives aux projets.
 
 ### 5.2 Fonctionnalités exclues
 
 Les fonctionnalités suivantes ne font pas partie du périmètre de la première version :
 
-- authentification des visiteurs ;
-- espace d'administration ;
-- système de gestion dynamique des projets ;
+- création de comptes pour les visiteurs ;
+- gestion de plusieurs comptes administrateurs ;
 - commentaires publics sur les projets ;
 - messagerie interne ;
 - forum de discussion ;
@@ -141,7 +160,7 @@ Le projet **Fidel Portfolio** implique plusieurs parties prenantes intervenant �
 
 | Partie prenante | Rôle |
 |-----------------|------|
-| Porteur du projet | Analyse le besoin, conçoit, développe, teste, déploie et maintient l'application. |
+| Porteur du projet / Administrateur | Analyse le besoin, conçoit, développe, teste, déploie et maintient l'application. Administre également les projets publiés dans le portfolio. |
 | Recruteur | Consulte le portfolio afin d'évaluer les compétences et les réalisations du développeur. |
 | Responsable technique | Analyse la qualité technique du projet, l'architecture et les choix d'ingénierie. |
 | Client potentiel | Évalue les réalisations avant une éventuelle collaboration professionnelle. |
@@ -165,6 +184,16 @@ Les exigences fonctionnelles décrivent les fonctionnalités que devra offrir la
 | EF-008 | Le système doit permettre d'accéder au profil LinkedIn du développeur. |
 | EF-009 | Le système doit permettre au visiteur de contacter le développeur via un lien de type *mailto*. |
 | EF-010 | Le système doit permettre au visiteur de consulter, lorsqu'elles sont disponibles, les informations relatives à la conception, à l'architecture, aux tests, à la sécurité et au déploiement d'un projet. |
+| EF-011 | Le système doit permettre au visiteur de rechercher un projet. |
+| EF-012 | Le système doit permettre au visiteur de filtrer les projets selon les critères proposés. |
+| EF-013 | Le système doit permettre au visiteur de basculer entre un thème clair et un thème sombre. |
+| EF-014 | Le système doit permettre au propriétaire du portfolio de s'authentifier afin d'accéder aux fonctionnalités d'administration. |
+| EF-015 | Le système doit restreindre l'accès aux fonctionnalités d'administration aux utilisateurs autorisés. |
+| EF-016 | Le système doit permettre à l'administrateur d'ajouter un nouveau projet. |
+| EF-017 | Le système doit permettre à l'administrateur de modifier un projet existant. |
+| EF-018 | Le système doit permettre à l'administrateur de supprimer un projet existant. |
+| EF-019 | Le système doit permettre de conserver les données des projets de manière persistante. |
+| EF-020 | Le système doit afficher aux visiteurs les projets enregistrés et destinés à être présentés publiquement. |
 
 ---
 
@@ -186,6 +215,10 @@ Les exigences non fonctionnelles définissent les caractéristiques de qualité 
 | ENF-010 | Le projet doit pouvoir être déployé de manière reproductible. |
 | ENF-011 | Les principales fonctionnalités doivent être testées avant leur mise en production. |
 | ENF-012 | L'application doit être conçue de manière à pouvoir intégrer ultérieurement une chaîne CI/CD complète et des outils de supervision. |
+| ENF-013 | Les fonctionnalités d'administration doivent être protégées contre les accès non autorisés. |
+| ENF-014 | Les informations d'authentification ne doivent pas être stockées ou transmises en clair. |
+| ENF-015 | Les données saisies dans l'espace d'administration doivent être validées avant leur enregistrement. |
+| ENF-016 | Les opérations de gestion des projets doivent préserver l'intégrité et la cohérence des données. |
 
 ---
 
@@ -263,6 +296,16 @@ La première version de **Fidel Portfolio** sera considérée comme conforme au 
 | CA-007 | Les principaux scénarios de test sont validés avant la mise en production. |
 | CA-008 | Le code source est versionné sur GitHub et respecte l'organisation définie pour le projet. |
 | CA-009 | Le projet peut être déployé conformément à la procédure documentée. |
+| CA-010 | La recherche permet au visiteur de retrouver les projets correspondant à sa requête. |
+| CA-011 | Le filtrage permet au visiteur de limiter les projets affichés selon les critères proposés. |
+| CA-012 | Le visiteur peut basculer entre le thème clair et le thème sombre. |
+| CA-013 | Un utilisateur autorisé peut s'authentifier et accéder à l'espace d'administration. |
+| CA-014 | Un visiteur non authentifié ne peut pas accéder aux fonctionnalités d'administration. |
+| CA-015 | L'administrateur peut créer un projet et celui-ci est conservé par l'application. |
+| CA-016 | L'administrateur peut modifier les informations d'un projet existant et les modifications sont conservées. |
+| CA-017 | L'administrateur peut supprimer un projet existant. |
+| CA-018 | Les projets enregistrés et destinés à être publics sont correctement affichés dans le portfolio. |
+| CA-019 | Les données invalides sont refusées lors de la gestion d'un projet. |
 
 ---
 
@@ -278,7 +321,10 @@ Les principaux risques identifiés pour la réalisation du projet sont présent�
 | R-004 | Régression lors de l'ajout de nouvelles fonctionnalités | Moyen | Moyenne | Effectuer des tests avant chaque mise en production. |
 | R-005 | Exposition accidentelle de données sensibles | Élevé | Faible | Utiliser des variables d'environnement, ne jamais versionner les secrets et appliquer les bonnes pratiques de sécurité. |
 | R-006 | Documentation incomplète ou obsolète | Moyen | Moyenne | Mettre à jour la documentation au fur et à mesure de l'avancement du projet. |
-| R-007 | Complexification excessive de la première version | Moyen | Moyenne | Respecter strictement le périmètre défini pour le MVP. |
+| R-007 | Complexification excessive de la première version | Moyen | Moyenne | Respecter strictement le périmètre défini pour la V1 et reporter les fonctionnalités non prioritaires aux versions ultérieures. |
+| R-008 | Accès non autorisé à l'espace d'administration | Élevé | Faible | Mettre en place une authentification et un contrôle d'accès aux fonctionnalités d'administration. |
+| R-009 | Altération ou suppression accidentelle des données des projets | Élevé | Faible | Valider les opérations sensibles et prévoir des mécanismes adaptés de sauvegarde ou de restauration. |
+| R-010 | Enregistrement de données invalides ou incohérentes | Moyen | Moyenne | Mettre en place une validation des données avant leur enregistrement. |
 
 ---
 
