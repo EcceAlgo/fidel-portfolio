@@ -892,8 +892,7 @@ Ces informations peuvent notamment comprendre :
 - le positionnement professionnel ;
 - l'adresse électronique utilisée pour la prise de contact ;
 - le lien vers le profil GitHub ;
-- le lien vers le profil LinkedIn ;
-- les autres coordonnées ou liens professionnels nécessaires à la présentation du portfolio.
+- le lien vers le profil LinkedIn.
 
 Le visiteur n'est pas enregistré comme utilisateur dans la V1.
 
@@ -967,7 +966,6 @@ Une technologie peut être conservée même lorsqu'elle n'est temporairement ass
 | Adresse électronique de contact | Adresse permettant au visiteur d'initier une prise de contact | Facultatif | Si renseignée, doit être exploitable comme adresse électronique |
 | Lien GitHub | Permet d'accéder au profil GitHub du propriétaire | Facultatif | Si renseigné, doit représenter une destination exploitable |
 | Lien LinkedIn | Permet d'accéder au profil LinkedIn du propriétaire | Facultatif | Si renseigné, doit représenter une destination exploitable |
-| Autre lien professionnel | Permet d'exposer un autre moyen de présentation ou de contact pertinent | Facultatif | Sa nature et sa représentation devront être précisées si cette possibilité est retenue |
 
 La prise de contact ne nécessite pas la persistance d'informations relatives au visiteur lorsque l'envoi du message est délégué à son environnement de messagerie.
 
@@ -1021,17 +1019,17 @@ Elles constituent la base permettant de déterminer les associations et les card
 
 #### Profil et coordonnées
 
-- **RG-D25** — Le portfolio présente les informations nécessaires à l'identification de son propriétaire.
-- **RG-D26** — Les coordonnées et liens professionnels peuvent être renseignés lorsqu'ils sont destinés à être accessibles aux visiteurs.
-- **RG-D27** — L'adresse électronique de contact est facultative.
-- **RG-D28** — Les liens vers les profils ou services externes sont facultatifs.
-- **RG-D29** — La prise de contact par courrier électronique est initiée depuis le portfolio mais son envoi est délégué à l'environnement de messagerie du visiteur.
-- **RG-D30** — La fonctionnalité de contact ne nécessite pas la persistance d'informations relatives au visiteur ni des messages qu'il envoie.
+- **RG-D29** — Le portfolio présente les informations nécessaires à l'identification de son propriétaire.
+- **RG-D30** — Les coordonnées et liens professionnels peuvent être renseignés lorsqu'ils sont destinés à être accessibles aux visiteurs.
+- **RG-D31** — L'adresse électronique de contact est facultative.
+- **RG-D32** — Les liens vers les profils ou services externes sont facultatifs.
+- **RG-D33** — La prise de contact par courrier électronique est initiée depuis le portfolio mais son envoi est délégué à l'environnement de messagerie du visiteur.
+- **RG-D34** — La fonctionnalité de contact ne nécessite pas la persistance d'informations relatives au visiteur ni des messages qu'il envoie.
 
 #### Administration
 
-- **RG-D31** — Les opérations d'administration nécessitent une identité authentifiée et autorisée.
-- **RG-D32** — La représentation et la persistance éventuelle de l'identité administrateur dépendent du mécanisme d'authentification retenu et seront précisées au §9.
+- **RG-D35** — Les opérations d'administration nécessitent une identité authentifiée et autorisée.
+- **RG-D36** — La représentation et la persistance éventuelle de l'identité administrateur dépendent du mécanisme d'authentification retenu et seront précisées au §9.
 
 ### 7.5 Modèle conceptuel de données
 
