@@ -1,0 +1,62 @@
+@startuml mpd
+
+title Modèle physique de données — Fidel Portfolio
+
+hide methods
+hide stereotypes
+skinparam linetype ortho
+skinparam shadowing false
+
+entity "projet" as Projet {
+  * id_projet : INTEGER <<PK, IDENTITY>>
+  titre : TEXT <<NOT NULL>>
+  description : TEXT
+  lien_demonstration : TEXT
+  lien_depot : TEXT
+}
+
+entity "categorie" as Categorie {
+  * id_categorie : INTEGER <<PK, IDENTITY>>
+  nom : TEXT <<NOT NULL, UNIQUE>>
+}
+
+entity "technologie" as Technologie {
+  * id_technologie : INTEGER <<PK, IDENTITY>>
+  nom : TEXT <<NOT NULL, UNIQUE>>
+}
+
+entity "ressource_visuelle" as RessourceVisuelle {
+  * id_ressource : INTEGER <<PK, IDENTITY>>
+  reference_ressource : TEXT <<NOT NULL>>
+  ordre_affichage : INTEGER <<NOT NULL>>
+  id_projet : INTEGER <<FK, NOT NULL>>
+}
+
+entity "profil" as Profil {
+  * id_profil : INTEGER <<PK, IDENTITY>>
+  nom_affiche : TEXT <<NOT NULL>>
+  positionnement_professionnel : TEXT
+  email_contact : TEXT
+  lien_github : TEXT
+  lien_linkedin : TEXT
+}
+
+entity "projet_categorie" as ProjetCategorie {
+  * id_projet : INTEGER <<PK, FK>>
+  * id_categorie : INTEGER <<PK, FK>>
+}
+
+entity "projet_technologie" as ProjetTechnologie {
+  * id_projet : INTEGER <<PK, FK>>
+  * id_technologie : INTEGER <<PK, FK>>
+}
+
+ProjetCategorie --> Projet
+ProjetCategorie --> Categorie
+
+ProjetTechnologie --> Projet
+ProjetTechnologie --> Technologie
+
+RessourceVisuelle --> Projet
+
+@enduml

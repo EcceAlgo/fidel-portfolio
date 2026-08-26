@@ -6,7 +6,7 @@
 | Document | Spécifications fonctionnelles |
 | Version | 1.0 |
 | Auteur | Fidel Nziengui Ateba |
-| Statut | Validé |
+| Statut | À valider |
 | Dernière mise à jour | 18/08/2026 |
 
 ---
@@ -381,7 +381,7 @@ Les parcours doivent rester simples et limiter le nombre d'actions nécessaires 
 
 **Résultat attendu :** le visiteur dispose d'une première compréhension du profil et peut accéder facilement aux réalisations.
 
----
+
 
 ### 4.2 Découverte des projets
 
@@ -398,7 +398,7 @@ Les parcours doivent rester simples et limiter le nombre d'actions nécessaires 
 
 **Résultat attendu :** le visiteur peut passer rapidement d'une présentation générale des réalisations à l'étude détaillée d'un projet.
 
----
+
 
 ### 4.3 Consultation détaillée d'un projet
 
@@ -425,7 +425,7 @@ Les parcours doivent rester simples et limiter le nombre d'actions nécessaires 
 
 **Résultat attendu :** le visiteur peut comprendre non seulement ce qui a été réalisé, mais également les compétences et la démarche mobilisées pour réaliser le projet.
 
----
+
 
 ### 4.4 Recherche d'un projet
 
@@ -447,7 +447,7 @@ Si aucune correspondance n'est trouvée :
 
 **Résultat attendu :** le visiteur peut retrouver une réalisation pertinente sans devoir parcourir manuellement l'ensemble des projets.
 
----
+
 
 ### 4.5 Filtrage des projets
 
@@ -468,7 +468,7 @@ Si aucune correspondance n'est trouvée :
 
 **Résultat attendu :** le visiteur peut cibler rapidement les réalisations correspondant au domaine qu'il souhaite évaluer.
 
----
+
 
 ### 4.6 Prise de contact
 
@@ -484,7 +484,7 @@ Si aucune correspondance n'est trouvée :
 
 **Résultat attendu :** le visiteur peut initier une prise de contact sans création de compte ni saisie dans un formulaire du portfolio.
 
----
+
 
 ### 4.7 Changement de thème
 
@@ -515,7 +515,7 @@ Si aucune correspondance n'est trouvée :
 
 **Résultat attendu :** seul un administrateur authentifié peut accéder aux fonctionnalités d'administration.
 
----
+
 
 ### 4.9 Ajout d'un projet
 
@@ -534,7 +534,7 @@ Si aucune correspondance n'est trouvée :
 
 **Résultat attendu :** le nouveau projet est enregistré et peut être présenté dans le portfolio.
 
----
+
 
 ### 4.10 Modification d'un projet
 
@@ -554,7 +554,7 @@ Si aucune correspondance n'est trouvée :
 
 **Résultat attendu :** les nouvelles informations du projet sont enregistrées et remplacent les précédentes.
 
----
+
 
 ### 4.11 Suppression d'un projet
 
@@ -572,7 +572,7 @@ Si aucune correspondance n'est trouvée :
 
 **Résultat attendu :** le projet supprimé n'est plus disponible dans le portfolio.
 
----
+
 
 ### 4.12 Consultation des projets dans l'administration
 
@@ -588,7 +588,7 @@ Si aucune correspondance n'est trouvée :
 
 **Résultat attendu :** l'administrateur dispose d'une vue lui permettant de gérer les projets existants et d'en créer de nouveaux.
 
----
+
 
 ### 4.13 Déconnexion de l'administrateur
 
@@ -631,6 +631,7 @@ Elles sont formulées selon la structure suivante :
 
 > En tant que **[acteur]**, je veux **[action]**, afin de **[objectif]**.
 
+
 ### 5.1 Consultation du profil
 
 #### US-001 — Découvrir le profil
@@ -645,7 +646,7 @@ afin de comprendre ses domaines de compétences.
 je veux pouvoir sélectionner l'action **« Découvrir mes projets »**,  
 afin d'accéder aux réalisations présentées dans le portfolio.
 
----
+
 
 ### 5.2 Consultation des projets
 
@@ -673,7 +674,7 @@ afin de comprendre son contexte, ses objectifs, sa réalisation et les compéten
 je veux consulter la méthodologie, les difficultés rencontrées, les solutions apportées et les résultats obtenus,  
 afin d'évaluer la démarche de travail du développeur.
 
----
+
 
 ### 5.3 Recherche et filtrage
 
@@ -695,7 +696,7 @@ afin de consulter uniquement les réalisations appartenant à un domaine particu
 je veux pouvoir réinitialiser mes critères de recherche et de filtrage,  
 afin de retrouver l'ensemble des projets disponibles.
 
----
+
 
 ### 5.4 Ressources associées aux projets
 
@@ -717,7 +718,7 @@ afin de consulter les ressources techniques rendues publiques.
 je veux être informé lorsqu'un dépôt ou le code d'un projet n'est pas public,  
 afin de comprendre l'absence de lien vers son code source.
 
----
+
 
 ### 5.5 Liens professionnels et contact
 
@@ -733,7 +734,7 @@ afin de consulter ses autres informations et activités professionnelles publiqu
 je veux pouvoir initier l'envoi d'un courrier électronique au développeur,  
 afin de pouvoir facilement prendre contact avec lui.
 
----
+
 
 ### 5.6 Préférences d'affichage
 
@@ -749,7 +750,7 @@ afin d'adapter l'affichage à ma préférence.
 je veux que mon choix de thème soit conservé entre mes visites,  
 afin de retrouver automatiquement mon mode d'affichage préféré.
 
----
+
 
 ### 5.7 Consultation sur différents appareils
 
@@ -759,7 +760,7 @@ afin de retrouver automatiquement mon mode d'affichage préféré.
 je veux pouvoir consulter et utiliser les fonctionnalités du portfolio sur ordinateur et sur appareil mobile,  
 afin de bénéficier d'une expérience adaptée à mon appareil.
 
----
+
 ### 5.8 Administration des projets
 
 #### US-018 — S'authentifier
@@ -798,7 +799,7 @@ afin de pouvoir sélectionner ceux que je souhaite gérer.
 je veux pouvoir me déconnecter de l'espace d'administration,  
 afin de terminer ma session d'administration.
 
----
+
 
 ### 5.9 Synthèse des User Stories
 

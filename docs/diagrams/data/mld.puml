@@ -1,0 +1,62 @@
+@startuml mld
+
+title Modèle logique de données — Fidel Portfolio
+
+hide methods
+hide stereotypes
+skinparam linetype ortho
+skinparam shadowing false
+
+entity "Profil" as Profil {
+  * id_profil
+  nom_affiche
+  positionnement_professionnel
+  email_contact
+  lien_github
+  lien_linkedin
+}
+
+entity "Projet" as Projet {
+  * id_projet
+  titre
+  description
+  lien_demonstration
+  lien_depot
+}
+
+entity "Categorie" as Categorie {
+  * id_categorie
+  nom
+}
+
+entity "Technologie" as Technologie {
+  * id_technologie
+  nom
+}
+
+entity "Ressource_visuelle" as RessourceVisuelle {
+  * id_ressource
+  reference_ressource
+  ordre_affichage
+  id_projet
+}
+
+entity "Classer" as Classer {
+  * id_projet
+  * id_categorie
+}
+
+entity "Utiliser" as Utiliser {
+  * id_projet
+  * id_technologie
+}
+
+Classer --> Projet
+Classer --> Categorie
+
+Utiliser --> Projet
+Utiliser --> Technologie
+
+RessourceVisuelle --> Projet
+
+@enduml

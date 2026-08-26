@@ -1,0 +1,14 @@
+@startuml abstraction-persistance
+
+title Abstraction de l'accès à la persistance
+
+component "Application" as Application
+interface "Accès aux données" as Port
+component "Infrastructure" as Infrastructure
+component "Mécanisme de persistance" as Persistence
+
+Application --> Port : utilise
+Infrastructure ..|> Port : implémente
+Infrastructure --> Persistence : lecture / écriture
+
+@enduml

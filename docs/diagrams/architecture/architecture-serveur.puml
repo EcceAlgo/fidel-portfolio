@@ -1,0 +1,19 @@
+@startuml architecture-serveur
+
+title Architecture logique de l'application serveur
+
+component "Interface serveur" as InterfaceServeur
+component "Application" as Application
+component "Domaine" as Domaine
+component "Infrastructure" as Infrastructure
+
+interface "Accès aux données" as DataAccess
+component "Mécanisme de persistance" as Persistence
+
+InterfaceServeur --> Application : délègue
+Application --> Domaine : utilise
+Application --> DataAccess : utilise
+Infrastructure ..|> DataAccess : implémente
+Infrastructure --> Persistence : lecture / écriture
+
+@enduml
