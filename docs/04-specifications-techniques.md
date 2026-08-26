@@ -4,10 +4,10 @@
 |---------|--------|
 | Projet | Fidel Portfolio |
 | Document | Spécifications techniques |
-| Version | 1.0 |
+| Version | 1.1 |
 | Auteur | Fidel Nziengui Ateba |
 | Statut | À valider |
-| Dernière mise à jour | 18/08/2026 |
+| Dernière mise à jour | 26/08/2026 |
 
 ---
 
@@ -44,6 +44,8 @@ Il traduit les exigences fonctionnelles et non fonctionnelles définies lors des
 Il précise notamment l'environnement technique du projet, les contraintes applicables à l'application, la gestion des données, les exigences de sécurité, de performance, de compatibilité et de qualité ainsi que les principes liés à l'intégration et au déploiement.
 
 Les choix d'architecture détaillés et leur organisation seront décrits dans le document dédié à l'architecture.
+
+> **Lecture progressive du document — version 1.1 :** les premières sections expriment les contraintes et critères connus avant les choix de conception. Les sections d'étude présentent ensuite les alternatives et les décisions retenues. Lorsqu'une décision est désormais arrêtée, sa description détaillée dans le document d'architecture fait autorité ; les présentes spécifications en conservent la contrainte ou la synthèse.
 
 ### 1.2 Objectifs
 
@@ -281,9 +283,7 @@ La V1 nécessite des traitements applicatifs permettant notamment :
 
 Les fonctionnalités publiques et les fonctionnalités protégées d'administration doivent être distinguées afin d'appliquer les contrôles d'accès appropriés.
 
-La manière dont ces traitements seront organisés, exécutés et répartis entre les différents composants de la solution dépendra de l'architecture retenue.
-
-Aucune architecture applicative particulière n'est imposée à ce stade.
+Ces traitements sont répartis entre l'application cliente et une application serveur modulaire en couches conformément à l'architecture retenue.
 
 ### 3.5 Persistance des données
 
@@ -294,7 +294,6 @@ Les données concernées comprennent notamment :
 - les informations relatives aux projets ;
 - les catégories ;
 - les technologies associées ;
-- les mots-clés ;
 - les ressources et liens associés aux projets ;
 - les données nécessaires au fonctionnement des fonctionnalités d'administration.
 
@@ -308,9 +307,7 @@ Le mécanisme de persistance retenu devra permettre :
 - leur conservation entre les sessions ;
 - leur exploitation par les fonctionnalités publiques et administratives de l'application.
 
-Le modèle de données sera défini lors de la phase de conception.
-
-Le type de stockage, son organisation et les technologies associées seront sélectionnés après analyse du modèle de données, des contraintes techniques et de l'architecture retenue.
+Le modèle de données relationnel est défini dans la documentation d'architecture. PostgreSQL est retenu comme système de gestion de base de données.
 
 ### 3.6 Gestion des dépendances
 
@@ -390,10 +387,12 @@ Le choix du fournisseur et du service d'hébergement sera documenté lorsqu'il a
 | Gestion de versions | Git |
 | Hébergement du dépôt | GitHub |
 | Workflow Git | `feature/*` / `docs/*` / `fix/*` → `develop` → `main` |
-| Interface utilisateur | Nécessaire — technologie et organisation à déterminer |
-| Traitements applicatifs | Nécessaires — organisation et technologies à déterminer |
-| Persistance des données | Nécessaire — mécanisme et technologie à déterminer |
-| Architecture applicative | À étudier et à sélectionner |
+| Interface utilisateur | Application cliente exécutée dans le navigateur — technologie à déterminer |
+| Traitements applicatifs | Application serveur modulaire en couches — technologie à déterminer |
+| Persistance des données | Modèle relationnel avec PostgreSQL |
+| Architecture applicative | Architecture client-serveur modulaire |
+| Communication | HTTP/HTTPS avec représentations JSON |
+| Authentification | Mécanisme à déterminer après comparaison des alternatives dans l'architecture et la stratégie de sécurité |
 | Gestionnaire de dépendances | À déterminer selon les technologies retenues |
 | Conteneurisation | À évaluer |
 | CI | GitHub Actions envisagé |
@@ -432,11 +431,11 @@ Les choix structurants devront être justifiés et, lorsque cela est pertinent, 
 
 ## 4. Spécifications de l'application
 
-Cette section définit les capacités techniques nécessaires au fonctionnement de la V1 de **Fidel Portfolio** sans imposer à ce stade une architecture applicative particulière.
+Cette section définit les capacités techniques nécessaires au fonctionnement de la V1 de **Fidel Portfolio** dans le cadre de l'architecture client-serveur retenue.
 
 Ces capacités constituent les exigences auxquelles devra répondre la solution retenue.
 
-La répartition de ces responsabilités entre les différents composants sera définie dans la documentation d'architecture après étude et comparaison des solutions envisageables.
+La répartition de ces responsabilités entre le client, le serveur et PostgreSQL est définie dans la documentation d'architecture.
 
 ### 4.1 Capacités techniques attendues
 
@@ -469,9 +468,7 @@ La solution devra assurer une séparation suffisamment claire des différentes r
 - la compréhension du code ;
 - la limitation du couplage entre les différentes responsabilités.
 
-La manière dont ces responsabilités seront regroupées ou réparties n'est pas imposée par les présentes spécifications.
-
-Elle dépendra de l'architecture retenue après analyse des besoins et contraintes du projet.
+Ces responsabilités respectent l'organisation modulaire en couches et les règles de dépendance définies dans la documentation d'architecture.
 
 ### 4.3 Accès public et administration
 
@@ -511,7 +508,7 @@ Ces échanges devront notamment préciser :
 - les règles d'authentification et d'autorisation lorsqu'elles sont nécessaires ;
 - les comportements attendus en cas d'erreur.
 
-Les protocoles, formats d'échange et mécanismes de communication dépendront de l'architecture et des technologies finalement retenues.
+La communication client-serveur utilise HTTP/HTTPS et JSON conformément au contrat défini dans la documentation d'architecture.
 
 ## 5. Gestion des données et persistance
 
@@ -519,71 +516,55 @@ Cette section définit les exigences techniques relatives aux données nécessai
 
 Elle précise les données à gérer ainsi que les contraintes relatives à leur persistance, leur cohérence, leur validation et leur cycle de vie.
 
-Le modèle de données détaillé, les relations entre les différentes entités et le mécanisme de stockage seront définis lors de la phase de conception.
+Le modèle de données détaillé, ses relations et ses contraintes sont définis dans la documentation d'architecture et dans les diagrammes MCD, MLD et MPD associés.
 
 ### 5.1 Données relatives aux projets
 
-Les projets constituent les principales données administrables de la V1.
+Le système doit permettre de gérer les informations nécessaires à la présentation et à la consultation des projets.
 
-Chaque projet doit disposer des informations nécessaires à sa présentation publique et à sa gestion depuis l'espace d'administration.
+Pour chaque projet, les données peuvent notamment comprendre :
 
-Les données associées à un projet peuvent notamment comprendre :
-
-- un identifiant unique ;
+- un identifiant ;
 - un titre ;
-- un résumé ;
 - une description ;
-- un contexte ;
-- un objectif ;
-- une ou plusieurs catégories ;
-- les technologies et outils utilisés ;
-- des mots-clés ;
-- la méthodologie suivie ;
-- les principales étapes de réalisation ;
-- les difficultés rencontrées ;
-- les solutions apportées ;
-- les résultats obtenus ;
-- des ressources visuelles ;
-- un lien éventuel vers une démonstration publique ;
-- un lien éventuel vers un dépôt public ;
-- une information indiquant qu'un dépôt ou un code source n'est pas public.
+- un éventuel lien vers une démonstration publique ;
+- un statut de dépôt parmi `ABSENT`, `PUBLIC` et `PRIVE` ;
+- un éventuel lien vers un dépôt ou une documentation externe ;
+- les catégories associées ;
+- les technologies associées ;
+- les ressources visuelles associées.
 
-Les données obligatoires et facultatives devront être cohérentes avec les règles définies dans les spécifications fonctionnelles.
+Les informations détaillées relatives à la conception, à la réalisation, aux tests ou au déploiement d'un projet n'ont pas vocation à être systématiquement structurées et dupliquées dans le portfolio lorsqu'elles sont disponibles dans les ressources externes associées au projet.
 
-
+La V1 ne gère pas de brouillon : tout projet enregistré avec succès est accessible depuis la partie publique.
 
 ### 5.2 Données liées aux catégories et technologies
 
-Un projet peut être associé à une ou plusieurs catégories ainsi qu'à plusieurs technologies ou outils.
+Les catégories et les technologies associées aux projets doivent pouvoir être gérées de manière réutilisable entre plusieurs projets.
 
-La solution devra permettre de représenter ces associations sans introduire de duplication inutile des données.
+Un projet doit être associé à au moins une catégorie et peut être associé à plusieurs catégories.
 
-Les catégories prévues pour la V1 comprennent notamment :
+Un projet peut n'être associé à aucune technologie ou être associé à une ou plusieurs technologies.
 
-- Développement ;
-- DevOps ;
-- DevSecOps ;
-- Cloud ;
-- Autres.
+Une même catégorie ou une même technologie peut être associée à plusieurs projets.
 
-L'organisation détaillée de ces données et de leurs relations avec les projets sera déterminée lors de la modélisation des données.
-
-
+Les catégories et les technologies doivent pouvoir être conservées indépendamment de leur association actuelle à un projet afin de permettre leur réutilisation.
 
 ### 5.3 Données d'administration
 
-La V1 nécessite les données permettant d'authentifier l'administrateur et de contrôler son accès aux fonctionnalités protégées.
+La V1 nécessite un mécanisme permettant d'authentifier l'administrateur et de contrôler son accès aux fonctionnalités protégées.
 
 Les informations d'authentification doivent être gérées de manière sécurisée.
 
-En particulier :
+La nature des données éventuellement nécessaires dépend du mécanisme qui sera retenu. Celui-ci pourra notamment reposer sur des identifiants locaux, un fournisseur d'identité externe ou un dispositif fourni par l'infrastructure de déploiement.
 
-- les mots de passe ne doivent jamais être stockés en clair ;
+Quel que soit ce choix :
+
 - les informations sensibles ne doivent pas être exposées dans le code source ou dans les interfaces publiques ;
-- seules les données nécessaires au fonctionnement de l'authentification doivent être conservées.
+- seules les données strictement nécessaires au mécanisme retenu doivent être conservées ;
+- lorsqu'un secret d'authentification est géré par l'application, il ne doit jamais être stocké sous sa forme originale.
 
-Le mécanisme précis d'authentification et de gestion des informations associées sera défini lors de la conception de l'architecture et de la stratégie de sécurisation.
-
+La représentation de ces données reste volontairement exclue du modèle principal tant que la décision d'architecture et de sécurité n'est pas prise.
 
 
 ### 5.4 Persistance
@@ -599,7 +580,7 @@ Une modification validée depuis l'espace d'administration doit rester disponibl
 
 Le cycle de déploiement de l'application ne doit pas provoquer la perte des données persistantes.
 
-Le mécanisme permettant d'assurer cette persistance sera déterminé en fonction de l'architecture et de la technologie de stockage retenues.
+La persistance principale est assurée par PostgreSQL, dont le cycle de vie est indépendant de celui de l'instance applicative.
 
 
 
@@ -614,6 +595,8 @@ La validation doit notamment permettre de vérifier :
 - la validité des valeurs ;
 - la cohérence entre les données associées ;
 - la validité des liens lorsqu'un format particulier est attendu.
+- la cohérence entre le statut du dépôt et la présence de son lien ;
+- la présence d'une alternative textuelle pour les ressources visuelles informatives.
 
 Une donnée invalide ne doit pas être enregistrée comme une donnée valide.
 
@@ -632,7 +615,7 @@ Elle doit notamment éviter :
 - les références vers des données inexistantes ;
 - les duplications non souhaitées lorsque celles-ci peuvent être évitées par le modèle retenu.
 
-Les contraintes d'intégrité précises seront définies lors de la modélisation des données.
+Les contraintes d'intégrité précises sont définies dans le modèle physique PostgreSQL et doivent être reproduites dans les migrations versionnées.
 
 
 
@@ -642,9 +625,9 @@ La suppression d'un projet depuis l'administration doit entraîner son retrait d
 
 La suppression doit également prendre en compte les données ou associations dépendantes du projet afin d'éviter la conservation de références devenues invalides.
 
-Le comportement précis des données associées lors d'une suppression sera défini dans le modèle de données.
+Le modèle de données définit les suppressions en cascade des associations et ressources visuelles dépendantes ainsi que la conservation des catégories et technologies réutilisables.
 
-La stratégie de suppression retenue, notamment suppression définitive ou conservation logique, sera déterminée lors de la conception en fonction des besoins du projet.
+La V1 utilise une suppression définitive après confirmation explicite. Les associations et ressources dépendantes sont supprimées conformément aux contraintes du modèle, tandis que les catégories et technologies réutilisables sont conservées.
 
 
 
@@ -653,6 +636,8 @@ La stratégie de suppression retenue, notamment suppression définitive ou conse
 Les projets peuvent comporter des ressources visuelles telles que des captures d'écran, illustrations ou schémas.
 
 La solution devra permettre d'associer ces ressources aux projets concernés.
+
+Chaque ressource visuelle doit disposer d'une alternative textuelle. Une valeur vide n'est admise que pour une ressource décorative.
 
 Le mécanisme de stockage des fichiers ne doit pas être confondu avec le stockage des informations permettant de les référencer.
 
@@ -697,11 +682,9 @@ Le mécanisme retenu devra notamment permettre :
 - de vérifier l'identité de l'administrateur ;
 - de refuser l'accès lorsque les informations fournies sont invalides ;
 - de protéger les fonctionnalités réservées à l'administration ;
-- de mettre fin à la session d'administration lors de la déconnexion.
+- de mettre fin à l'accès authentifié lors de la déconnexion.
 
-Les informations d'authentification ne doivent pas être stockées en clair.
-
-Le mécanisme technique retenu sera défini lors de la conception de l'architecture et de la stratégie de sécurisation.
+Le choix entre des identifiants locaux, un fournisseur d'identité externe ou un mécanisme porté par l'infrastructure sera effectué lors de la conception de l'architecture de l'authentification et de la stratégie de sécurité. Les présentes spécifications n'imposent ni mot de passe local, ni jeton, ni session persistée.
 
 
 
@@ -742,7 +725,7 @@ Le mécanisme de gestion des secrets devra être adapté aux environnements de d
 
 Les données utilisées pour l'authentification doivent être protégées pendant leur stockage et leur transmission.
 
-Les mots de passe ne doivent jamais être conservés sous leur forme originale.
+Lorsqu'un mot de passe ou un autre secret est géré par l'application, il ne doit jamais être conservé sous sa forme originale.
 
 Le mécanisme retenu devra utiliser des pratiques adaptées au stockage sécurisé des informations d'authentification.
 
@@ -794,7 +777,7 @@ L'accès public à l'application devra être réalisé via HTTPS.
 
 Les échanges entre composants de l'application devront également être protégés lorsqu'ils transitent sur un réseau non considéré comme sûr.
 
-La configuration précise des communications dépendra de l'architecture retenue.
+Les communications client-serveur distantes utilisent HTTPS conformément à l'architecture retenue.
 
 
 
@@ -952,13 +935,13 @@ Les préférences utilisateur relatives à la réduction des animations devront 
 
 ### 7.6 Compatibilité avec les navigateurs
 
-La V1 doit être utilisable avec les versions récentes des principaux navigateurs web modernes.
+La V1 doit être utilisable avec les deux dernières versions majeures stables disponibles au moment de la validation pour Chrome, Firefox, Edge et Safari.
 
 La compatibilité devra notamment être vérifiée avec des navigateurs représentatifs utilisant différents moteurs de rendu.
 
 Les fonctionnalités essentielles ne doivent pas dépendre d'une fonctionnalité expérimentale disponible uniquement sur un navigateur particulier.
 
-La liste précise des navigateurs et versions faisant partie du périmètre de test sera définie dans la documentation de test.
+La matrice de test doit enregistrer les versions effectivement utilisées afin de rendre le contrôle reproductible.
 
 
 
@@ -972,6 +955,8 @@ L'application doit notamment rester utilisable sur :
 - tablette ;
 - smartphone.
 
+Le périmètre de validation couvre les largeurs de fenêtre comprises entre **320 et 1 440 pixels CSS**. Des largeurs supérieures doivent conserver une présentation lisible sans imposer d'étirement excessif du contenu.
+
 L'adaptation de l'interface doit préserver :
 
 - la lisibilité du contenu ;
@@ -981,7 +966,7 @@ L'adaptation de l'interface doit préserver :
 - les actions principales ;
 - l'accès aux fonctionnalités d'administration sur les formats pour lesquels celles-ci sont prises en charge.
 
-Les seuils d'adaptation de l'interface seront déterminés lors de la conception de l'interface et pourront évoluer en fonction des besoins réels du contenu.
+Les seuils de mise en page sont déterminés par le contenu et doivent être couverts par les tests aux largeurs représentatives définies dans la documentation de test.
 
 
 
@@ -998,9 +983,21 @@ Les contrôles pourront notamment porter sur :
 - le nombre de ressources nécessaires au chargement ;
 - les performances sur appareil mobile.
 
-Les valeurs cibles précises devront être définies avant la phase de validation afin de disposer de critères d'acceptation mesurables.
+Sur une page publique représentative, mesurée avec un profil mobile reproductible et une version de production, les cibles de la V1 sont :
 
-Les outils utilisés pour réaliser ces mesures seront définis dans la documentation de test et dans la chaîne d'intégration continue lorsque ces contrôles seront automatisés.
+- un Largest Contentful Paint inférieur ou égal à **2,5 secondes** ;
+- un Cumulative Layout Shift inférieur ou égal à **0,1** ;
+- un Total Blocking Time inférieur ou égal à **200 millisecondes** ;
+- un score de performance Lighthouse supérieur ou égal à **90 sur 100**, calculé sur la médiane de trois exécutions ;
+- une mise à jour de la recherche ou du filtrage en moins de **100 millisecondes** après disponibilité locale des données, pour un jeu de référence allant jusqu'à 100 projets.
+
+Les outils, versions, conditions réseau et caractéristiques de la machine de mesure doivent être enregistrés dans la documentation de test. Un écart doit être analysé et accepté explicitement avant la mise en production.
+
+### 7.9 Accessibilité
+
+Les fonctionnalités essentielles doivent être utilisables au clavier sans piège de focus. La structure des pages doit utiliser des éléments sémantiques adaptés, les contrôles doivent disposer d'un nom accessible et les ressources visuelles informatives d'une alternative textuelle.
+
+La préférence de réduction des animations fournie par l'environnement doit être respectée. Les contrastes, l'ordre de navigation, les messages d'erreur et les états de chargement doivent faire l'objet de contrôles automatisés complétés par une vérification manuelle.
 
 ---
 
@@ -1797,9 +1794,7 @@ Aucune valeur secrète réelle ne doit être incluse dans cette documentation.
 
 Cette section définit les exigences techniques relatives aux échanges de données entre les différents composants de l'application et, lorsque cela est nécessaire, à l'exposition d'interfaces applicatives.
 
-L'objectif est de garantir des échanges cohérents, sécurisés et maintenables sans imposer prématurément un style d'API, un protocole ou une architecture particulière.
-
-Les mécanismes de communication seront déterminés lors de la conception de l'architecture en fonction des composants identifiés et de leurs besoins d'interaction.
+L'objectif est de garantir des échanges cohérents, sécurisés et maintenables au travers de l'interface HTTP/JSON retenue dans la documentation d'architecture.
 
 ### 12.1 Identification des échanges
 
@@ -1807,7 +1802,7 @@ L'architecture devra identifier les échanges nécessaires entre les différents
 
 Ces échanges pourront notamment concerner :
 
-- la récupération des projets destinés à la partie publique ;
+- la récupération de l'ensemble des projets enregistrés pour la partie publique ;
 - la récupération du détail d'un projet ;
 - la recherche et le filtrage des projets ;
 - l'authentification de l'administrateur ;
@@ -1846,7 +1841,7 @@ Le mécanisme d'échange retenu doit permettre à la partie publique de récupé
 
 Il doit notamment permettre :
 
-- d'obtenir la liste des projets publiés ;
+- d'obtenir la liste des projets enregistrés ;
 - d'obtenir les informations nécessaires aux cartes de présentation ;
 - d'obtenir le détail d'un projet ;
 - d'obtenir les catégories et technologies associées lorsque cela est nécessaire.
@@ -1905,7 +1900,7 @@ La structure des données doit être suffisamment stable et documentée pour év
 
 Lorsque des données sont facultatives, absentes ou invalides, leur comportement doit être défini de manière cohérente.
 
-Le format technique utilisé pour représenter les échanges sera déterminé lors de la conception de l'architecture.
+Les échanges réseau entre le client et le serveur utilisent JSON. Les ressources binaires ne sont pas intégrées directement dans ces représentations : l'interface échange leurs références et métadonnées.
 
 
 
@@ -1957,7 +1952,7 @@ Les informations permettant de maintenir ou de prouver cette authentification do
 - leur modification non autorisée ;
 - leur réutilisation abusive lorsque des mécanismes permettent de limiter ce risque.
 
-Le mécanisme précis d'authentification sera déterminé lors de la conception de la sécurité et de l'architecture.
+Le moyen de maintenir ou de prouver l'authentification sera défini avec le mécanisme retenu. Il devra apporter les protections adaptées à son mode de transport et aux menaces associées, notamment contre la réutilisation abusive et les requêtes intersites non sollicitées lorsqu'elles sont applicables.
 
 
 
@@ -2010,26 +2005,11 @@ Le format et les outils de documentation seront déterminés en fonction du type
 
 
 
-### 12.14 Choix du mécanisme de communication
+### 12.14 Mécanisme de communication retenu
 
-Le mécanisme de communication entre les composants sera sélectionné après définition de l'architecture de l'application.
+Le client et le serveur communiquent par HTTP, ou HTTPS dans tout environnement distant, avec des représentations JSON et des codes de statut HTTP cohérents avec le résultat des opérations.
 
-Le choix devra notamment prendre en compte :
-
-- le nombre et la nature des composants ;
-- leur niveau de couplage ;
-- leur emplacement d'exécution ;
-- les besoins de sécurité ;
-- les besoins de performance ;
-- les besoins d'évolution ;
-- la simplicité de développement et d'exploitation ;
-- la nécessité éventuelle d'exposer une interface à d'autres consommateurs.
-
-Une API réseau indépendante ne doit pas être introduite lorsqu'une communication interne plus simple répond suffisamment aux besoins.
-
-Inversement, lorsqu'une séparation entre composants nécessite une interface réseau clairement définie, le style d'API et le protocole devront être sélectionnés en fonction de ces contraintes.
-
-La décision retenue devra être documentée dans l'architecture et pourra faire l'objet d'un ADR.
+Ce mécanisme répond à la séparation client-serveur sans introduire de communication asynchrone ou distribuée non justifiée par la V1. Les opérations, chemins indicatifs, réponses et mécanismes de session sont définis dans le document d'architecture.
 
 ---
 
@@ -2360,10 +2340,7 @@ Les décisions technologiques restant à effectuer concernent notamment :
 
 - les technologies utilisées pour construire l'interface cliente ;
 - les technologies utilisées pour implémenter la partie serveur ;
-- le mécanisme de persistance ;
-- le système de gestion des données ;
-- le mécanisme d'authentification ;
-- le mécanisme et le format de communication entre la partie cliente et la partie serveur ;
+- le mécanisme d'authentification et ses éventuelles données persistées ;
 - la stratégie de conteneurisation éventuelle ;
 - la solution d'hébergement ;
 - la chaîne CI/CD ;

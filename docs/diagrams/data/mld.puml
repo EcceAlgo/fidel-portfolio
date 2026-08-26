@@ -21,6 +21,7 @@ entity "Projet" as Projet {
   titre
   description
   lien_demonstration
+  statut_depot
   lien_depot
 }
 
@@ -37,6 +38,7 @@ entity "Technologie" as Technologie {
 entity "Ressource_visuelle" as RessourceVisuelle {
   * id_ressource
   reference_ressource
+  texte_alternatif
   ordre_affichage
   id_projet
 }

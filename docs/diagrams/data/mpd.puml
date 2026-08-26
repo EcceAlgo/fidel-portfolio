@@ -12,6 +12,7 @@ entity "projet" as Projet {
   titre : TEXT <<NOT NULL>>
   description : TEXT
   lien_demonstration : TEXT
+  statut_depot : TEXT <<NOT NULL>>
   lien_depot : TEXT
 }
 
@@ -28,6 +29,7 @@ entity "technologie" as Technologie {
 entity "ressource_visuelle" as RessourceVisuelle {
   * id_ressource : INTEGER <<PK, IDENTITY>>
   reference_ressource : TEXT <<NOT NULL>>
+  texte_alternatif : TEXT <<NOT NULL>>
   ordre_affichage : INTEGER <<NOT NULL>>
   id_projet : INTEGER <<FK, NOT NULL>>
 }

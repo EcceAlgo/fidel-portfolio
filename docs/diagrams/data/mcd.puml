@@ -21,6 +21,7 @@ entity "Projet" as Projet {
   titre
   description
   lien_demonstration
+  statut_depot
   lien_depot
 }
 
@@ -37,20 +38,14 @@ entity "Technologie" as Technologie {
 entity "Ressource_visuelle" as RessourceVisuelle {
   * id_ressource
   reference_ressource
+  texte_alternatif
   ordre_affichage
 }
 
-rectangle "Classer" as Classer
-rectangle "Utiliser" as Utiliser
-rectangle "Illustrer" as Illustrer
+Categorie "0,n" -- "1,n" Projet : Classer
 
-Categorie "0,n" -- Classer
-Classer -- "1,n" Projet
+Projet "0,n" -- "0,n" Technologie : Utiliser
 
-Projet "0,n" -- Utiliser
-Utiliser -- "0,n" Technologie
-
-Projet "0,n" -- Illustrer
-Illustrer -- "1,1" RessourceVisuelle
+Projet "0,n" -- "1,1" RessourceVisuelle : Illustrer
 
 @enduml
