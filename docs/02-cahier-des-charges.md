@@ -4,10 +4,10 @@
 |---------|--------|
 | Projet | Fidel Portfolio |
 | Document | Cahier des charges |
-| Version | 1.0 |
+| Version | 1.1 |
 | Auteur | Fidel Nziengui Ateba |
 | Statut | Validé |
-| Dernière mise à jour | 18/08/2026 |
+| Dernière mise à jour | 26/08/2026 |
 
 ---
 
@@ -40,6 +40,8 @@ Il traduit les besoins identifiés lors de la phase d'analyse en un ensemble d'e
 Ce document précise également le périmètre du projet, les objectifs, les parties prenantes, les livrables attendus ainsi que les contraintes et les critères d'acceptation de la première version du portfolio.
 
 Il constitue le document de référence permettant de s'assurer que la solution développée répond aux besoins exprimés tout en respectant les objectifs fixés.
+
+> **Évolution du périmètre — version 1.1 :** le cahier des charges formalise l'élargissement de la V1 décidé après la vision initiale : recherche, filtrage, thème et administration des projets font désormais partie du périmètre de référence.
 
 ---
 
@@ -181,19 +183,20 @@ Les exigences fonctionnelles décrivent les fonctionnalités que devra offrir la
 | EF-005 | Le système doit permettre au visiteur de consulter la fiche détaillée d'un projet. |
 | EF-006 | Le système doit afficher les technologies utilisées pour chaque projet. |
 | EF-007 | Le système doit permettre d'accéder au dépôt GitHub associé lorsqu'il est public. |
-| EF-008 | Le système doit permettre d'accéder au profil LinkedIn du développeur. |
+| EF-008 | Le système doit permettre d'accéder aux profils GitHub et LinkedIn du développeur. |
 | EF-009 | Le système doit permettre au visiteur de contacter le développeur via un lien de type *mailto*. |
 | EF-010 | Le système doit permettre au visiteur de consulter, lorsqu'elles sont disponibles, les informations relatives à la conception, à l'architecture, aux tests, à la sécurité et au déploiement d'un projet. |
 | EF-011 | Le système doit permettre au visiteur de rechercher un projet. |
 | EF-012 | Le système doit permettre au visiteur de filtrer les projets selon les critères proposés. |
-| EF-013 | Le système doit permettre au visiteur de basculer entre un thème clair et un thème sombre. |
+| EF-013 | Le système doit permettre au visiteur de basculer entre un thème clair et un thème sombre et de retrouver sa préférence lors d'une visite ultérieure lorsque son environnement permet de la mémoriser. |
 | EF-014 | Le système doit permettre au propriétaire du portfolio de s'authentifier afin d'accéder aux fonctionnalités d'administration. |
 | EF-015 | Le système doit restreindre l'accès aux fonctionnalités d'administration aux utilisateurs autorisés. |
 | EF-016 | Le système doit permettre à l'administrateur d'ajouter un nouveau projet. |
 | EF-017 | Le système doit permettre à l'administrateur de modifier un projet existant. |
 | EF-018 | Le système doit permettre à l'administrateur de supprimer un projet existant. |
 | EF-019 | Le système doit permettre de conserver les données des projets de manière persistante. |
-| EF-020 | Le système doit afficher aux visiteurs les projets enregistrés et destinés à être présentés publiquement. |
+| EF-020 | Le système doit afficher aux visiteurs tout projet enregistré avec succès. La V1 ne gère pas d'état brouillon distinct. |
+| EF-021 | Le système doit permettre d'accéder à la démonstration publique d'un projet lorsqu'elle est disponible. |
 
 ---
 
@@ -219,6 +222,7 @@ Les exigences non fonctionnelles définissent les caractéristiques de qualité 
 | ENF-014 | Les informations d'authentification ne doivent pas être stockées ou transmises en clair. |
 | ENF-015 | Les données saisies dans l'espace d'administration doivent être validées avant leur enregistrement. |
 | ENF-016 | Les opérations de gestion des projets doivent préserver l'intégrité et la cohérence des données. |
+| ENF-017 | Les fonctionnalités et contenus essentiels doivent être utilisables au clavier, disposer d'une structure sémantique adaptée et fournir une alternative textuelle aux contenus visuels informatifs. |
 
 ---
 
@@ -291,7 +295,7 @@ La première version de **Fidel Portfolio** sera considérée comme conforme au 
 | CA-002 | Les principales exigences non fonctionnelles sont respectées. |
 | CA-003 | L'application est accessible publiquement et consultable depuis un navigateur web moderne. |
 | CA-004 | Le portfolio est utilisable sur ordinateur, tablette et smartphone. |
-| CA-005 | Les liens vers GitHub, LinkedIn et le contact fonctionnent correctement. |
+| CA-005 | Les liens vers GitHub, LinkedIn, les démonstrations disponibles et le contact fonctionnent correctement. |
 | CA-006 | La documentation du projet est complète et cohérente. |
 | CA-007 | Les principaux scénarios de test sont validés avant la mise en production. |
 | CA-008 | Le code source est versionné sur GitHub et respecte l'organisation définie pour le projet. |
@@ -304,8 +308,9 @@ La première version de **Fidel Portfolio** sera considérée comme conforme au 
 | CA-015 | L'administrateur peut créer un projet et celui-ci est conservé par l'application. |
 | CA-016 | L'administrateur peut modifier les informations d'un projet existant et les modifications sont conservées. |
 | CA-017 | L'administrateur peut supprimer un projet existant. |
-| CA-018 | Les projets enregistrés et destinés à être publics sont correctement affichés dans le portfolio. |
+| CA-018 | Tout projet enregistré avec succès est correctement affiché dans le portfolio. |
 | CA-019 | Les données invalides sont refusées lors de la gestion d'un projet. |
+| CA-020 | Les fonctionnalités essentielles sont utilisables au clavier et les contenus visuels informatifs disposent d'une alternative textuelle. |
 
 ---
 

@@ -4,7 +4,7 @@
 |---------|--------|
 | Projet | Fidel Portfolio |
 | Document | Architecture |
-| Version | 1.0 |
+| Version | 1.1 |
 | Auteur | Fidel Nziengui Ateba |
 | Statut | À valider |
 | Dernière mise à jour | 26/08/2026 |
@@ -40,6 +40,8 @@ Ce document décrit l'architecture retenue pour la version 1 de **Fidel Portfoli
 Il traduit les exigences et décisions établies dans les spécifications techniques en une organisation structurée des différents composants du système, de leurs responsabilités, de leurs interactions et de leurs dépendances.
 
 Il constitue la référence architecturale pour la conception, l'implémentation, le déploiement et les évolutions de l'application.
+
+> **Aboutissement de la conception progressive — version 1.1 :** ce document formalise les décisions préparées dans les spécifications techniques. Il remplace les mentions « à déterminer » des documents amont uniquement pour les sujets explicitement tranchés dans les sections qui suivent.
 
 ### 1.2 Objectifs
 
@@ -803,7 +805,7 @@ Elle doit notamment permettre :
 - d'appliquer les contraintes d'intégrité pouvant être garanties au niveau de la persistance ;
 - de permettre la récupération des données nécessaires aux cas d'utilisation de l'application.
 
-Les données nécessaires au fonctionnement de l'authentification et des autorisations peuvent également nécessiter une persistance. Leur organisation dépend toutefois du mécanisme d'authentification retenu et sera précisée au [§ 9 — Architecture de l'authentification et des autorisations](#9-architecture-de-lauthentification-et-des-autorisations).
+Les données éventuellement nécessaires à l'authentification et aux autorisations dépendront du mécanisme retenu au [§ 9 — Architecture de l'authentification et des autorisations](#9-architecture-de-lauthentification-et-des-autorisations). Elles restent hors du modèle principal tant que cette décision n'est pas prise.
 
 La présente section distingue la représentation conceptuelle des données de leur implémentation technique.
 
@@ -833,12 +835,17 @@ Les informations nécessaires à sa représentation peuvent notamment comprendre
 - un titre ;
 - une description ;
 - un éventuel lien vers une démonstration publique ;
+- le statut du dépôt ou de la documentation externe ;
 - un éventuel lien vers un dépôt ou une documentation externe ;
 - les informations nécessaires à l'association de ressources visuelles.
 
 La description permet de présenter librement et synthétiquement le projet.
 
 Les informations techniques détaillées relatives à la conception, à la réalisation, aux tests ou au déploiement n'ont pas vocation à être systématiquement structurées et dupliquées dans le portfolio lorsqu'elles sont disponibles dans les ressources externes associées au projet.
+
+Le statut du dépôt prend l'une des valeurs **absent**, **public** ou **privé**. Il permet de distinguer l'absence de ressource d'une ressource volontairement non publique sans conserver ni exposer de lien privé.
+
+La V1 ne gère pas de brouillon : tout projet enregistré avec succès devient accessible dans la partie publique.
 
 #### Catégorie
 
@@ -878,6 +885,8 @@ Un projet peut disposer de plusieurs ressources visuelles, notamment :
 
 Les ressources visuelles associées à un projet doivent pouvoir être ordonnées afin que l'administrateur puisse déterminer leur ordre d'affichage.
 
+Chaque ressource visuelle doit disposer d'une alternative textuelle. Une valeur vide est réservée aux ressources purement décoratives ; une ressource informative doit disposer d'un texte décrivant son contenu ou sa fonction.
+
 La représentation d'une ressource visuelle doit permettre de distinguer les informations décrivant la ressource de son contenu ou de son emplacement de stockage.
 
 Le mécanisme utilisé pour stocker physiquement les fichiers associés n'est pas défini à ce stade.
@@ -900,15 +909,13 @@ La prise de contact est initiée depuis le portfolio mais l'envoi du message est
 
 Aucun message du visiteur n'est donc persisté par l'application dans le cadre de cette fonctionnalité.
 
+Le profil est conservé dans une relation dédiée afin de centraliser les informations publiques utilisées par le client. Il reste en lecture seule dans la V1 : sa modification s'effectue par une migration ou une procédure d'administration technique, car l'administration fonctionnelle du profil n'appartient pas au périmètre.
+
 #### Données d'administration
 
 L'accès aux fonctionnalités d'administration nécessite une identité permettant d'authentifier le propriétaire du portfolio.
 
-Les données nécessaires à cette authentification dépendent du mécanisme retenu.
-
-Elles pourront notamment nécessiter la représentation d'une identité administrateur et des informations nécessaires à la vérification de son authentification.
-
-La structure exacte de ces données ne doit pas être figée avant la définition de l'architecture d'authentification au [§ 9 — Architecture de l'authentification et des autorisations](#9-architecture-de-lauthentification-et-des-autorisations).
+La représentation de cette identité et les données éventuellement persistées dépendent toutefois du mécanisme choisi : identifiants locaux, fournisseur d'identité externe ou protection portée par l'infrastructure. Aucune entité d'administration ou de session n'est donc introduite dans le MCD, le MLD ou le MPD principal avant la décision prévue au [§ 9 — Architecture de l'authentification et des autorisations](#9-architecture-de-lauthentification-et-des-autorisations).
 
 ### 7.3 Dictionnaire de données
 
@@ -924,7 +931,8 @@ Il permet notamment de distinguer les données obligatoires des données faculta
 | Titre | Nom sous lequel le projet est présenté | Obligatoire | Doit permettre d'identifier clairement le projet |
 | Description | Présentation libre et synthétique du projet | Facultatif | Recommandée afin de permettre au visiteur de comprendre rapidement la nature du projet |
 | Lien de démonstration | Permet d'accéder à une version publique ou déployée du projet lorsqu'elle existe | Facultatif | Si renseigné, doit pointer vers une ressource accessible |
-| Lien vers le dépôt | Permet d'accéder au dépôt public ou à la documentation principale du projet lorsqu'ils existent | Facultatif | Peut notamment pointer vers GitHub, GitLab ou une autre plateforme de dépôt |
+| Statut du dépôt | Indique si le dépôt ou la documentation externe est absent, public ou privé | Obligatoire | Valeur parmi `ABSENT`, `PUBLIC` et `PRIVE` |
+| Lien vers le dépôt | Permet d'accéder au dépôt public ou à la documentation principale du projet lorsqu'ils existent | Facultatif | Obligatoire uniquement lorsque le statut est `PUBLIC` ; absent dans les autres cas |
 
 #### Données relatives aux catégories
 
@@ -954,6 +962,7 @@ Une technologie peut être conservée même lorsqu'elle n'est temporairement ass
 |---|---|---|---|
 | Identifiant de la ressource | Identifie de manière unique une ressource visuelle | Obligatoire | Unique et stable pour une ressource donnée |
 | Référence de la ressource | Permet de localiser ou d'identifier le contenu visuel associé | Obligatoire | Sa représentation dépendra du mécanisme de stockage retenu |
+| Texte alternatif | Décrit le contenu ou la fonction de la ressource pour les utilisateurs qui ne peuvent pas la percevoir | Obligatoire | Peut être vide uniquement pour une ressource purement décorative |
 | Ordre d'affichage | Détermine la position de la ressource parmi les ressources visuelles d'un projet | Obligatoire | Doit permettre d'établir un ordre déterministe au sein d'un même projet |
 
 #### Données relatives au profil et aux coordonnées
@@ -983,53 +992,56 @@ Elles constituent la base permettant de déterminer les associations et les card
 - **RG-D02** — Chaque projet possède obligatoirement un titre.
 - **RG-D03** — La description d'un projet est facultative mais recommandée.
 - **RG-D04** — Un projet peut disposer d'un lien vers une démonstration publique lorsqu'une version accessible existe.
-- **RG-D05** — Un projet peut disposer d'un lien vers un dépôt public ou une documentation externe lorsqu'une telle ressource existe.
-- **RG-D06** — L'absence de description, de démonstration ou de ressource externe ne doit pas empêcher l'existence et la présentation d'un projet.
+- **RG-D05** — Le statut du dépôt prend l'une des valeurs `ABSENT`, `PUBLIC` ou `PRIVE`.
+- **RG-D06** — Un lien vers le dépôt doit être renseigné uniquement lorsque le statut est `PUBLIC`.
+- **RG-D07** — Tout projet enregistré avec succès est accessible publiquement ; la V1 ne gère pas d'état brouillon.
+- **RG-D08** — L'absence de description, de démonstration ou de ressource externe ne doit pas empêcher l'existence et la présentation d'un projet.
 
 #### Catégories
 
-- **RG-D07** — Chaque catégorie possède un identifiant permettant de la distinguer de manière unique.
-- **RG-D08** — Chaque catégorie possède un nom.
-- **RG-D09** — Un projet doit être associé à au moins une catégorie.
-- **RG-D10** — Un projet peut être associé à plusieurs catégories.
-- **RG-D11** — Une même catégorie peut être associée à plusieurs projets.
-- **RG-D12** — Une catégorie peut être conservée même lorsqu'elle n'est associée à aucun projet.
-- **RG-D13** — Une catégorie ne doit être associée à un projet que lorsqu'elle représente un domaine significatif de celui-ci.
+- **RG-D09** — Chaque catégorie possède un identifiant permettant de la distinguer de manière unique.
+- **RG-D10** — Chaque catégorie possède un nom.
+- **RG-D11** — Un projet doit être associé à au moins une catégorie.
+- **RG-D12** — Un projet peut être associé à plusieurs catégories.
+- **RG-D13** — Une même catégorie peut être associée à plusieurs projets.
+- **RG-D14** — Une catégorie peut être conservée même lorsqu'elle n'est associée à aucun projet.
+- **RG-D15** — Une catégorie ne doit être associée à un projet que lorsqu'elle représente un domaine significatif de celui-ci.
 
 #### Technologies
 
-- **RG-D14** — Chaque technologie possède un identifiant permettant de la distinguer de manière unique.
-- **RG-D15** — Chaque technologie possède un nom.
-- **RG-D16** — Un projet peut n'être associé à aucune technologie ou être associé à une ou plusieurs technologies.
-- **RG-D17** — Une même technologie peut être associée à plusieurs projets.
-- **RG-D18** — Une technologie peut être conservée même lorsqu'elle n'est associée à aucun projet afin de permettre sa réutilisation ultérieure.
+- **RG-D16** — Chaque technologie possède un identifiant permettant de la distinguer de manière unique.
+- **RG-D17** — Chaque technologie possède un nom.
+- **RG-D18** — Un projet peut n'être associé à aucune technologie ou être associé à une ou plusieurs technologies.
+- **RG-D19** — Une même technologie peut être associée à plusieurs projets.
+- **RG-D20** — Une technologie peut être conservée même lorsqu'elle n'est associée à aucun projet afin de permettre sa réutilisation ultérieure.
 
 #### Ressources visuelles
 
-- **RG-D19** — Un projet peut ne disposer d'aucune ressource visuelle.
-- **RG-D20** — Un projet peut disposer de plusieurs ressources visuelles.
-- **RG-D21** — Une ressource visuelle est associée à un seul projet.
-- **RG-D22** — Chaque ressource visuelle possède une référence permettant d'identifier ou de localiser son contenu.
-- **RG-D23** — Chaque ressource visuelle associée à un projet possède une position permettant de déterminer son ordre d'affichage.
-- **RG-D24** — L'administrateur peut déterminer l'ordre d'affichage des ressources visuelles d'un projet.
-- **RG-D25** — La suppression d'un projet ne doit pas entraîner la suppression des catégories qui lui étaient associées.
-- **RG-D26** — La suppression d'un projet ne doit pas entraîner la suppression des technologies qui lui étaient associées.
-- **RG-D27** — Une ressource visuelle ne peut pas exister indépendamment du projet auquel elle est associée.
-- **RG-D28** — La suppression définitive d'un projet entraîne la suppression des ressources visuelles qui lui sont exclusivement associées.
+- **RG-D21** — Un projet peut ne disposer d'aucune ressource visuelle.
+- **RG-D22** — Un projet peut disposer de plusieurs ressources visuelles.
+- **RG-D23** — Une ressource visuelle est associée à un seul projet.
+- **RG-D24** — Chaque ressource visuelle possède une référence permettant d'identifier ou de localiser son contenu.
+- **RG-D25** — Chaque ressource visuelle possède une alternative textuelle, éventuellement vide uniquement si elle est décorative.
+- **RG-D26** — Chaque ressource visuelle associée à un projet possède une position permettant de déterminer son ordre d'affichage.
+- **RG-D27** — L'administrateur peut déterminer l'ordre d'affichage des ressources visuelles d'un projet.
+- **RG-D28** — La suppression d'un projet ne doit pas entraîner la suppression des catégories qui lui étaient associées.
+- **RG-D29** — La suppression d'un projet ne doit pas entraîner la suppression des technologies qui lui étaient associées.
+- **RG-D30** — Une ressource visuelle ne peut pas exister indépendamment du projet auquel elle est associée.
+- **RG-D31** — La suppression définitive d'un projet entraîne la suppression des ressources visuelles qui lui sont exclusivement associées.
 
 #### Profil et coordonnées
 
-- **RG-D29** — Le portfolio présente les informations nécessaires à l'identification de son propriétaire.
-- **RG-D30** — Les coordonnées et liens professionnels peuvent être renseignés lorsqu'ils sont destinés à être accessibles aux visiteurs.
-- **RG-D31** — L'adresse électronique de contact est facultative.
-- **RG-D32** — Les liens vers les profils ou services externes sont facultatifs.
-- **RG-D33** — La prise de contact par courrier électronique est initiée depuis le portfolio mais son envoi est délégué à l'environnement de messagerie du visiteur.
-- **RG-D34** — La fonctionnalité de contact ne nécessite pas la persistance d'informations relatives au visiteur ni des messages qu'il envoie.
+- **RG-D32** — Le portfolio présente les informations nécessaires à l'identification de son propriétaire.
+- **RG-D33** — Les coordonnées et liens professionnels peuvent être renseignés lorsqu'ils sont destinés à être accessibles aux visiteurs.
+- **RG-D34** — L'adresse électronique de contact est facultative.
+- **RG-D35** — Les liens vers les profils ou services externes sont facultatifs.
+- **RG-D36** — La prise de contact par courrier électronique est initiée depuis le portfolio mais son envoi est délégué à l'environnement de messagerie du visiteur.
+- **RG-D37** — La fonctionnalité de contact ne nécessite pas la persistance d'informations relatives au visiteur ni des messages qu'il envoie.
 
 #### Administration
 
-- **RG-D35** — Les opérations d'administration nécessitent une identité authentifiée et autorisée.
-- **RG-D36** — La représentation et la persistance éventuelle de l'identité administrateur dépendent du mécanisme d'authentification retenu et seront précisées au §9.
+- **RG-D38** — Les opérations d'administration nécessitent une identité authentifiée et autorisée.
+- **RG-D39** — La représentation et la persistance éventuelle de l'identité et de l'état d'authentification dépendent du mécanisme retenu au §9 et sont volontairement exclues des modèles de données actuels.
 
 ### 7.5 Modèle conceptuel de données
 
@@ -1233,9 +1245,12 @@ Les contraintes suivantes complètent le modèle physique :
 
 - les identifiants principaux sont générés automatiquement et constituent les clés primaires des relations correspondantes ;
 - le titre d'un projet est obligatoire ;
+- le statut du dépôt est obligatoire et limité à `ABSENT`, `PUBLIC` ou `PRIVE` ;
+- le lien du dépôt est obligatoire si et seulement si son statut est `PUBLIC` ;
 - le nom d'une catégorie est obligatoire et unique ;
 - le nom d'une technologie est obligatoire et unique ;
 - une ressource visuelle doit obligatoirement être associée à un projet ;
+- le texte alternatif d'une ressource visuelle est obligatoire, mais peut être vide pour une ressource décorative ;
 - l'ordre d'affichage d'une ressource visuelle doit être strictement positif ;
 - deux ressources visuelles d'un même projet ne doivent pas partager le même ordre d'affichage ;
 - la suppression d'un projet entraîne la suppression de ses associations avec les catégories et les technologies ;
@@ -1263,6 +1278,238 @@ Le schéma SQL doit traduire notamment :
 Les évolutions ultérieures du schéma doivent être réalisées au travers de mécanismes de migration afin de conserver la traçabilité des modifications appliquées à la base de données.
 
 Les fichiers d'implémentation du schéma sont conservés avec les artefacts d'infrastructure de l'application.
+
+---
+
+## 8. Communication entre les composants
+
+### 8.1 Mécanisme retenu
+
+L'application cliente et l'application serveur communiquent au moyen d'une interface HTTP utilisant des représentations JSON.
+
+En production, tous les échanges passent par HTTPS. L'interface est organisée autour de ressources et utilise les méthodes HTTP conformément à l'intention de l'opération :
+
+- `GET` pour consulter une ressource sans modifier l'état du système ;
+- `POST` pour créer une ressource ou ouvrir une session ;
+- `PUT` ou `PATCH` pour modifier une ressource existante ;
+- `DELETE` pour supprimer une ressource ou terminer une session.
+
+Ce choix maintient un contrat explicite entre le client et le serveur sans introduire de protocole ou de bus de messages inutile pour la V1.
+
+### 8.2 Opérations publiques
+
+L'interface publique doit permettre au minimum les opérations logiques suivantes :
+
+| Opération | Méthode et chemin indicatifs | Authentification | Résultat principal |
+|---|---|---|---|
+| Consulter le profil | `GET /api/profile` | Non | Informations professionnelles publiques |
+| Consulter les projets | `GET /api/projects` | Non | Liste des projets enregistrés |
+| Rechercher ou filtrer | `GET /api/projects?search=…&category=…` | Non | Liste limitée par les critères |
+| Consulter un projet | `GET /api/projects/{id}` | Non | Détail du projet et données associées |
+| Consulter les référentiels | `GET /api/categories`, `GET /api/technologies` | Non | Catégories et technologies disponibles |
+
+La V1 ne gérant pas de brouillon, la liste publique contient tous les projets enregistrés avec succès.
+
+### 8.3 Opérations d'administration
+
+Les opérations logiques suivantes sont protégées :
+
+| Opération | Méthode et chemin indicatifs | Contrôles principaux |
+|---|---|---|
+| Consulter les projets administrables | `GET /api/admin/projects` | Authentification et autorisation |
+| Créer un projet | `POST /api/admin/projects` | Authentification, autorisation et validation complète |
+| Modifier un projet | `PUT /api/admin/projects/{id}` | Authentification, autorisation, existence et validation complète |
+| Supprimer un projet | `DELETE /api/admin/projects/{id}` | Authentification, autorisation, existence et confirmation préalable côté client |
+
+Les opérations et chemins propres à l'authentification ne sont pas spécifiés tant que le mécanisme du §9 n'est pas retenu. Les chemins métier ci-dessus sont des contrats architecturaux indicatifs. Leur forme finale doit être conservée dans une description d'interface versionnée avec le code et testée par des tests de contrat ou d'intégration.
+
+### 8.4 Format des réponses et erreurs
+
+Les réponses JSON distinguent les données retournées des informations d'erreur. Une erreur contient au minimum :
+
+- un code applicatif stable ;
+- un message compréhensible par le consommateur ;
+- les erreurs de validation associées aux champs concernés lorsqu'elles existent ;
+- un identifiant de corrélation permettant de rapprocher la réponse des journaux techniques.
+
+Les principaux résultats HTTP sont :
+
+- `200` pour une consultation ou une modification réussie ;
+- `201` pour une création réussie ;
+- `204` lorsqu'une suppression ou une déconnexion réussie ne retourne aucun contenu ;
+- `400` pour une demande malformée ;
+- `401` lorsqu'une authentification valide est absente ;
+- `403` lorsque l'opération n'est pas autorisée ;
+- `404` lorsque la ressource demandée n'existe pas ;
+- `409` lorsqu'une opération entre en conflit avec l'état courant ;
+- `422` lorsque les données reçues ne respectent pas les règles de validation ;
+- `500` pour une erreur interne non exposée en détail au client.
+
+### 8.5 Évolution du contrat
+
+L'interface est initialement consommée uniquement par le client du portfolio. Les changements compatibles sont privilégiés.
+
+Un versionnement explicite de l'API sera introduit si plusieurs clients indépendants apparaissent ou si une évolution incompatible devient nécessaire. Toute rupture de contrat doit être accompagnée d'une adaptation coordonnée du client, des tests et de la documentation.
+
+---
+
+## 9. Architecture de l'authentification et des autorisations
+
+### 9.1 État de la décision
+
+La V1 doit protéger les fonctionnalités d'administration, mais le mécanisme d'authentification et d'autorisation n'est pas encore retenu. Cette décision sera instruite avec la stratégie de sécurité avant l'implémentation de l'espace d'administration.
+
+À ce stade, l'architecture n'impose donc ni identifiant et mot de passe locaux, ni fournisseur externe, ni jeton, ni cookie, ni persistance de sessions. Les modèles de données principaux restent indépendants de cette décision.
+
+### 9.2 Alternatives à comparer
+
+| Alternative | Intérêt principal | Points à évaluer |
+|---|---|---|
+| Identifiants locaux et mot de passe | Maîtrise du mécanisme dans l'application | Stockage sécurisé des secrets, récupération, limitation des tentatives et cycle de vie de l'authentification |
+| Fournisseur d'identité externe | Délégation de la vérification d'identité | Dépendance au fournisseur, configuration, coût, disponibilité et gestion des redirections |
+| Protection par la plateforme ou une passerelle | Administration privée sans gestion d'identifiants dans l'application | Couplage au déploiement, environnement local, portabilité et granularité des autorisations |
+
+La comparaison devra prendre en compte la sécurité, la complexité d'implémentation et d'exploitation, le coût, la compatibilité avec l'hébergement, le développement local, la gestion des secrets, la fin d'accès et la dépendance à un fournisseur.
+
+### 9.3 Invariants indépendants du choix
+
+Quel que soit le mécanisme retenu :
+
+- les opérations d'administration sont protégées côté serveur ;
+- une identité absente, invalide ou non autorisée ne permet pas d'exécuter une opération protégée ;
+- les informations sensibles ne sont ni codées en dur, ni versionnées, ni exposées dans les réponses ou les journaux ;
+- les échanges sensibles utilisent HTTPS ;
+- les erreurs d'authentification ne révèlent pas d'information exploitable inutilement ;
+- la déconnexion ou le mécanisme équivalent met fin à l'accès selon les garanties de la solution choisie ;
+- la protection des vues dans le client ne remplace pas les contrôles du serveur ou de l'infrastructure de confiance.
+
+### 9.4 Conséquences sur le modèle de données
+
+Le modèle persistant ne sera complété qu'après cette décision :
+
+- une solution locale pourra nécessiter des données d'administrateur et d'authentification ;
+- un fournisseur d'identité pourra ne nécessiter qu'un identifiant externe ou certaines autorisations locales ;
+- une protection portée par l'infrastructure pourra ne nécessiter aucune table d'authentification dans l'application.
+
+La décision retenue devra être consignée dans un ADR ou dans la documentation de sécurité, puis répercutée dans le MCD, le MLD et le MPD uniquement si elle introduit effectivement des données persistées.
+
+---
+
+## 10. Déploiement et infrastructure
+
+### 10.1 Vue de déploiement
+
+Le déploiement logique de la V1 comprend :
+
+- un hébergement du client web, éventuellement servi comme ressources statiques par un service adapté ;
+- une instance de l'application serveur ;
+- une base PostgreSQL dont le stockage persiste indépendamment du cycle de vie de l'instance applicative ;
+- un emplacement destiné aux ressources visuelles ou, à défaut, des ressources statiques versionnées dont les références sont conservées en base ;
+- une terminaison HTTPS pour les accès publics.
+
+Le client ne dispose d'aucun accès réseau direct à PostgreSQL. Seule l'application serveur utilise un compte technique limité aux opérations nécessaires sur la base.
+
+### 10.2 Configuration
+
+La configuration variable est séparée du code. Elle comprend notamment :
+
+- l'adresse de l'interface serveur utilisée par le client ;
+- les paramètres de connexion à PostgreSQL ;
+- les paramètres et secrets éventuellement requis par le mécanisme d'authentification et les intégrations ;
+- les origines autorisées ;
+- les niveaux de journalisation ;
+- les paramètres propres au stockage des ressources visuelles.
+
+Le démarrage du serveur échoue explicitement lorsqu'une configuration obligatoire est absente ou invalide.
+
+### 10.3 Déploiement et migrations
+
+Le pipeline construit des artefacts immuables à partir d'une révision identifiée du dépôt. Les migrations de base de données sont versionnées et exécutées de manière contrôlée avant l'activation d'une version qui dépend du nouveau schéma.
+
+Un déploiement n'est considéré comme réussi qu'après vérification :
+
+- de l'accessibilité du client ;
+- de l'état de santé du serveur ;
+- de la connexion à PostgreSQL ;
+- de l'exécution des migrations attendues ;
+- d'un parcours public représentatif ;
+- de la protection d'une opération d'administration.
+
+### 10.4 Sauvegarde et retour arrière
+
+Les données PostgreSQL font l'objet d'une sauvegarde adaptée au niveau de service retenu. Une procédure de restauration doit être testée avant de considérer la sauvegarde comme opérationnelle.
+
+Le retour arrière d'une version applicative utilise un artefact précédemment validé. Une migration destructive ou incompatible doit prévoir une stratégie spécifique de restauration ou une évolution progressive du schéma.
+
+### 10.5 Observabilité minimale
+
+Le serveur expose un contrôle de santé ne révélant aucune information sensible. Les journaux structurés incluent un niveau, un horodatage, un identifiant de corrélation et le résultat de l'opération, sans mot de passe, jeton de session ou secret.
+
+La supervision avancée reste une évolution future, mais les erreurs d'authentification, opérations d'administration et échecs de persistance doivent être observables dès la V1.
+
+---
+
+## 11. Décisions architecturales
+
+Les décisions structurantes retenues sont synthétisées ci-dessous. Les ADR détaillés pourront reprendre ces identifiants sans dupliquer les règles opérationnelles du présent document.
+
+| ID | Décision | Statut | Justification principale |
+|---|---|---|---|
+| DA-001 | Architecture client-serveur | Retenue | Séparer l'interface des contrôles, de la logique applicative et des données |
+| DA-002 | Serveur modulaire en couches avec dépendances dirigées vers le domaine | Retenue | Préserver la testabilité sans surarchitecture |
+| DA-003 | Contrat HTTP avec représentations JSON | Retenue | Fournir une interface simple, explicite et compatible avec un client navigateur |
+| DA-004 | Modèle de persistance relationnel | Retenue | Représenter les relations et contraintes entre projets, catégories et technologies |
+| DA-005 | PostgreSQL | Retenue | Découpler les données de l'instance applicative et garantir les contraintes relationnelles |
+| DA-006 | Mécanisme d'authentification | À décider | Comparer les identifiants locaux, un fournisseur d'identité et une protection portée par l'infrastructure au §9 |
+| DA-007 | Une seule unité serveur pour la V1 | Retenue | Limiter la complexité de déploiement et d'exploitation |
+| DA-008 | Absence de brouillon en V1 | Retenue | Maintenir un cycle de gestion simple : tout projet enregistré est public |
+
+Les technologies concrètes du client et du serveur, la solution d'hébergement et l'outillage de livraison feront l'objet de décisions complémentaires avant le début de leur implémentation.
+
+---
+
+## 12. Évolutivité de l'architecture
+
+### 12.1 Évolutions prévues
+
+L'organisation retenue permet d'ajouter notamment :
+
+- un état brouillon et un cycle de publication ;
+- l'administration du profil, des catégories et des technologies ;
+- plusieurs comptes ou rôles d'administration ;
+- une API consommée par d'autres clients ;
+- un stockage spécialisé pour les ressources visuelles ;
+- une supervision et des alertes plus complètes ;
+- une internationalisation du contenu.
+
+Ces évolutions nécessiteront de nouvelles exigences et, lorsqu'elles modifient une décision structurante, un ADR dédié.
+
+### 12.2 Limites volontaires
+
+La V1 ne prévoit pas :
+
+- de microservices ;
+- de communication asynchrone distribuée ;
+- de mise à l'échelle indépendante de domaines fonctionnels ;
+- de réplication applicative imposant une coordination distribuée ;
+- de gestion générique des identités ou des rôles.
+
+Une séparation en nouveaux services ne sera étudiée que si un besoin mesurable rend insuffisante l'organisation actuelle.
+
+---
+
+## 13. Documents liés
+
+- [Glossaire](00-glossaire.md)
+- [Vision du projet](01-vision-projet.md)
+- [Analyse des besoins](01a-analyse-des-besoins.md)
+- [Cahier des charges](02-cahier-des-charges.md)
+- [Spécifications fonctionnelles](03-specifications-fonctionnelles.md)
+- [Spécifications techniques](04-specifications-techniques.md)
+- [Sécurité](06-securite.md)
+- [Tests](07-tests.md)
+- [Déploiement](08-deploiement.md)
+- [Décisions d'architecture](09-decisions-architecture.md)
 
 
 ---

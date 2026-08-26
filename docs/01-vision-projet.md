@@ -4,10 +4,10 @@
 |---------|--------|
 | Projet | Fidel Portfolio |
 | Document | Vision du projet |
-| Version | 1.0 |
+| Version | 1.1 |
 | Auteur | Fidel Nziengui Ateba |
 | Statut | Validé |
-| Dernière mise à jour | 04/07/2026 |
+| Dernière mise à jour | 26/08/2026 |
 
 ---
 
@@ -35,6 +35,8 @@
 Ce document présente la vision globale du projet **Fidel Portfolio**. Il définit le contexte, les objectifs, les hypothèses de travail ainsi que les orientations générales qui guideront la conception et le développement de l'application.
 
 Il constitue le document de référence de la phase de cadrage et servira de base à la rédaction du cahier des charges, des spécifications fonctionnelles et des spécifications techniques.
+
+> **Évolution du périmètre — version 1.1 :** la vision initiale prévoyait la recherche, le filtrage et l'administration comme évolutions ultérieures et ne formalisait pas encore la gestion du thème. Leur intégration à la V1 a été retenue pendant l'analyse et la rédaction du cahier des charges afin que le portfolio puisse être maintenu sans modification du code et offre les préférences d'affichage attendues. La présente version de la vision répercute cette décision tout en conservant la progression documentaire du projet.
 
 ---
 
@@ -109,14 +111,13 @@ Les hypothèses suivantes sont retenues pour la première version du projet.
 
 ### Objectifs fonctionnels
 
-- Afficher le parcours.
-- Afficher les projets.
-- Afficher les expériences.
-- Afficher les compétences.
-- Afficher les certifications.
-- Afficher les coordonnées.
-- Rediriger vers GitHub.
-- Rediriger vers LinkedIn.
+- Présenter le profil et les compétences du propriétaire du portfolio.
+- Afficher la liste et le détail des projets.
+- Rechercher et filtrer les projets.
+- Afficher les coordonnées et rediriger vers GitHub et LinkedIn.
+- Permettre la prise de contact par courrier électronique.
+- Proposer un thème clair et un thème sombre.
+- Permettre au propriétaire authentifié d'ajouter, de modifier et de supprimer les projets.
 
 ### Objectifs techniques
 
@@ -221,12 +222,27 @@ La première version du projet devra permettre :
 
 - consulter la liste des projets ;
 - consulter une fiche détaillée pour chaque projet ;
+- rechercher et filtrer les projets ;
 - accéder aux démonstrations et aux dépôts GitHub lorsqu'ils sont disponibles.
 
 ### Contact
 
 - accéder aux différents moyens de contact ;
 - contacter le propriétaire du portfolio.
+
+### Préférences d'affichage
+
+- utiliser le portfolio sur ordinateur, tablette et smartphone ;
+- choisir entre un thème clair et un thème sombre ;
+- conserver localement la préférence de thème lorsque l'environnement le permet.
+
+### Administration
+
+- authentifier le propriétaire du portfolio ;
+- consulter les projets administrables ;
+- ajouter, modifier et supprimer un projet ;
+- conserver les données des projets de manière persistante ;
+- terminer la session d'administration.
 
 ### Documentation
 
@@ -245,14 +261,12 @@ Ces évolutions renforcent directement la démonstration de mes compétences en 
 - Mise en place d'un système de supervision de l'application.
 - Visualisation des informations relatives au déploiement continu.
 - Consultation de la documentation technique directement depuis le portfolio.
-- Mise en place d'un espace d'administration sécurisé permettant de gérer le contenu du portfolio.
 
 ### Priorité moyenne
 
 Ces évolutions améliorent l'expérience utilisateur.
 
 - Internationalisation du portfolio.
-- Filtres de recherche sur les projets.
 - Génération dynamique de CV.
 - Statistiques de consultation.
 
@@ -313,7 +327,8 @@ Afin de conserver un périmètre cohérent avec les objectifs du projet, les fon
 
 ### Contraintes légales
 
-- Le projet ne stockera pas de données personnelles.
+- Le projet ne collectera ni ne conservera les données ou les messages des visiteurs dans la V1.
+- Les seules données personnelles présentées sont les informations professionnelles que le propriétaire choisit de rendre publiques ainsi que les données strictement nécessaires à l'authentification de l'administrateur.
 - La prise de contact s'effectuera via le client de messagerie de l'utilisateur.
 
 ### Contraintes de qualité

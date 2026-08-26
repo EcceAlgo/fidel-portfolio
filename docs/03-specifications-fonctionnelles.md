@@ -4,10 +4,10 @@
 |---------|--------|
 | Projet | Fidel Portfolio |
 | Document | Spécifications fonctionnelles |
-| Version | 1.0 |
+| Version | 1.1 |
 | Auteur | Fidel Nziengui Ateba |
 | Statut | À valider |
-| Dernière mise à jour | 18/08/2026 |
+| Dernière mise à jour | 26/08/2026 |
 
 ---
 
@@ -61,7 +61,7 @@ Il porte notamment sur :
 - l'accès aux liens externes ;
 - la prise de contact ;
 - la gestion du thème clair ou sombre ;
-- les principaux comportements de navigation et d'interface.
+- les principaux comportements de navigation et d'interface ;
 - l'authentification de l'administrateur ;
 - l'accès à l'espace d'administration ;
 - la consultation des projets depuis l'administration ;
@@ -110,24 +110,27 @@ Il doit notamment pouvoir :
 
 - identifier rapidement les domaines de compétences ;
 - consulter les technologies utilisées ;
-- examiner les réalisations présentées ;
-- comprendre les objectifs et le contexte des projets ;
-- comprendre la méthodologie suivie ;
-- identifier les difficultés rencontrées et les solutions apportées ;
-- consulter les résultats obtenus ;
-- accéder aux ressources publiques associées aux projets lorsqu'elles sont disponibles.
+- examiner les projets présentés ;
+- comprendre synthétiquement la nature des projets réalisés ;
+- accéder aux démonstrations publiques lorsqu'elles sont disponibles ;
+- accéder aux dépôts ou aux ressources externes associées aux projets lorsqu'ils sont disponibles.
 
 ### 2.3 Client potentiel
 
-Le **client potentiel** consulte le portfolio afin d'évaluer la capacité du développeur à répondre à un besoin ou à participer à un projet.
+Le client potentiel consulte le portfolio afin d'évaluer les projets réalisés et les compétences mobilisées.
 
-Il doit notamment pouvoir :
+Il peut notamment :
 
-- consulter les réalisations ;
-- identifier les compétences mobilisées ;
-- comprendre la démarche adoptée sur les projets ;
-- consulter les résultats présentés ;
-- contacter facilement le développeur.
+- consulter les projets présentés ;
+- identifier les domaines auxquels les projets sont associés ;
+- consulter les technologies utilisées lorsqu'elles sont renseignées ;
+- consulter les ressources visuelles associées aux projets ;
+- accéder à la description d'un projet ;
+- accéder à une démonstration publique lorsqu'elle est disponible ;
+- accéder au dépôt ou à la documentation externe d'un projet lorsqu'ils sont disponibles ;
+- utiliser les moyens de contact mis à disposition dans le portfolio.
+
+Son objectif principal est de comprendre rapidement la nature des projets réalisés et d'accéder, lorsqu'il le souhaite, aux ressources externes permettant d'en examiner plus précisément la réalisation.
 
 ### 2.4 Administrateur
 
@@ -185,10 +188,13 @@ Les projets sont affichés sous forme de cartes synthétiques.
 Chaque carte présente au minimum :
 
 - le titre du projet ;
-- un résumé ;
-- les principales technologies utilisées ;
 - la ou les catégories associées ;
 - un accès à la présentation détaillée du projet.
+
+Elle peut également présenter, lorsqu'elles sont disponibles ou pertinentes :
+
+- une description synthétique ;
+- les principales technologies associées au projet.
 
 Les projets peuvent notamment être associés aux catégories suivantes :
 
@@ -200,52 +206,36 @@ Les projets peuvent notamment être associés aux catégories suivantes :
 
 Un même projet peut être associé à plusieurs catégories lorsque cela est pertinent.
 
-### 3.3 Consultation détaillée d'un projet
+### 3.3 Consultation détaillée d’un projet
 
-Chaque projet dispose d'une page de présentation dédiée.
+Le visiteur doit pouvoir consulter une vue détaillée d’un projet sélectionné.
 
-Cette page permet au visiteur de comprendre le projet au-delà de sa simple description.
+Cette vue doit permettre de présenter les informations disponibles pour le projet, notamment :
 
-Elle peut notamment présenter :
+- son titre ;
+- sa description lorsqu’elle est renseignée ;
+- ses catégories ;
+- les technologies associées lorsqu’elles sont renseignées ;
+- ses ressources visuelles lorsqu’elles existent ;
+- un lien vers une démonstration publique lorsqu’elle existe ;
+- un lien vers le dépôt ou la documentation externe lorsqu’il existe.
 
-- le contexte du projet ;
-- son objectif ;
-- sa description ;
-- les technologies et outils utilisés ;
-- la méthodologie suivie ;
-- les principales étapes de réalisation ;
-- les difficultés rencontrées ;
-- les solutions apportées ;
-- les résultats obtenus ;
-- des schémas, captures ou autres éléments visuels pertinents.
-
-Lorsque le projet dispose d'une démonstration publique, un accès à celle-ci peut être proposé.
-
-Lorsque le dépôt de code source est public, un lien vers celui-ci peut également être proposé.
-
-Lorsqu'un projet ou son code source ne peut pas être rendu public, l'interface doit l'indiquer clairement, par exemple à l'aide d'une mention **« Dépôt privé »** ou **« Code non public »**, sans exposer d'informations confidentielles.
+Les informations techniques détaillées relatives à la conception, à la réalisation, aux tests ou au déploiement peuvent être consultées au travers des ressources externes associées au projet lorsqu’elles sont disponibles.
 
 ### 3.4 Recherche de projets
 
-La page des projets propose un système de recherche par mots-clés.
+Le visiteur doit pouvoir rechercher un projet à partir de termes saisis dans une barre de recherche.
 
-Le visiteur peut saisir un ou plusieurs termes afin d'identifier les projets correspondant à sa recherche.
+La recherche doit pouvoir porter notamment sur :
 
-La recherche peut s'appuyer sur les informations associées aux projets, notamment :
+- le titre du projet ;
+- sa description ;
+- les catégories associées ;
+- les technologies associées.
 
-- le titre ;
-- la description ;
-- les technologies ;
-- les catégories ;
-- les mots-clés associés au projet.
+Les résultats doivent être mis à jour en fonction des termes recherchés.
 
-La liste affichée est actualisée afin de ne présenter que les projets correspondant à la recherche.
-
-Lorsqu'aucun projet ne correspond aux critères saisis, l'application affiche un message indiquant :
-
-**« Aucun projet correspondant. »**
-
-Le visiteur doit alors pouvoir réinitialiser sa recherche.
+Si aucun projet ne correspond à la recherche, un message explicite doit être affiché.
 
 ### 3.5 Filtrage des projets
 
@@ -333,8 +323,8 @@ Les animations ne doivent pas empêcher ou ralentir l'accès aux informations et
 |----|------------------|---------------------|
 | BF-001 | Accueil | Présenter le profil et orienter le visiteur vers les projets. |
 | BF-002 | Projets | Présenter l'ensemble des réalisations. |
-| BF-003 | Détail d'un projet | Présenter en profondeur une réalisation et la démarche suivie. |
-| BF-004 | Recherche | Rechercher des projets à partir de mots-clés. |
+| BF-003 | Consulter le détail d'un projet | Afficher les informations détaillées d'un projet ainsi que ses technologies, catégories, ressources visuelles et liens disponibles. |
+| BF-004 | Rechercher un projet | Permettre une recherche textuelle sur les projets à partir des informations pertinentes. |
 | BF-005 | Filtrage | Filtrer les projets selon leur catégorie. |
 | BF-006 | Ressources externes | Accéder aux profils, dépôts et démonstrations publics. |
 | BF-007 | Contact | Permettre la prise de contact par courrier électronique. |
@@ -398,56 +388,50 @@ Les parcours doivent rester simples et limiter le nombre d'actions nécessaires 
 
 **Résultat attendu :** le visiteur peut passer rapidement d'une présentation générale des réalisations à l'étude détaillée d'un projet.
 
+### 4.3 Consultation détaillée d’un projet
 
+**Acteur principal :** Visiteur
 
-### 4.3 Consultation détaillée d'un projet
+**Précondition :** Le projet sélectionné existe et est accessible publiquement.
 
-**Objectif :** permettre au visiteur d'évaluer une réalisation et de comprendre la démarche suivie.
-
-**Parcours :**
+**Scénario nominal :**
 
 1. Le visiteur sélectionne un projet depuis la liste des projets.
-2. L'application affiche sa page détaillée.
+2. Le système affiche les informations détaillées disponibles pour ce projet.
 3. Le visiteur peut consulter notamment :
-   - le contexte ;
-   - l'objectif ;
-   - la description du projet ;
-   - les technologies et outils utilisés ;
-   - la méthodologie suivie ;
-   - les principales étapes de réalisation ;
-   - les difficultés rencontrées ;
-   - les solutions apportées ;
-   - les résultats obtenus ;
-   - les éventuels schémas ou captures disponibles.
-4. Si une démonstration publique existe, le visiteur peut sélectionner **« Voir la démo »**.
-5. Si le dépôt est public, le visiteur peut sélectionner **« Voir le dépôt »**.
-6. Si le dépôt ou le code n'est pas public, l'application affiche une indication telle que **« Dépôt privé »** ou **« Code non public »**.
+   - le titre du projet ;
+   - sa description lorsqu'elle est renseignée ;
+   - les catégories auxquelles il appartient ;
+   - les technologies associées lorsqu'elles existent ;
+   - les ressources visuelles associées lorsqu'elles existent.
+4. Lorsqu'un lien vers une démonstration est disponible, le visiteur peut l'utiliser pour accéder à la version publique ou déployée du projet.
+5. Lorsqu'un lien vers un dépôt est disponible, le visiteur peut l'utiliser pour accéder au dépôt ou à la documentation externe associée au projet.
 
-**Résultat attendu :** le visiteur peut comprendre non seulement ce qui a été réalisé, mais également les compétences et la démarche mobilisées pour réaliser le projet.
+**Scénarios alternatifs :**
 
+- Si aucune technologie n'est associée au projet, aucune technologie n'est affichée.
+- Si aucune ressource visuelle n'est associée au projet, le projet reste consultable sans illustration.
+- Si aucun lien de démonstration n'est renseigné, l'action correspondante n'est pas proposée.
+- Si aucun lien vers un dépôt n'est renseigné, l'action correspondante n'est pas proposée.
 
+**Postcondition :** Le visiteur dispose des informations présentes dans le portfolio et peut, lorsque les ressources correspondantes existent, accéder aux ressources externes associées au projet.
 
-### 4.4 Recherche d'un projet
+### 4.4 Recherche d’un projet
 
-**Objectif :** permettre au visiteur d'identifier rapidement les projets correspondant à un sujet, une technologie ou un mot-clé.
+Le visiteur peut rechercher un projet à partir d'un ou plusieurs termes de recherche.
 
-**Parcours :**
+La recherche peut porter notamment sur :
 
-1. Le visiteur accède à la page des projets.
-2. Il saisit un mot-clé dans le champ de recherche.
-3. L'application recherche les correspondances dans les informations associées aux projets.
-4. La liste des projets affichés est adaptée aux résultats obtenus.
-5. Le visiteur peut sélectionner un projet correspondant pour consulter son détail.
+- le titre du projet ;
+- sa description ;
+- les catégories auxquelles il est associé ;
+- les technologies qui lui sont associées.
 
-Si aucune correspondance n'est trouvée :
+Les résultats correspondant aux termes saisis sont affichés à l'utilisateur.
 
-1. L'application affiche **« Aucun projet correspondant. »**
-2. Une action permettant de réinitialiser la recherche est proposée.
-3. Le visiteur peut revenir à la liste complète des projets.
+Si aucun projet ne correspond à la recherche, un état explicite indique qu'aucun résultat n'a été trouvé.
 
-**Résultat attendu :** le visiteur peut retrouver une réalisation pertinente sans devoir parcourir manuellement l'ensemble des projets.
-
-
+Le visiteur peut modifier ou supprimer les termes saisis afin d'effectuer une nouvelle recherche ou de revenir à l'ensemble des projets.
 
 ### 4.5 Filtrage des projets
 
@@ -609,8 +593,8 @@ Si aucune correspondance n'est trouvée :
 |----|----------|-----------------|--------------------|
 | PU-001 | Découverte du profil | Accueil | Compréhension du profil professionnel |
 | PU-002 | Découverte des projets | Accueil | Accès à la liste des réalisations |
-| PU-003 | Consultation d'un projet | Liste des projets | Compréhension détaillée d'une réalisation |
-| PU-004 | Recherche d'un projet | Projets | Identification de projets par mots-clés |
+| PU-003 | Consultation détaillée d'un projet | Liste des projets | Consultation des informations et ressources associées au projet |
+| PU-004 | Recherche d'un projet | Projets | Affichage des projets correspondant aux termes recherchés |
 | PU-005 | Filtrage des projets | Projets | Identification de projets par catégorie |
 | PU-006 | Prise de contact | Interface du portfolio | Ouverture du client de messagerie |
 | PU-007 | Changement de thème | Interface du portfolio | Application et mémorisation du thème choisi |
@@ -646,51 +630,54 @@ afin de comprendre ses domaines de compétences.
 je veux pouvoir sélectionner l'action **« Découvrir mes projets »**,  
 afin d'accéder aux réalisations présentées dans le portfolio.
 
-
-
 ### 5.2 Consultation des projets
 
 #### US-003 — Consulter la liste des projets
 
 **En tant que visiteur**,  
-je veux consulter l'ensemble des projets présentés,  
-afin d'obtenir une vue d'ensemble des réalisations du développeur.
+je veux consulter la liste des projets présentés dans le portfolio,
+afin de découvrir les réalisations disponibles.
 
-#### US-004 — Identifier rapidement un projet
+#### Critères d'acceptation
+
+- les projets disponibles sont présentés sous une forme permettant de les distinguer ;
+- chaque projet affiche au minimum son titre et ses catégories ;
+- la description peut être affichée lorsqu'elle est renseignée ;
+- les technologies associées peuvent être affichées lorsqu'elles existent ;
+- chaque projet permet d'accéder à sa consultation détaillée.
+
+#### US-004 — Consulter le détail d'un projet
 
 **En tant que visiteur**,  
-je veux voir pour chaque projet son titre, son résumé, ses principales technologies et ses catégories,  
-afin d'identifier rapidement les projets susceptibles de m'intéresser.
+je veux consulter les informations détaillées d'un projet,
+afin de mieux comprendre sa nature et d'accéder aux ressources associées.
 
-#### US-005 — Consulter le détail d'un projet
+#### Critères d'acceptation
 
-**En tant que visiteur**,  
-je veux accéder à une page détaillée pour chaque projet,  
-afin de comprendre son contexte, ses objectifs, sa réalisation et les compétences mobilisées.
-
-#### US-006 — Comprendre la démarche suivie
-
-**En tant que recruteur ou responsable technique**,  
-je veux consulter la méthodologie, les difficultés rencontrées, les solutions apportées et les résultats obtenus,  
-afin d'évaluer la démarche de travail du développeur.
-
-
+- le titre du projet est affiché ;
+- la description est affichée lorsqu'elle est renseignée ;
+- les catégories associées sont affichées ;
+- les technologies associées sont affichées lorsqu'elles existent ;
+- les ressources visuelles sont affichées lorsqu'elles existent et respectent l'ordre défini ;
+- les ressources visuelles informatives disposent d'une alternative textuelle ;
+- un accès à la démonstration est proposé lorsqu'un lien de démonstration est renseigné ;
+- un accès au dépôt ou à la documentation externe est proposé lorsqu'un lien correspondant est renseigné.
 
 ### 5.3 Recherche et filtrage
 
-#### US-007 — Rechercher un projet
+#### US-005 — Rechercher un projet
 
 **En tant que visiteur**,  
 je veux rechercher des projets à partir de mots-clés,  
 afin d'identifier rapidement les réalisations correspondant à mon besoin ou à mon domaine d'intérêt.
 
-#### US-008 — Filtrer les projets
+#### US-006 — Filtrer les projets
 
 **En tant que visiteur**,  
 je veux filtrer les projets selon leur catégorie,  
 afin de consulter uniquement les réalisations appartenant à un domaine particulier.
 
-#### US-009 — Réinitialiser la recherche et les filtres
+#### US-007 — Réinitialiser la recherche et les filtres
 
 **En tant que visiteur**,  
 je veux pouvoir réinitialiser mes critères de recherche et de filtrage,  
@@ -700,19 +687,19 @@ afin de retrouver l'ensemble des projets disponibles.
 
 ### 5.4 Ressources associées aux projets
 
-#### US-010 — Accéder à une démonstration
+#### US-008 — Accéder à une démonstration
 
 **En tant que visiteur**,  
 je veux pouvoir accéder à la démonstration publique d'un projet lorsqu'elle existe,  
 afin d'observer concrètement le résultat obtenu.
 
-#### US-011 — Accéder au dépôt public
+#### US-009 — Accéder au dépôt public
 
 **En tant que visiteur**,  
 je veux pouvoir accéder au dépôt public d'un projet lorsqu'il est disponible,  
 afin de consulter les ressources techniques rendues publiques.
 
-#### US-012 — Identifier un projet non public
+#### US-010 — Identifier un projet non public
 
 **En tant que visiteur**,  
 je veux être informé lorsqu'un dépôt ou le code d'un projet n'est pas public,  
@@ -722,13 +709,13 @@ afin de comprendre l'absence de lien vers son code source.
 
 ### 5.5 Liens professionnels et contact
 
-#### US-013 — Accéder aux profils professionnels
+#### US-011 — Accéder aux profils professionnels
 
 **En tant que visiteur**,  
 je veux pouvoir accéder aux profils GitHub et LinkedIn du développeur,  
 afin de consulter ses autres informations et activités professionnelles publiques.
 
-#### US-014 — Contacter le développeur
+#### US-012 — Contacter le développeur
 
 **En tant que visiteur**,  
 je veux pouvoir initier l'envoi d'un courrier électronique au développeur,  
@@ -738,13 +725,13 @@ afin de pouvoir facilement prendre contact avec lui.
 
 ### 5.6 Préférences d'affichage
 
-#### US-015 — Changer de thème
+#### US-013 — Changer de thème
 
 **En tant que visiteur**,  
 je veux pouvoir choisir entre un thème clair et un thème sombre,  
 afin d'adapter l'affichage à ma préférence.
 
-#### US-016 — Conserver le thème sélectionné
+#### US-014 — Conserver le thème sélectionné
 
 **En tant que visiteur**,  
 je veux que mon choix de thème soit conservé entre mes visites,  
@@ -754,7 +741,7 @@ afin de retrouver automatiquement mon mode d'affichage préféré.
 
 ### 5.7 Consultation sur différents appareils
 
-#### US-017 — Consulter le portfolio sur différents écrans
+#### US-015 — Consulter le portfolio sur différents écrans
 
 **En tant que visiteur**,  
 je veux pouvoir consulter et utiliser les fonctionnalités du portfolio sur ordinateur et sur appareil mobile,  
@@ -763,43 +750,41 @@ afin de bénéficier d'une expérience adaptée à mon appareil.
 
 ### 5.8 Administration des projets
 
-#### US-018 — S'authentifier
+#### US-016 — S'authentifier
 
 **En tant qu'administrateur**,  
 je veux m'authentifier,  
 afin d'accéder de manière sécurisée aux fonctionnalités de gestion du portfolio.
 
-#### US-019 — Ajouter un projet
+#### US-017 — Ajouter un projet
 
 **En tant qu'administrateur**,  
 je veux ajouter un nouveau projet,  
 afin de publier une nouvelle réalisation dans le portfolio.
 
-#### US-020 — Modifier un projet
+#### US-018 — Modifier un projet
 
 **En tant qu'administrateur**,  
 je veux modifier un projet existant,  
 afin de maintenir ses informations à jour.
 
-#### US-021 — Supprimer un projet
+#### US-019 — Supprimer un projet
 
 **En tant qu'administrateur**,  
 je veux supprimer un projet,  
 afin de retirer une réalisation qui ne doit plus être présentée.
 
-#### US-022 — Consulter les projets administrables
+#### US-020 — Consulter les projets administrables
 
 **En tant qu'administrateur**,  
 je veux consulter les projets existants depuis l'espace d'administration,  
 afin de pouvoir sélectionner ceux que je souhaite gérer.
 
-#### US-023 — Se déconnecter
+#### US-021 — Se déconnecter
 
 **En tant qu'administrateur**,  
 je veux pouvoir me déconnecter de l'espace d'administration,  
 afin de terminer ma session d'administration.
-
-
 
 ### 5.9 Synthèse des User Stories
 
@@ -808,62 +793,24 @@ afin de terminer ma session d'administration.
 | US-001 | Découvrir le profil | Visiteur | Haute |
 | US-002 | Accéder aux projets depuis l'accueil | Visiteur | Haute |
 | US-003 | Consulter la liste des projets | Visiteur | Haute |
-| US-004 | Identifier rapidement un projet | Visiteur | Haute |
-| US-005 | Consulter le détail d'un projet | Visiteur | Haute |
-| US-006 | Comprendre la démarche suivie | Recruteur / Responsable technique | Haute |
-| US-007 | Rechercher un projet | Visiteur | Haute |
-| US-008 | Filtrer les projets | Visiteur | Haute |
-| US-009 | Réinitialiser la recherche et les filtres | Visiteur | Haute |
-| US-010 | Accéder à une démonstration | Visiteur | Moyenne |
-| US-011 | Accéder au dépôt public | Visiteur | Haute |
-| US-012 | Identifier un projet non public | Visiteur | Haute |
-| US-013 | Accéder aux profils professionnels | Visiteur | Haute |
-| US-014 | Contacter le développeur | Visiteur | Haute |
-| US-015 | Changer de thème | Visiteur | Moyenne |
-| US-016 | Conserver le thème sélectionné | Visiteur | Moyenne |
-| US-017 | Consulter le portfolio sur différents écrans | Visiteur | Haute |
-| US-018 | S'authentifier | Administrateur | Haute |
-| US-019 | Ajouter un projet | Administrateur | Haute |
-| US-020 | Modifier un projet | Administrateur | Haute |
-| US-021 | Supprimer un projet | Administrateur | Haute |
-| US-022 | Consulter les projets administrables | Administrateur | Haute |
-| US-023 | Se déconnecter | Administrateur | Haute |
-
-#### US-018 — S'authentifier
-
-**En tant qu'administrateur**,  
-je veux m'authentifier,  
-afin d'accéder de manière sécurisée aux fonctionnalités de gestion du portfolio.
-
-#### US-019 — Ajouter un projet
-
-**En tant qu'administrateur**,  
-je veux ajouter un nouveau projet,  
-afin de publier une nouvelle réalisation dans le portfolio.
-
-#### US-020 — Modifier un projet
-
-**En tant qu'administrateur**,  
-je veux modifier un projet existant,  
-afin de maintenir ses informations à jour.
-
-#### US-021 — Supprimer un projet
-
-**En tant qu'administrateur**,  
-je veux supprimer un projet,  
-afin de retirer une réalisation qui ne doit plus être présentée.
-
-#### US-022 — Consulter les projets administrables
-
-**En tant qu'administrateur**,  
-je veux consulter les projets existants depuis l'espace d'administration,  
-afin de pouvoir sélectionner ceux que je souhaite gérer.
-
-#### US-023 — Se déconnecter
-
-**En tant qu'administrateur**,  
-je veux pouvoir me déconnecter de l'espace d'administration,  
-afin de terminer ma session d'administration.
+| US-004 | Consulter le détail d'un projet | Visiteur | Haute |
+| US-005 | Rechercher un projet | Visiteur | Haute |
+| US-006 | Filtrer les projets | Visiteur | Haute |
+| US-007 | Réinitialiser la recherche et les filtres | Visiteur | Haute |
+| US-008 | Accéder à une démonstration | Visiteur | Moyenne |
+| US-009 | Accéder au dépôt public | Visiteur | Haute |
+| US-010 | Identifier un projet non public | Visiteur | Haute |
+| US-011 | Accéder aux profils professionnels | Visiteur | Haute |
+| US-012 | Contacter le développeur | Visiteur | Haute |
+| US-013 | Changer de thème | Visiteur | Moyenne |
+| US-014 | Conserver le thème sélectionné | Visiteur | Moyenne |
+| US-015 | Consulter le portfolio sur différents écrans | Visiteur | Haute |
+| US-016 | S'authentifier | Administrateur | Haute |
+| US-017 | Ajouter un projet | Administrateur | Haute |
+| US-018 | Modifier un projet | Administrateur | Haute |
+| US-019 | Supprimer un projet | Administrateur | Haute |
+| US-020 | Consulter les projets administrables | Administrateur | Haute |
+| US-021 | Se déconnecter | Administrateur | Haute |
 
 ---
 
@@ -906,60 +853,43 @@ La page d'accueil ne présente pas directement une sélection de projets.
 
 ### 6.2 Consultation des projets
 
-#### SF-002 — Affichage de la liste des projets
+#### SF-002 — Affichage des projets
 
-| Élément | Description |
-|---------|-------------|
-| Objectif | Permettre la consultation des réalisations. |
-| Acteur | Visiteur |
-| Priorité | Haute |
-| User Stories | US-003, US-004 |
+L'application doit permettre d'afficher les projets disponibles sous une forme synthétique.
 
-La page des projets doit afficher les projets disponibles sous forme de cartes.
+Chaque projet présenté doit permettre au minimum d'identifier :
 
-Chaque carte doit présenter au minimum :
+- son titre ;
+- sa ou ses catégories.
 
-- le titre du projet ;
-- un résumé ;
-- les principales technologies utilisées ;
-- la ou les catégories associées ;
-- une action **« Voir le détail »**.
+Lorsqu'elles sont renseignées, la présentation peut également inclure :
 
-Un projet peut appartenir à plusieurs catégories.
+- une description synthétique ;
+- les technologies associées ;
+- une ressource visuelle représentative.
 
-La sélection de **« Voir le détail »** ouvre la page dédiée au projet sélectionné.
+La sélection d'un projet doit permettre d'accéder à sa consultation détaillée.
 
 ---
 
 #### SF-003 — Consultation détaillée d'un projet
 
-| Élément | Description |
-|---------|-------------|
-| Objectif | Permettre une analyse détaillée d'une réalisation. |
-| Acteur | Visiteur |
-| Priorité | Haute |
-| User Stories | US-005, US-006 |
+L'application doit permettre de consulter les informations détaillées d'un projet sélectionné.
 
-Chaque projet doit disposer d'une page de présentation dédiée.
+La vue détaillée doit permettre de présenter :
 
-Cette page doit pouvoir présenter :
-
-- le nom du projet ;
-- son contexte ;
-- son objectif ;
-- sa description ;
-- les technologies et outils mobilisés ;
-- les catégories associées ;
-- la méthodologie suivie ;
-- les principales étapes de réalisation ;
-- les difficultés rencontrées ;
-- les solutions apportées ;
-- les résultats obtenus ;
-- des schémas ou captures lorsque ceux-ci sont pertinents.
+- le titre du projet ;
+- sa ou ses catégories ;
+- sa description lorsqu'elle est renseignée ;
+- les technologies associées lorsqu'elles existent ;
+- les ressources visuelles associées lorsqu'elles existent ;
+- les alternatives textuelles associées aux ressources visuelles informatives ;
+- un lien vers une démonstration publique lorsqu'il est renseigné ;
+- un lien vers le dépôt ou la documentation externe lorsqu'il est renseigné.
 
 Les informations qui ne sont pas applicables à un projet peuvent être omises.
 
-**Résultat attendu :** le visiteur doit pouvoir comprendre ce qui a été réalisé, dans quel contexte et selon quelle démarche.
+**Résultat attendu :** le visiteur doit pouvoir comprendre la nature du projet, les principales informations qui lui sont associées et accéder, lorsqu'elles existent, aux ressources externes permettant d'en savoir davantage.
 
 ---
 
@@ -967,59 +897,26 @@ Les informations qui ne sont pas applicables à un projet peuvent être omises.
 
 #### SF-004 — Recherche par mots-clés
 
-| Élément | Description |
-|---------|-------------|
-| Objectif | Retrouver rapidement des projets pertinents. |
-| Acteur | Visiteur |
-| Priorité | Haute |
-| User Stories | US-007, US-009 |
+Le système doit permettre au visiteur de rechercher des projets à partir d'un ou plusieurs termes saisis.
 
-La page des projets doit proposer un champ de recherche.
-
-Le visiteur peut saisir un mot-clé afin de rechercher les projets correspondants.
-
-La recherche peut porter sur les informations associées au projet, notamment :
+La recherche doit pouvoir porter sur les informations pertinentes associées aux projets, notamment :
 
 - le titre ;
 - la description ;
-- les technologies ;
 - les catégories ;
-- les mots-clés associés.
+- les technologies.
 
-Les projets ne correspondant pas à la recherche ne doivent plus apparaître dans les résultats affichés.
-
-Si aucun projet ne correspond à la recherche, l'application affiche :
-
-**« Aucun projet correspondant. »**
-
-Une action permettant de réinitialiser la recherche doit être disponible.
+Les résultats doivent être mis à jour en fonction des termes recherchés.
 
 ---
 
 #### SF-005 — Filtrage par catégorie
 
-| Élément | Description |
-|---------|-------------|
-| Objectif | Permettre de cibler les projets selon un domaine. |
-| Acteur | Visiteur |
-| Priorité | Haute |
-| User Stories | US-008, US-009 |
+Le système doit permettre au visiteur de filtrer les projets selon leur catégorie.
 
-Le visiteur doit pouvoir filtrer les projets selon leur catégorie.
+Un projet peut appartenir à plusieurs catégories.
 
-Les catégories initialement prévues sont :
-
-- Développement ;
-- DevOps ;
-- DevSecOps ;
-- Cloud ;
-- Autres.
-
-Lorsqu'une catégorie est sélectionnée, seuls les projets associés à cette catégorie sont affichés.
-
-Une action de réinitialisation permet de revenir à l'affichage de l'ensemble des projets.
-
-La recherche par mots-clés et le filtrage peuvent être utilisés simultanément. Dans ce cas, seuls les projets satisfaisant les critères actifs sont affichés.
+Le filtrage doit prendre en compte les catégories effectivement associées à chaque projet.
 
 ---
 
@@ -1032,7 +929,7 @@ La recherche par mots-clés et le filtrage peuvent être utilisés simultanémen
 | Objectif | Permettre l'accès au résultat public d'un projet. |
 | Acteur | Visiteur |
 | Priorité | Moyenne |
-| User Story | US-010 |
+| User Story | US-008 |
 
 Lorsqu'une démonstration publique est disponible pour un projet, sa page détaillée doit proposer une action **« Voir la démo »**.
 
@@ -1049,7 +946,13 @@ Si aucune démonstration n'existe, l'action ne doit pas être proposée.
 | Objectif | Permettre la consultation du code rendu public. |
 | Acteur | Visiteur |
 | Priorité | Haute |
-| User Stories | US-011, US-012 |
+| User Stories | US-009, US-010 |
+
+Chaque projet doit distinguer l'un des états suivants pour son dépôt ou sa documentation externe :
+
+- **absent**, lorsqu'aucune ressource n'est associée ;
+- **public**, lorsqu'un lien public peut être présenté ;
+- **privé**, lorsqu'une ressource existe mais ne doit pas être exposée.
 
 Lorsqu'un dépôt public est associé à un projet, sa page détaillée doit proposer une action **« Voir le dépôt »**.
 
@@ -1068,7 +971,7 @@ Une indication telle que **« Dépôt privé »** ou **« Code non public »** p
 | Objectif | Permettre l'accès aux profils professionnels externes. |
 | Acteur | Visiteur |
 | Priorité | Haute |
-| User Story | US-013 |
+| User Story | US-011 |
 
 Le portfolio doit proposer un accès aux profils professionnels publics du développeur.
 
@@ -1088,7 +991,7 @@ La sélection d'un lien dirige le visiteur vers le profil externe correspondant.
 | Objectif | Permettre au visiteur d'initier une prise de contact. |
 | Acteur | Visiteur |
 | Priorité | Haute |
-| User Story | US-014 |
+| User Story | US-012 |
 
 Une action **« Me contacter »** doit être accessible depuis le portfolio.
 
@@ -1114,7 +1017,7 @@ Aucun formulaire de contact n'est requis pour la V1.
 | Objectif | Permettre au visiteur de personnaliser l'affichage. |
 | Acteur | Visiteur |
 | Priorité | Moyenne |
-| User Story | US-015 |
+| User Story | US-013 |
 
 L'interface doit proposer :
 
@@ -1134,7 +1037,7 @@ Le changement doit être appliqué à l'ensemble de l'interface concernée.
 | Objectif | Conserver la préférence d'affichage du visiteur. |
 | Acteur | Visiteur |
 | Priorité | Moyenne |
-| User Story | US-016 |
+| User Story | US-014 |
 
 Lorsqu'un visiteur sélectionne un thème, son choix doit être conservé entre ses visites lorsque son environnement le permet.
 
@@ -1153,7 +1056,7 @@ Le mécanisme technique utilisé pour assurer cette persistance sera défini dan
 | Objectif | Garantir l'accès aux fonctionnalités principales sur différentes tailles d'écran. |
 | Acteur | Visiteur |
 | Priorité | Haute |
-| User Story | US-017 |
+| User Story | US-015 |
 
 Le portfolio doit pouvoir être consulté sur ordinateur et sur appareil mobile.
 
@@ -1204,7 +1107,7 @@ Les contraintes de performance et d'accessibilité associées aux animations ser
 | Objectif | Contrôler l'accès aux fonctionnalités d'administration. |
 | Acteur | Administrateur |
 | Priorité | Haute |
-| User Story | US-018 |
+| User Story | US-016 |
 
 L'administrateur doit pouvoir fournir les informations nécessaires à son authentification.
 
@@ -1223,7 +1126,7 @@ Les fonctionnalités d'administration ne doivent pas être accessibles à un uti
 | Objectif | Permettre à l'administrateur de gérer les projets. |
 | Acteur | Administrateur |
 | Priorité | Haute |
-| User Stories | US-018, US-022 |
+| User Stories | US-016, US-020 |
 
 Après authentification, l'administrateur doit pouvoir accéder à un espace dédié à la gestion des projets.
 
@@ -1244,9 +1147,11 @@ Cet espace doit permettre au minimum :
 | Objectif | Permettre la création d'un nouveau projet. |
 | Acteur | Administrateur |
 | Priorité | Haute |
-| User Story | US-019 |
+| User Story | US-017 |
 
 L'administrateur doit pouvoir créer un projet en renseignant les informations nécessaires à sa présentation.
+
+Lorsqu'une ressource visuelle informative est ajoutée, une alternative textuelle doit pouvoir être renseignée. Le statut du dépôt doit également pouvoir être défini comme absent, public ou privé.
 
 Les informations obligatoires définies par les règles métier doivent être renseignées avant l'enregistrement.
 
@@ -1263,11 +1168,13 @@ Si les données sont invalides ou incomplètes, l'enregistrement doit être refu
 | Objectif | Permettre la mise à jour d'un projet existant. |
 | Acteur | Administrateur |
 | Priorité | Haute |
-| User Story | US-020 |
+| User Story | US-018 |
 
 L'administrateur doit pouvoir sélectionner un projet existant et accéder à ses informations actuelles.
 
 Il doit pouvoir modifier les informations autorisées puis demander leur enregistrement.
+
+Les informations modifiables comprennent le statut du dépôt et les alternatives textuelles des ressources visuelles.
 
 Les nouvelles données doivent respecter les mêmes règles de validation que lors de la création.
 
@@ -1282,7 +1189,7 @@ Après validation, les modifications sont enregistrées de manière persistante.
 | Objectif | Permettre le retrait d'un projet. |
 | Acteur | Administrateur |
 | Priorité | Haute |
-| User Story | US-021 |
+| User Story | US-019 |
 
 L'administrateur doit pouvoir demander la suppression d'un projet existant.
 
@@ -1299,7 +1206,7 @@ Après confirmation, le projet est supprimé et ne doit plus être présenté da
 | Objectif | Permettre à l'administrateur de consulter les projets à gérer. |
 | Acteur | Administrateur |
 | Priorité | Haute |
-| User Story | US-022 |
+| User Story | US-020 |
 
 L'espace d'administration doit afficher les projets existants.
 
@@ -1316,7 +1223,7 @@ L'administrateur doit pouvoir accéder aux actions de modification et de suppres
 | Objectif | Permettre à l'administrateur de terminer sa session. |
 | Acteur | Administrateur |
 | Priorité | Haute |
-| User Story | US-023 |
+| User Story | US-021 |
 
 L'administrateur authentifié doit disposer d'une action permettant de se déconnecter.
 
@@ -1332,18 +1239,18 @@ Chaque règle est identifiée par un identifiant unique `RM-xxx` afin de facilit
 
 #### RM-001 — Présentation minimale d'un projet
 
-Tout projet publié dans le portfolio doit disposer des informations minimales nécessaires à sa compréhension.
+Tout projet enregistré dans le portfolio doit disposer des informations minimales nécessaires à son identification et à son classement.
 
-Un projet doit au minimum comporter :
+Un projet doit au minimum :
 
-- un titre ;
-- un résumé ;
-- une description ;
-- un objectif ;
-- au moins une catégorie ;
-- les principales technologies ou outils mobilisés.
+- comporter un titre ;
+- être associé à au moins une catégorie.
 
-Les informations complémentaires telles que les difficultés rencontrées, les solutions apportées, les résultats obtenus, les schémas ou les captures peuvent être ajoutées lorsqu'elles sont pertinentes.
+La description d'un projet est facultative mais recommandée afin de permettre au visiteur de comprendre rapidement sa nature.
+
+Les technologies, les ressources visuelles, le lien vers une démonstration et le lien vers un dépôt sont facultatifs et peuvent être renseignés lorsqu'ils sont pertinents et disponibles.
+
+La V1 ne gère pas d'état brouillon distinct : tout projet enregistré avec succès est immédiatement disponible dans la partie publique du portfolio.
 
 ---
 
@@ -1383,7 +1290,9 @@ L'absence de démonstration ne doit pas empêcher la consultation de la page dé
 
 #### RM-005 — Disponibilité du dépôt
 
-L'action **« Voir le dépôt »** ne doit être proposée que lorsqu'un dépôt public est associé au projet.
+Le statut du dépôt ou de la documentation externe doit être **absent**, **public** ou **privé**.
+
+L'action **« Voir le dépôt »** ne doit être proposée que lorsque le statut est **public** et qu'un lien public est associé au projet.
 
 Aucun lien permettant d'accéder à un dépôt privé ne doit être exposé publiquement.
 
@@ -1400,17 +1309,13 @@ Cette indication ne doit révéler aucune information confidentielle relative au
 
 ---
 
-### 7.3 Recherche et filtrage
+### 7.3 Règles de catégorisation et de recherche
 
-#### RM-007 — Recherche par mots-clés
+#### RM-007 — Association des technologies
 
-La recherche doit permettre d'identifier les projets à partir des informations utilisées pour leur indexation fonctionnelle, notamment :
+Un projet peut être associé à aucune, une ou plusieurs technologies.
 
-- le titre ;
-- la description ;
-- les technologies ;
-- les catégories ;
-- les mots-clés associés.
+Une même technologie peut être associée à plusieurs projets afin de permettre sa réutilisation et son exploitation dans les mécanismes de recherche et de filtrage.
 
 ---
 
@@ -1518,6 +1423,10 @@ Un projet ne peut pas être enregistré comme projet valide si les informations 
 Les données d'un projet doivent être validées avant leur enregistrement.
 
 Une donnée ne respectant pas les règles définies pour le projet doit empêcher la validation de l'opération concernée.
+
+Lorsque le statut du dépôt est **public**, un lien public doit être renseigné. Lorsque le statut est **absent** ou **privé**, aucun lien privé ne doit être conservé comme lien publiquement exposable.
+
+Toute ressource visuelle informative doit posséder une alternative textuelle décrivant son contenu ou sa fonction. Une alternative vide n'est admise que pour une ressource purement décorative.
 
 ---
 
@@ -1778,11 +1687,12 @@ Cette matrice établit la correspondance entre les besoins utilisateurs identifi
 | Besoin | Exigence | User Story | Spécification fonctionnelle | Règle métier | Test |
 |--------|----------|------------|------------------------------|---------------|------|
 | BU-001 | EF-001, EF-002, EF-003 | US-001 | SF-001 | RM-014, RM-015 | À définir |
-| BU-002 | EF-004, EF-005, EF-006, EF-007, EF-010 | US-002, US-003, US-004, US-005 | SF-001, SF-002, SF-003, SF-007 | RM-001, RM-002, RM-003, RM-005, RM-015 | À définir |
-| BU-003 | EF-003, EF-006 | US-001, US-004, US-005 | SF-001, SF-002, SF-003 | RM-001 | À définir |
-| BU-004 | EF-010 | US-005, US-006 | SF-003 | RM-001 | À définir |
-| BU-005 | EF-009 | US-014 | SF-009 | RM-011 | À définir |
-| BU-006 | EF-001, EF-004, EF-011, EF-012 | US-001, US-002, US-003, US-007, US-008, US-009 | SF-001, SF-002, SF-004, SF-005 | RM-007, RM-008, RM-009, RM-010, RM-015 | À définir |
+| BU-002 | EF-004, EF-005, EF-006, EF-007, EF-010, EF-021 | US-002, US-003, US-004, US-008, US-009, US-010 | SF-001, SF-002, SF-003, SF-006, SF-007 | RM-001 à RM-006, RM-015 | À définir |
+| BU-003 | EF-003, EF-006 | US-001, US-003, US-004 | SF-001, SF-002, SF-003 | RM-001, RM-002, RM-007 | À définir |
+| BU-004 | EF-010 | US-004 | SF-003 | RM-001, RM-003 | À définir |
+| BU-005 | EF-009 | US-012 | SF-009 | RM-011 | À définir |
+| BU-006 | EF-001, EF-004, EF-011, EF-012, EF-013 | US-001, US-002, US-003, US-005, US-006, US-007, US-013, US-014, US-015 | SF-001, SF-002, SF-004, SF-005, SF-010, SF-011, SF-012 | RM-008, RM-009, RM-010, RM-012, RM-013, RM-015, RM-016 | À définir |
+| BU-007 | EF-014 à EF-020 | US-016 à US-021 | SF-014 à SF-020 | RM-017 à RM-023 | À définir |
 
 ### 9.2 Traçabilité des User Stories
 
@@ -1791,38 +1701,49 @@ Cette matrice établit la correspondance entre les besoins utilisateurs identifi
 | US-001 | SF-001 | RM-014 | — |
 | US-002 | SF-001 | RM-015 | — |
 | US-003 | SF-002 | RM-001, RM-002, RM-003 | — |
-| US-004 | SF-002 | RM-001, RM-002 | — |
-| US-005 | SF-003 | RM-001, RM-003 | CP-003, CP-009 |
-| US-006 | SF-003 | RM-001 | CP-009 |
-| US-007 | SF-004 | RM-007, RM-008, RM-009, RM-010 | CP-001, CP-002 |
-| US-008 | SF-005 | RM-002, RM-008, RM-009, RM-010 | CP-001 |
-| US-009 | SF-004, SF-005 | RM-009, RM-010 | CP-001, CP-002 |
-| US-010 | SF-006 | RM-004 | CP-004, CP-006 |
-| US-011 | SF-007 | RM-005 | CP-006 |
-| US-012 | SF-007 | RM-005, RM-006 | CP-005 |
-| US-013 | SF-008 | — | CP-006 |
-| US-014 | SF-009 | RM-011 | CP-008 |
-| US-015 | SF-010 | RM-012 | — |
-| US-016 | SF-011 | RM-013 | CP-007 |
-| US-017 | SF-012 | RM-016 | — |
+| US-004 | SF-003 | RM-001, RM-002, RM-003 | CP-003, CP-009 |
+| US-005 | SF-004 | RM-007, RM-008, RM-009, RM-010 | CP-001, CP-002 |
+| US-006 | SF-005 | RM-002, RM-008, RM-009, RM-010 | CP-001 |
+| US-007 | SF-004, SF-005 | RM-009, RM-010 | CP-001, CP-002 |
+| US-008 | SF-006 | RM-004 | CP-004, CP-006 |
+| US-009 | SF-007 | RM-005 | CP-006 |
+| US-010 | SF-007 | RM-005, RM-006 | CP-005 |
+| US-011 | SF-008 | — | CP-006 |
+| US-012 | SF-009 | RM-011 | CP-008 |
+| US-013 | SF-010 | RM-012 | — |
+| US-014 | SF-011 | RM-013 | CP-007 |
+| US-015 | SF-012 | RM-016 | — |
+| US-016 | SF-014, SF-015 | RM-017 | CP-011, CP-012 |
+| US-017 | SF-016 | RM-018, RM-019, RM-020 | CP-013, CP-014 |
+| US-018 | SF-017 | RM-018, RM-019, RM-020, RM-021 | CP-013, CP-014, CP-015 |
+| US-019 | SF-018 | RM-022 | CP-016 |
+| US-020 | SF-015, SF-019 | RM-017 | CP-012 |
+| US-021 | SF-020 | RM-023 | — |
 
 ### 9.3 Traçabilité des fonctionnalités
 
 | Spécification | Fonctionnalité | User Story(s) |
 |---------------|----------------|---------------|
 | SF-001 | Présentation du profil et accès aux projets | US-001, US-002 |
-| SF-002 | Liste des projets | US-003, US-004 |
-| SF-003 | Présentation détaillée d'un projet | US-005, US-006 |
-| SF-004 | Recherche par mots-clés | US-007, US-009 |
-| SF-005 | Filtrage par catégorie | US-008, US-009 |
-| SF-006 | Accès à une démonstration | US-010 |
-| SF-007 | Accès au dépôt d'un projet | US-011, US-012 |
-| SF-008 | Accès aux profils professionnels | US-013 |
-| SF-009 | Prise de contact | US-014 |
-| SF-010 | Changement de thème | US-015 |
-| SF-011 | Mémorisation du thème | US-016 |
-| SF-012 | Consultation sur différents écrans | US-017 |
+| SF-002 | Liste des projets | US-003 |
+| SF-003 | Présentation détaillée d'un projet | US-004 |
+| SF-004 | Recherche textuelle de projets | US-005, US-007 |
+| SF-005 | Filtrage par catégorie | US-006, US-007 |
+| SF-006 | Accès à une démonstration | US-008 |
+| SF-007 | Accès au dépôt d'un projet | US-009, US-010 |
+| SF-008 | Accès aux profils professionnels | US-011 |
+| SF-009 | Prise de contact | US-012 |
+| SF-010 | Changement de thème | US-013 |
+| SF-011 | Mémorisation du thème | US-014 |
+| SF-012 | Consultation sur différents écrans | US-015 |
 | SF-013 | Animations et transitions | — |
+| SF-014 | Authentification de l'administrateur | US-016 |
+| SF-015 | Accès à l'espace d'administration | US-016, US-020 |
+| SF-016 | Ajout d'un projet | US-017 |
+| SF-017 | Modification d'un projet | US-018 |
+| SF-018 | Suppression d'un projet | US-019 |
+| SF-019 | Consultation des projets administrables | US-020 |
+| SF-020 | Déconnexion de l'administrateur | US-021 |
 
 ### 9.4 Évolution de la traçabilité
 
