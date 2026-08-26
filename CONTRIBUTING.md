@@ -1,5 +1,18 @@
 # Guide de contribution
 
+## Statut des documents
+
+Les documents du projet utilisent les statuts suivants :
+
+| Statut | Signification |
+|---|---|
+| `Brouillon` | Le document existe mais son contenu est encore incomplet ou exploratoire. |
+| `En cours de rédaction` | Le document est activement rédigé ou modifié et n'est pas encore stabilisé. |
+| `À valider` | La rédaction prévue est terminée, mais le contenu doit encore être relu ou validé. |
+| `Validé` | Le document a été relu et son contenu constitue la référence actuelle du projet. |
+
+Un document `Validé` peut être modifié ultérieurement si le projet évolue. Toute modification significative peut temporairement replacer le document dans l'état `En cours de rédaction` ou `À valider`.
+
 ## Workflow Git
 
 main

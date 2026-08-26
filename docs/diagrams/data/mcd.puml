@@ -1,0 +1,56 @@
+@startuml mcd
+
+title Modèle conceptuel de données — Fidel Portfolio
+
+hide methods
+hide stereotypes
+skinparam linetype ortho
+skinparam shadowing false
+
+entity "Profil" as Profil {
+  * id_profil
+  nom_affiche
+  positionnement_professionnel
+  email_contact
+  lien_github
+  lien_linkedin
+}
+
+entity "Projet" as Projet {
+  * id_projet
+  titre
+  description
+  lien_demonstration
+  lien_depot
+}
+
+entity "Catégorie" as Categorie {
+  * id_categorie
+  nom
+}
+
+entity "Technologie" as Technologie {
+  * id_technologie
+  nom
+}
+
+entity "Ressource_visuelle" as RessourceVisuelle {
+  * id_ressource
+  reference_ressource
+  ordre_affichage
+}
+
+rectangle "Classer" as Classer
+rectangle "Utiliser" as Utiliser
+rectangle "Illustrer" as Illustrer
+
+Categorie "0,n" -- Classer
+Classer -- "1,n" Projet
+
+Projet "0,n" -- Utiliser
+Utiliser -- "0,n" Technologie
+
+Projet "0,n" -- Illustrer
+Illustrer -- "1,1" RessourceVisuelle
+
+@enduml

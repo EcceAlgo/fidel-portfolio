@@ -6,7 +6,7 @@
 | Document | Spécifications techniques |
 | Version | 1.0 |
 | Auteur | Fidel Nziengui Ateba |
-| Statut | Validé |
+| Statut | À valider |
 | Dernière mise à jour | 18/08/2026 |
 
 ---
@@ -550,7 +550,7 @@ Les données associées à un projet peuvent notamment comprendre :
 
 Les données obligatoires et facultatives devront être cohérentes avec les règles définies dans les spécifications fonctionnelles.
 
----
+
 
 ### 5.2 Données liées aux catégories et technologies
 
@@ -568,7 +568,7 @@ Les catégories prévues pour la V1 comprennent notamment :
 
 L'organisation détaillée de ces données et de leurs relations avec les projets sera déterminée lors de la modélisation des données.
 
----
+
 
 ### 5.3 Données d'administration
 
@@ -584,7 +584,7 @@ En particulier :
 
 Le mécanisme précis d'authentification et de gestion des informations associées sera défini lors de la conception de l'architecture et de la stratégie de sécurisation.
 
----
+
 
 ### 5.4 Persistance
 
@@ -601,7 +601,7 @@ Le cycle de déploiement de l'application ne doit pas provoquer la perte des don
 
 Le mécanisme permettant d'assurer cette persistance sera déterminé en fonction de l'architecture et de la technologie de stockage retenues.
 
----
+
 
 ### 5.5 Validation des données
 
@@ -619,7 +619,7 @@ Une donnée invalide ne doit pas être enregistrée comme une donnée valide.
 
 La validation ne doit pas reposer uniquement sur les contrôles réalisés dans l'interface utilisateur lorsqu'une opération peut être exécutée autrement.
 
----
+
 
 ### 5.6 Intégrité et cohérence des données
 
@@ -634,7 +634,7 @@ Elle doit notamment éviter :
 
 Les contraintes d'intégrité précises seront définies lors de la modélisation des données.
 
----
+
 
 ### 5.7 Suppression des données
 
@@ -646,7 +646,7 @@ Le comportement précis des données associées lors d'une suppression sera déf
 
 La stratégie de suppression retenue, notamment suppression définitive ou conservation logique, sera déterminée lors de la conception en fonction des besoins du projet.
 
----
+
 
 ### 5.8 Ressources visuelles
 
@@ -658,7 +658,7 @@ Le mécanisme de stockage des fichiers ne doit pas être confondu avec le stocka
 
 Le mode de stockage, d'accès et de gestion de ces ressources sera défini en fonction de l'architecture et de la solution d'hébergement retenues.
 
----
+
 
 ### 5.9 Sauvegarde et récupération
 
@@ -668,7 +668,7 @@ La solution retenue devra permettre de prévoir un mécanisme adapté de sauvega
 
 Les modalités précises de sauvegarde, leur fréquence et leur éventuelle automatisation seront définies en fonction du mécanisme de persistance et de l'environnement d'hébergement retenus.
 
----
+
 
 ### 5.10 Évolution du modèle de données
 
@@ -703,7 +703,7 @@ Les informations d'authentification ne doivent pas être stockées en clair.
 
 Le mécanisme technique retenu sera défini lors de la conception de l'architecture et de la stratégie de sécurisation.
 
----
+
 
 ### 6.2 Autorisation et contrôle d'accès
 
@@ -717,7 +717,7 @@ Le contrôle d'accès ne doit pas reposer uniquement sur le masquage des fonctio
 
 Les contrôles nécessaires doivent être appliqués au niveau où les opérations protégées sont réellement exécutées.
 
----
+
 
 ### 6.3 Gestion des secrets
 
@@ -736,7 +736,7 @@ Les secrets ne doivent pas être versionnés dans le dépôt Git.
 
 Le mécanisme de gestion des secrets devra être adapté aux environnements de développement, d'intégration et de production.
 
----
+
 
 ### 6.4 Protection des données d'authentification
 
@@ -748,7 +748,7 @@ Le mécanisme retenu devra utiliser des pratiques adaptées au stockage sécuris
 
 Les échanges contenant des informations sensibles doivent être protégés contre leur interception lors des communications réseau.
 
----
+
 
 ### 6.5 Validation des entrées
 
@@ -764,7 +764,7 @@ La solution doit notamment :
 
 La validation réalisée dans l'interface utilisateur ne doit pas constituer l'unique contrôle lorsque les données peuvent être reçues ou traitées par d'autres mécanismes.
 
----
+
 
 ### 6.6 Protection contre les injections
 
@@ -774,7 +774,7 @@ La solution retenue devra permettre de réduire les risques d'injection liés au
 
 Les mesures précises dépendront du mécanisme de persistance, des bibliothèques et de l'architecture finalement retenus.
 
----
+
 
 ### 6.7 Protection des contenus affichés
 
@@ -784,7 +784,7 @@ Les contenus saisis depuis l'administration ne doivent pas permettre l'exécutio
 
 Les mécanismes précis de protection seront adaptés à la technologie utilisée pour l'interface.
 
----
+
 
 ### 6.8 Communications réseau
 
@@ -796,7 +796,7 @@ Les échanges entre composants de l'application devront également être protég
 
 La configuration précise des communications dépendra de l'architecture retenue.
 
----
+
 
 ### 6.9 Dépendances
 
@@ -811,7 +811,7 @@ Le projet devra permettre :
 
 Les contrôles de dépendances pourront être intégrés au pipeline d'intégration continue.
 
----
+
 
 ### 6.10 Journalisation des événements de sécurité
 
@@ -828,7 +828,7 @@ Les journaux ne doivent pas contenir inutilement de secrets, mots de passe ou au
 
 Le niveau de journalisation et la conservation des événements seront définis en fonction de l'architecture et de l'environnement d'exécution retenus.
 
----
+
 
 ### 6.11 Principe du moindre privilège
 
@@ -844,7 +844,7 @@ Ce principe devra notamment être pris en compte pour :
 - les environnements de déploiement ;
 - les services externes éventuellement utilisés.
 
----
+
 
 ### 6.12 Sécurité du dépôt et du processus de développement
 
@@ -885,7 +885,7 @@ Les ressources devront être optimisées afin de limiter leur poids et le volume
 
 Les ressources qui ne sont pas immédiatement nécessaires à l'affichage initial pourront être chargées de manière différée lorsque cela est pertinent.
 
----
+
 
 ### 7.2 Performance des interactions
 
@@ -902,7 +902,7 @@ Cela concerne notamment :
 
 Lorsqu'une opération nécessite un traitement perceptible, l'interface doit pouvoir informer l'utilisateur qu'un traitement est en cours.
 
----
+
 
 ### 7.3 Performance de la recherche et du filtrage
 
@@ -917,7 +917,7 @@ La conception devra éviter :
 
 Les mécanismes d'optimisation précis dépendront de l'architecture et du mode de stockage retenus.
 
----
+
 
 ### 7.4 Optimisation des médias
 
@@ -931,7 +931,7 @@ Les images et autres ressources visuelles devront notamment être optimisées af
 
 Lorsque cela est pertinent, différentes dimensions ou formats pourront être utilisés selon le contexte d'affichage.
 
----
+
 
 ### 7.5 Animations
 
@@ -948,7 +948,7 @@ Une animation ne doit pas :
 
 Les préférences utilisateur relatives à la réduction des animations devront être prises en compte lorsque l'environnement permet de les détecter.
 
----
+
 
 ### 7.6 Compatibilité avec les navigateurs
 
@@ -960,7 +960,7 @@ Les fonctionnalités essentielles ne doivent pas dépendre d'une fonctionnalité
 
 La liste précise des navigateurs et versions faisant partie du périmètre de test sera définie dans la documentation de test.
 
----
+
 
 ### 7.7 Compatibilité avec les différents écrans
 
@@ -983,7 +983,7 @@ L'adaptation de l'interface doit préserver :
 
 Les seuils d'adaptation de l'interface seront déterminés lors de la conception de l'interface et pourront évoluer en fonction des besoins réels du contenu.
 
----
+
 
 ### 7.8 Critères de mesure
 
@@ -1026,7 +1026,7 @@ Les journaux peuvent notamment concerner :
 
 Les événements enregistrés doivent fournir suffisamment d'informations pour permettre leur analyse sans exposer inutilement de données sensibles.
 
----
+
 
 ### 8.2 Niveaux de journalisation
 
@@ -1043,7 +1043,7 @@ Le niveau de détail des journaux doit pouvoir être adapté selon l'environneme
 
 La production ne doit pas exposer inutilement les informations techniques détaillées destinées au développement ou au diagnostic interne.
 
----
+
 
 ### 8.3 Protection des journaux
 
@@ -1061,7 +1061,7 @@ Lorsque certaines informations doivent être journalisées pour permettre le dia
 
 L'accès aux journaux de production doit être réservé aux personnes ou systèmes autorisés.
 
----
+
 
 ### 8.4 Traçabilité des opérations d'administration
 
@@ -1079,7 +1079,7 @@ La journalisation doit permettre d'identifier la nature de l'événement et le m
 
 Les informations enregistrées devront rester proportionnées aux besoins du projet et respecter les règles de protection des données.
 
----
+
 
 ### 8.5 Gestion des erreurs
 
@@ -1097,7 +1097,7 @@ Les informations techniques nécessaires au diagnostic pourront être enregistr�
 
 L'utilisateur doit recevoir un message compréhensible lui permettant, lorsque cela est possible, de poursuivre son utilisation de l'application.
 
----
+
 
 ### 8.6 Métriques
 
@@ -1114,7 +1114,7 @@ Selon les besoins d'exploitation, les métriques pourront notamment concerner :
 
 Les métriques effectivement collectées dépendront de l'architecture et de l'environnement d'hébergement retenus.
 
----
+
 
 ### 8.7 Supervision
 
@@ -1131,7 +1131,7 @@ La mise en place d'une plateforme complète de supervision n'est pas une exigenc
 
 L'architecture devra toutefois éviter de rendre difficile son intégration ultérieure.
 
----
+
 
 ### 8.8 Alertes
 
@@ -1146,7 +1146,7 @@ Une alerte pourra notamment être déclenchée en cas :
 
 Les seuils, canaux de notification et mécanismes techniques d'alerte seront définis en fonction de l'environnement de déploiement retenu.
 
----
+
 
 ### 8.9 Observabilité et évolutivité
 
@@ -1190,7 +1190,7 @@ Le choix et la répartition des différents types de tests devront être proport
 
 Les fonctionnalités critiques, notamment l'authentification et la gestion des projets, devront faire l'objet d'une attention particulière.
 
----
+
 
 ### 9.2 Tests unitaires
 
@@ -1206,7 +1206,7 @@ Ces tests devront notamment permettre de vérifier :
 
 Les tests unitaires doivent pouvoir être exécutés automatiquement et de manière reproductible.
 
----
+
 
 ### 9.3 Tests d'intégration
 
@@ -1222,7 +1222,7 @@ Selon l'architecture retenue, ils pourront notamment vérifier :
 
 Les tests d'intégration doivent permettre d'identifier les anomalies qui ne peuvent pas être détectées par les seuls tests unitaires.
 
----
+
 
 ### 9.4 Tests fonctionnels
 
@@ -1244,7 +1244,7 @@ Ces tests devront notamment couvrir les fonctionnalités principales de la V1 :
 
 Les cas nominaux ainsi que les principaux cas particuliers définis dans les spécifications fonctionnelles devront être pris en compte.
 
----
+
 
 ### 9.5 Tests de bout en bout
 
@@ -1262,7 +1262,7 @@ Ils pourront notamment couvrir :
 
 Le nombre de tests de bout en bout devra rester proportionné aux besoins du projet afin de limiter leur coût de maintenance et leur temps d'exécution.
 
----
+
 
 ### 9.6 Tests de sécurité
 
@@ -1281,7 +1281,7 @@ Des outils automatisés d'analyse de sécurité pourront compléter ces tests.
 
 La stratégie détaillée des contrôles de sécurité sera définie dans la documentation dédiée à la sécurité.
 
----
+
 
 ### 9.7 Analyse statique et qualité du code
 
@@ -1298,7 +1298,7 @@ Ces contrôles pourront notamment permettre de détecter :
 
 Les règles appliquées doivent être cohérentes et reproductibles entre les environnements de développement et d'intégration continue.
 
----
+
 
 ### 9.8 Couverture des tests
 
@@ -1312,7 +1312,7 @@ Un seuil minimal pourra être défini lorsque la stratégie de test et les techn
 
 Ce seuil devra être utilisé comme un indicateur complémentaire et non comme une garantie de qualité du logiciel.
 
----
+
 
 ### 9.9 Automatisation des contrôles
 
@@ -1333,7 +1333,7 @@ L'échec d'un contrôle considéré comme obligatoire doit pouvoir empêcher la 
 
 Les règles précises de blocage seront définies lors de la conception du pipeline CI/CD.
 
----
+
 
 ### 9.10 Reproductibilité des tests
 
@@ -1348,7 +1348,7 @@ Le projet doit éviter autant que possible que les résultats dépendent :
 
 Les données et environnements nécessaires aux tests devront être préparés de manière contrôlée lorsque cela est nécessaire.
 
----
+
 
 ### 9.11 Traçabilité des tests
 
@@ -1360,7 +1360,7 @@ La documentation de test devra conserver, lorsque cela est pertinent, la relatio
 
 Les identifiants déjà définis dans les documents fonctionnels devront être réutilisés afin d'éviter la création de références incompatibles entre les différents documents.
 
----
+
 
 ### 9.12 Critères de validation
 
@@ -1404,7 +1404,7 @@ Selon la nature des modifications et les technologies retenues, ce processus pou
 
 L'intégration continue doit permettre de détecter les anomalies avant l'intégration des modifications dans les branches protégées du projet.
 
----
+
 
 ### 10.2 Déclenchement des contrôles
 
@@ -1419,7 +1419,7 @@ Ils pourront notamment être exécutés :
 
 Les événements précis déclenchant chaque étape seront définis lors de la conception du pipeline.
 
----
+
 
 ### 10.3 Validation avant intégration
 
@@ -1438,7 +1438,7 @@ Les contrôles bloquants pourront notamment concerner :
 
 Les règles précises seront adaptées au niveau de maturité du projet et pourront évoluer progressivement.
 
----
+
 
 ### 10.4 Construction de l'application
 
@@ -1450,7 +1450,7 @@ Les dépendances nécessaires à la construction doivent être explicitement dé
 
 Les artefacts produits devront pouvoir être identifiés et rattachés à la version du code source dont ils proviennent.
 
----
+
 
 ### 10.5 Artefacts
 
@@ -1468,7 +1468,7 @@ Le format des artefacts dépendra des technologies finalement retenues.
 
 Dans la mesure du possible, un artefact validé doit pouvoir être promu entre les environnements sans être reconstruit différemment pour chaque environnement.
 
----
+
 
 ### 10.6 Environnements
 
@@ -1484,7 +1484,7 @@ Les différences de configuration entre les environnements ne doivent pas néces
 
 Les secrets et paramètres propres à chaque environnement doivent être gérés séparément du code source.
 
----
+
 
 ### 10.7 Déploiement
 
@@ -1501,7 +1501,7 @@ Les opérations pouvant être automatisées devront l'être lorsque leur automat
 
 Le niveau d'automatisation retenu pour la V1 dépendra de l'environnement d'hébergement et des contraintes du projet.
 
----
+
 
 ### 10.8 Validation après déploiement
 
@@ -1519,7 +1519,7 @@ Ces vérifications pourront notamment porter sur :
 
 Certaines de ces vérifications pourront être automatisées.
 
----
+
 
 ### 10.9 Gestion des échecs de déploiement
 
@@ -1534,7 +1534,7 @@ Selon l'architecture et l'environnement retenus, cela pourra notamment nécessit
 - la correction puis la réexécution du déploiement ;
 - le retour vers une version antérieure.
 
----
+
 
 ### 10.10 Retour à une version antérieure
 
@@ -1551,7 +1551,7 @@ La procédure de retour arrière devra être documentée avant la mise en produc
 
 Lorsque des modifications de données sont impliquées, leur compatibilité avec un retour à une version précédente devra être prise en compte.
 
----
+
 
 ### 10.11 Gestion des secrets dans la chaîne CI/CD
 
@@ -1566,7 +1566,7 @@ La chaîne CI/CD doit utiliser un mécanisme permettant de fournir les secrets u
 
 Les droits accordés aux identités techniques utilisées par le pipeline doivent respecter le principe du moindre privilège.
 
----
+
 
 ### 10.12 Traçabilité des déploiements
 
@@ -1581,7 +1581,7 @@ Il doit être possible de déterminer, dans la mesure permise par l'environnemen
 
 Cette traçabilité doit faciliter le diagnostic des incidents et le retour vers une version antérieure lorsque cela est nécessaire.
 
----
+
 
 ### 10.13 Évolution de la chaîne CI/CD
 
@@ -1620,7 +1620,7 @@ Cela peut notamment concerner :
 
 Le code source doit pouvoir être utilisé dans différents environnements en adaptant sa configuration sans nécessiter de modification de sa logique applicative.
 
----
+
 
 ### 11.2 Environnement de développement
 
@@ -1636,7 +1636,7 @@ Il doit permettre au développeur :
 
 Les données et secrets de production ne doivent pas être nécessaires au fonctionnement normal de l'environnement de développement.
 
----
+
 
 ### 11.3 Environnement de validation
 
@@ -1652,7 +1652,7 @@ Cet environnement pourra notamment permettre :
 
 La nécessité de disposer d'un environnement de validation permanent ou temporaire sera déterminée en fonction des contraintes d'hébergement et du niveau d'automatisation retenu.
 
----
+
 
 ### 11.4 Environnement de production
 
@@ -1672,7 +1672,7 @@ Une attention particulière doit être portée :
 
 Les fonctionnalités ou informations exclusivement destinées au développement ne doivent pas être exposées publiquement en production.
 
----
+
 
 ### 11.5 Variables de configuration
 
@@ -1689,7 +1689,7 @@ Les valeurs de configuration doivent être clairement distinguées du code sourc
 
 Les paramètres obligatoires au fonctionnement de l'application doivent être documentés.
 
----
+
 
 ### 11.6 Gestion des secrets
 
@@ -1707,7 +1707,7 @@ Chaque environnement doit pouvoir disposer de ses propres secrets.
 
 Le mécanisme de stockage et de distribution des secrets sera défini en fonction de l'environnement d'hébergement et de la chaîne CI/CD retenus.
 
----
+
 
 ### 11.7 Fichiers de configuration locaux
 
@@ -1721,7 +1721,7 @@ Ce fichier d'exemple devra permettre d'identifier :
 - leur rôle ;
 - les éventuelles valeurs non sensibles utilisables par défaut.
 
----
+
 
 ### 11.8 Validation de la configuration
 
@@ -1731,7 +1731,7 @@ Lorsqu'une configuration indispensable au démarrage n'est pas disponible, l'app
 
 Les erreurs de configuration doivent permettre un diagnostic technique tout en évitant l'exposition publique de secrets ou d'informations sensibles.
 
----
+
 
 ### 11.9 Cohérence entre les environnements
 
@@ -1741,7 +1741,7 @@ Les différences nécessaires entre les environnements doivent principalement re
 
 Lorsque cela est possible, les mêmes mécanismes de construction et de déploiement doivent être réutilisés entre les différents environnements.
 
----
+
 
 ### 11.10 Reproductibilité des environnements
 
@@ -1758,7 +1758,7 @@ Lorsque la complexité de l'infrastructure le justifie, l'automatisation de sa c
 
 Les technologies permettant cette automatisation seront choisies après définition de l'architecture et de l'infrastructure cibles.
 
----
+
 
 ### 11.11 Configuration de l'infrastructure
 
@@ -1774,7 +1774,7 @@ Selon l'infrastructure finalement retenue, une approche d'Infrastructure as Code
 
 Le recours à l'Infrastructure as Code dépendra de la complexité et des besoins réels de l'infrastructure du projet.
 
----
+
 
 ### 11.12 Documentation de la configuration
 
@@ -1820,7 +1820,7 @@ Ces échanges pourront notamment concerner :
 
 La nature de ces échanges dépendra de la séparation retenue entre les différents composants de l'application.
 
----
+
 
 ### 12.2 Interface entre la présentation et la logique applicative
 
@@ -1838,7 +1838,7 @@ Ces contrats doivent notamment préciser :
 
 Cette séparation doit permettre de faire évoluer le mécanisme de persistance sans imposer inutilement sa structure interne à l'interface utilisateur.
 
----
+
 
 ### 12.3 Consultation des projets
 
@@ -1853,7 +1853,7 @@ Il doit notamment permettre :
 
 Les données retournées doivent être limitées aux informations utiles au contexte de consultation.
 
----
+
 
 ### 12.4 Recherche et filtrage
 
@@ -1874,7 +1874,7 @@ Le choix devra notamment prendre en compte :
 - la complexité de la recherche ;
 - les possibilités d'évolution du projet.
 
----
+
 
 ### 12.5 Opérations d'administration
 
@@ -1895,7 +1895,7 @@ Avant toute modification persistante, le système doit notamment vérifier :
 - la validité des données reçues ;
 - l'existence des ressources concernées lorsque cela est nécessaire.
 
----
+
 
 ### 12.6 Format des données échangées
 
@@ -1907,7 +1907,7 @@ Lorsque des données sont facultatives, absentes ou invalides, leur comportement
 
 Le format technique utilisé pour représenter les échanges sera déterminé lors de la conception de l'architecture.
 
----
+
 
 ### 12.7 Validation des données reçues
 
@@ -1926,7 +1926,7 @@ Une donnée refusée ne doit pas être persistée comme si l'opération avait r�
 
 La validation réalisée dans l'interface utilisateur ne doit pas remplacer la validation réalisée au niveau chargé d'exécuter l'opération.
 
----
+
 
 ### 12.8 Gestion des réponses et des erreurs
 
@@ -1945,7 +1945,7 @@ Les informations retournées à l'utilisateur ne doivent pas exposer de détails
 
 Les informations nécessaires au diagnostic peuvent être enregistrées dans les mécanismes de journalisation prévus à cet effet.
 
----
+
 
 ### 12.9 Authentification des échanges protégés
 
@@ -1959,7 +1959,7 @@ Les informations permettant de maintenir ou de prouver cette authentification do
 
 Le mécanisme précis d'authentification sera déterminé lors de la conception de la sécurité et de l'architecture.
 
----
+
 
 ### 12.10 Autorisation
 
@@ -1969,7 +1969,7 @@ Le composant responsable d'une opération protégée doit vérifier que l'utilis
 
 Les contrôles d'autorisation doivent être réalisés du côté où l'opération protégée est effectivement traitée et ne doivent pas reposer uniquement sur l'interface utilisateur.
 
----
+
 
 ### 12.11 Sécurisation des échanges
 
@@ -1979,7 +1979,7 @@ En production, les communications exposées sur un réseau non considéré comme
 
 Les interfaces exposées ne doivent fournir que les opérations nécessaires au fonctionnement de l'application.
 
----
+
 
 ### 12.12 Évolution des contrats d'échange
 
@@ -1991,7 +1991,7 @@ Si une interface doit ultérieurement être consommée indépendamment par plusi
 
 Le besoin de versionner explicitement une API sera évalué en fonction de l'architecture retenue et de son exposition.
 
----
+
 
 ### 12.13 Documentation des interfaces
 
@@ -2008,7 +2008,7 @@ La documentation pourra notamment préciser :
 
 Le format et les outils de documentation seront déterminés en fonction du type d'interface retenu.
 
----
+
 
 ### 12.14 Choix du mécanisme de communication
 
@@ -2041,7 +2041,6 @@ L'objectif est d'éviter que les choix techniques reposent uniquement sur les ha
 
 Les solutions retenues devront répondre aux besoins fonctionnels et non fonctionnels du projet tout en restant cohérentes avec son périmètre, ses contraintes et ses perspectives d'évolution.
 
----
 
 ### 13.1 Principes de sélection
 
@@ -2059,7 +2058,6 @@ Une technologie ne devra pas être retenue uniquement parce qu'elle :
 
 Les décisions importantes devront pouvoir être justifiées à partir de critères explicites.
 
----
 
 ### 13.2 Contraintes liées au périmètre du projet
 
@@ -2079,7 +2077,6 @@ La V1 comprend notamment :
 
 L'architecture et les technologies retenues ne doivent pas introduire une complexité disproportionnée par rapport à ces besoins.
 
----
 
 ### 13.3 Maintenabilité
 
@@ -2097,7 +2094,6 @@ L'évaluation de la maintenabilité devra notamment prendre en compte :
 
 Une solution techniquement performante mais difficile à maintenir ne devra pas être privilégiée sans justification suffisante.
 
----
 
 ### 13.4 Sécurité
 
@@ -2118,7 +2114,6 @@ Une technologie présentant des vulnérabilités connues non corrigées ou n'ét
 
 Les mesures détaillées seront définies dans la documentation de sécurité.
 
----
 
 ### 13.5 Performance
 
@@ -2135,7 +2130,6 @@ L'évaluation pourra notamment prendre en compte :
 
 L'optimisation ne doit toutefois pas entraîner une complexité disproportionnée lorsqu'aucun besoin mesurable ne la justifie.
 
----
 
 ### 13.6 Évolutivité
 
@@ -2154,7 +2148,6 @@ L'évolutivité ne signifie pas que l'architecture doit anticiper toutes les év
 
 Les mécanismes complexes destinés à répondre à des besoins hypothétiques ne devront pas être introduits sans justification.
 
----
 
 ### 13.7 Testabilité
 
@@ -2171,7 +2164,6 @@ La solution devra permettre la mise en place, selon les besoins, de différents 
 
 Les outils précis seront sélectionnés en fonction des technologies finalement retenues.
 
----
 
 ### 13.8 Automatisation et CI/CD
 
@@ -2189,7 +2181,6 @@ Il doit notamment être possible d'automatiser tout ou partie des opérations su
 
 Les technologies retenues doivent pouvoir être intégrées dans une chaîne CI/CD adaptée au projet.
 
----
 
 ### 13.9 Déploiement et portabilité
 
@@ -2206,7 +2197,6 @@ L'évaluation devra notamment considérer :
 
 Une dépendance forte à une plateforme ou à un fournisseur devra être identifiée lorsqu'elle peut avoir un impact significatif sur l'évolution du projet.
 
----
 
 ### 13.10 Coût
 
@@ -2226,7 +2216,6 @@ Pour la V1, les solutions gratuites ou à faible coût pourront être privilégi
 
 Le coût ne doit toutefois pas être le seul critère de décision.
 
----
 
 ### 13.11 Maturité et pérennité
 
@@ -2244,7 +2233,6 @@ L'évaluation pourra notamment prendre en compte :
 
 L'utilisation d'une technologie récente ou expérimentale devra être justifiée lorsque son niveau de maturité augmente significativement le risque du projet.
 
----
 
 ### 13.12 Compétences et apprentissage
 
@@ -2260,7 +2248,6 @@ Pour chaque solution envisagée, il pourra être nécessaire d'évaluer :
 
 Dans le cadre du portfolio, l'utilisation d'une technologie nouvelle peut être pertinente lorsqu'elle permet de développer une compétence recherchée tout en restant cohérente avec les besoins réels du projet.
 
----
 
 ### 13.13 Complexité opérationnelle
 
@@ -2281,7 +2268,6 @@ Une architecture distribuée ne doit pas être retenue uniquement pour démontre
 
 Elle doit apporter un bénéfice identifiable au regard des besoins ou des objectifs du projet.
 
----
 
 ### 13.14 Dépendance technologique
 
@@ -2299,7 +2285,6 @@ Une dépendance n'est pas nécessairement problématique.
 
 Elle doit cependant être identifiée lorsque son remplacement pourrait entraîner un coût important ou une modification significative de l'application.
 
----
 
 ### 13.15 Critères de comparaison des solutions
 
@@ -2323,7 +2308,6 @@ Les principales solutions envisagées pourront être comparées à l'aide d'une 
 | Complexité | La complexité introduite est-elle proportionnée aux bénéfices ? |
 | Portabilité | Quel serait l'effort nécessaire pour changer de solution ? |
 
----
 
 ### 13.16 Méthode de décision
 
@@ -2344,7 +2328,6 @@ Tous les critères ne doivent pas nécessairement avoir la même importance.
 
 Leur pondération dépendra du problème étudié.
 
----
 
 ### 13.17 Traçabilité des choix technologiques
 
@@ -2366,7 +2349,6 @@ Un ADR devra notamment permettre de retrouver :
 - les raisons du choix ;
 - les principales conséquences de la décision.
 
----
 
 ### 13.18 Choix restant à effectuer
 
@@ -2401,7 +2383,6 @@ Cette section analyse les principales architectures applicatives envisageables p
 
 Le choix de l'architecture ne doit pas être déterminé uniquement par les technologies envisagées. Il doit découler des besoins fonctionnels, des exigences non fonctionnelles, du niveau de complexité du projet et de ses perspectives d'évolution.
 
----
 
 ### 14.1 Besoins ayant un impact sur l'architecture
 
@@ -2423,7 +2404,6 @@ L'application doit notamment permettre :
 
 L'architecture doit également rester suffisamment simple pour être développée, testée, déployée et maintenue dans le cadre d'un projet individuel.
 
----
 
 ### 14.2 Architectures envisagées
 
@@ -2438,7 +2418,6 @@ Les principales solutions étudiées sont :
 
 Ces architectures ne constituent pas les seules architectures existantes, mais représentent les alternatives les plus pertinentes à étudier au regard du périmètre actuel du projet.
 
----
 
 ### 14.3 Application monolithique
 
@@ -2464,7 +2443,6 @@ La présentation, la logique métier, l'accès aux données et les fonctionnalit
 
 Cette architecture peut répondre au périmètre de la V1 à condition de maintenir une séparation claire des responsabilités dans le code.
 
----
 
 ### 14.4 Monolithe modulaire
 
@@ -2495,7 +2473,6 @@ Les frontières exactes des modules seront déterminées lors de la conception d
 
 Cette approche constitue une évolution structurée du modèle monolithique sans introduire immédiatement la complexité d'un système distribué.
 
----
 
 ### 14.5 Architecture client-serveur avec séparation de l'interface et de la logique applicative
 
@@ -2526,7 +2503,6 @@ Les deux parties communiquent à travers une interface définie entre elles.
 
 Cette solution peut être pertinente si les bénéfices liés à la séparation de l'interface et de la logique applicative justifient cette complexité supplémentaire.
 
----
 
 ### 14.6 Architecture en microservices
 
@@ -2560,7 +2536,6 @@ Pour la V1, aucun besoin identifié ne nécessite actuellement le déploiement i
 
 L'utilisation de microservices introduirait donc une complexité importante qui devrait être justifiée par d'autres objectifs mesurables avant d'être retenue.
 
----
 
 ### 14.7 Comparaison des architectures
 
@@ -2585,7 +2560,6 @@ Cette comparaison ne signifie pas qu'une architecture est intrinsèquement meill
 
 Elle évalue leur adéquation avec les besoins actuellement identifiés pour **Fidel Portfolio**.
 
----
 
 ### 14.8 Architecture retenue
 
@@ -2609,7 +2583,6 @@ Aucun besoin actuel ne justifie notamment :
 
 La complexité supplémentaire introduite par les microservices serait donc disproportionnée par rapport au périmètre actuel.
 
----
 
 ### 14.9 Justification du choix
 
@@ -2628,7 +2601,6 @@ L'architecture retenue répond notamment aux besoins suivants :
 
 Le choix cherche ainsi un compromis entre **séparation des responsabilités, maintenabilité, sécurité, évolutivité et simplicité opérationnelle**.
 
----
 
 ### 14.10 Conséquences du choix
 
@@ -2644,7 +2616,6 @@ L'adoption de cette architecture implique notamment :
 
 Elle implique également que les technologies utilisées pour chaque partie devront être sélectionnées séparément selon leurs propres contraintes.
 
----
 
 ### 14.11 Évolution éventuelle de l'architecture
 
@@ -2671,7 +2642,6 @@ L'objectif est de garantir une séparation claire des rôles afin de favoriser l
 
 La décomposition présentée dans cette section reste indépendante des technologies qui seront utilisées pour implémenter chaque composant.
 
----
 
 ### 15.1 Composants principaux
 
@@ -2689,7 +2659,6 @@ L'architecture retenue repose sur plusieurs responsabilités principales :
 
 Ces responsabilités pourront être regroupées dans un nombre limité de composants déployables tout en conservant une séparation logique claire.
 
----
 
 ### 15.2 Interface publique
 
@@ -2710,7 +2679,6 @@ Elle doit notamment permettre :
 
 L'interface publique ne doit pas permettre directement l'exécution d'opérations réservées à l'administration.
 
----
 
 ### 15.3 Interface d'administration
 
@@ -2730,7 +2698,6 @@ L'interface d'administration ne doit pas constituer à elle seule le mécanisme 
 
 Les contrôles d'authentification, d'autorisation et de validation doivent également être appliqués par les composants responsables de l'exécution de ces opérations.
 
----
 
 ### 15.4 Logique applicative
 
@@ -2747,7 +2714,6 @@ Elle doit notamment permettre :
 
 La logique applicative ne doit pas dépendre inutilement des détails de présentation de l'interface utilisateur.
 
----
 
 ### 15.5 Module de gestion des projets
 
@@ -2766,7 +2732,6 @@ Le composant ou module concerné doit notamment gérer :
 
 Les règles métier associées aux projets doivent être appliquées indépendamment de l'interface depuis laquelle l'opération est déclenchée.
 
----
 
 ### 15.6 Authentification
 
@@ -2782,7 +2747,6 @@ Il doit notamment permettre :
 
 Les modalités précises de gestion de l'authentification dépendront du mécanisme retenu lors de la conception de la sécurité.
 
----
 
 ### 15.7 Autorisation
 
@@ -2797,7 +2761,6 @@ Les contrôles d'autorisation doivent être réalisés au niveau du composant re
 
 L'absence d'un bouton ou d'un écran dans l'interface ne doit jamais être considérée comme un mécanisme suffisant d'autorisation.
 
----
 
 ### 15.8 Validation des données
 
@@ -2814,7 +2777,6 @@ La validation doit notamment prendre en compte :
 
 Les données invalides doivent être rejetées avant toute modification persistante.
 
----
 
 ### 15.9 Accès aux données
 
@@ -2833,7 +2795,6 @@ Il doit notamment prendre en charge :
 
 Cette séparation doit faciliter une éventuelle évolution du mécanisme de stockage.
 
----
 
 ### 15.10 Gestion des catégories et technologies
 
@@ -2848,7 +2809,6 @@ Le système doit permettre :
 
 Les responsabilités exactes liées à leur création, modification ou suppression seront précisées lors de la conception fonctionnelle et du modèle de données si leur gestion dynamique est intégrée à la V1.
 
----
 
 ### 15.11 Gestion des ressources visuelles
 
@@ -2863,7 +2823,6 @@ Le composant concerné devra permettre :
 
 Le mécanisme concret de stockage des fichiers sera déterminé en fonction de l'architecture et de l'hébergement retenus.
 
----
 
 ### 15.12 Gestion des erreurs
 
@@ -2882,7 +2841,6 @@ Les informations destinées à l'utilisateur doivent rester compréhensibles et 
 
 Les informations nécessaires au diagnostic doivent pouvoir être journalisées.
 
----
 
 ### 15.13 Journalisation
 
@@ -2898,7 +2856,6 @@ La journalisation doit notamment permettre de suivre :
 
 La journalisation ne doit pas inclure inutilement de secrets ou d'informations sensibles.
 
----
 
 ### 15.14 Dépendances entre composants
 
@@ -2915,7 +2872,6 @@ La structure retenue devra favoriser :
 
 La structure exacte des dépendances sera définie dans la conception détaillée de l'architecture.
 
----
 
 ### 15.15 Vue logique simplifiée
 
@@ -2944,7 +2900,6 @@ Des composants transverses peuvent intervenir à plusieurs niveaux, notamment :
 
 Cette représentation est une vue logique et ne définit pas à elle seule le nombre de processus, de services ou d'unités de déploiement.
 
----
 
 ### 15.16 Évolution de la décomposition
 
@@ -2971,7 +2926,6 @@ L'objectif est de définir une structure permettant de séparer clairement les r
 
 Le choix de cette organisation reste indépendant du langage et du framework qui seront utilisés.
 
----
 
 ### 16.1 Responsabilités à organiser
 
@@ -2989,7 +2943,6 @@ La partie serveur devra notamment prendre en charge :
 
 Ces responsabilités doivent être séparées suffisamment pour éviter qu'un même composant concentre la présentation technique, la logique métier et l'accès aux données.
 
----
 
 ### 16.2 Architecture en couches
 
@@ -3020,7 +2973,6 @@ Une organisation possible serait :
 - possibilité de créer des couches très dépendantes du framework ou du mécanisme de persistance ;
 - risque de logique métier dispersée si les responsabilités sont mal définies.
 
----
 
 ### 16.3 Architecture hexagonale
 
@@ -3059,7 +3011,6 @@ L'application métier ne dépend donc pas directement de la technologie utilisé
 - apprentissage plus important ;
 - risque de complexité excessive pour une application de petite taille si elle est appliquée de manière trop stricte.
 
----
 
 ### 16.4 Clean Architecture
 
@@ -3087,7 +3038,6 @@ Une organisation conceptuelle peut distinguer :
 - nombreuses abstractions possibles ;
 - risque de surarchitecture pour une application dont le domaine métier reste limité.
 
----
 
 ### 16.5 Comparaison
 
@@ -3103,7 +3053,6 @@ Une organisation conceptuelle peut distinguer :
 | Risque de surarchitecture | Faible | Moyen | Moyen à élevé |
 | Évolutivité | Bonne | Très bonne | Très bonne |
 
----
 
 ### 16.6 Organisation retenue
 
@@ -3128,7 +3077,6 @@ Les abstractions devront être introduites lorsqu'elles permettent réellement :
 - de protéger la logique métier des détails techniques ;
 - de faciliter une évolution raisonnablement prévisible.
 
----
 
 ### 16.7 Organisation logique proposée
 
@@ -3151,7 +3099,6 @@ Les composants techniques externes viennent implémenter les abstractions néces
 
 La direction exacte des dépendances sera précisée dans la documentation d'architecture.
 
----
 
 ### 16.8 Couche d'interface
 
@@ -3167,7 +3114,6 @@ Elle doit notamment :
 
 Elle ne doit pas contenir la logique métier principale.
 
----
 
 ### 16.9 Couche applicative
 
@@ -3185,7 +3131,6 @@ Elle pourra notamment gérer les opérations suivantes :
 
 Cette couche coordonne les différents éléments nécessaires à l'exécution d'un cas d'utilisation sans dépendre inutilement des détails de l'interface utilisateur.
 
----
 
 ### 16.10 Domaine
 
@@ -3206,7 +3151,6 @@ Le domaine doit rester aussi indépendant que possible des détails liés :
 - au framework ;
 - à l'hébergement.
 
----
 
 ### 16.11 Infrastructure
 
@@ -3223,7 +3167,6 @@ Elle pourra notamment comprendre :
 
 Les composants d'infrastructure doivent être remplaçables dans une mesure raisonnable sans nécessiter une réécriture importante de la logique métier.
 
----
 
 ### 16.12 Règle de dépendance
 
@@ -3239,7 +3182,6 @@ et non :
 
 Par exemple, les règles définissant la validité d'un projet ne doivent pas dépendre directement du système de gestion de données finalement choisi.
 
----
 
 ### 16.13 Conséquences du choix
 

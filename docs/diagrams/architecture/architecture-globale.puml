@@ -1,0 +1,15 @@
+@startuml architecture-globale
+
+title Vue logique générale de l'architecture
+
+actor Utilisateur
+
+rectangle "Navigateur / Application cliente" as Client
+rectangle "Application serveur" as Serveur
+rectangle "Mécanisme de persistance" as Persistence
+
+Utilisateur <--> Client : interactions
+Client <--> Serveur : requêtes / réponses
+Serveur <--> Persistence : lecture / écriture
+
+@enduml
